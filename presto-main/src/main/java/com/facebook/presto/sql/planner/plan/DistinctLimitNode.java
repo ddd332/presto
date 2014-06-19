@@ -13,40 +13,35 @@
  */
 package com.facebook.presto.sql.planner.plan;
 
-import com.facebook.presto.operator.SortOrder;
 import com.facebook.presto.sql.planner.Symbol;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
+
+import javax.annotation.concurrent.Immutable;
 
 import java.util.List;
-import java.util.Map;
 
-public class SortNode
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
+
+@Immutable
+public class DistinctLimitNode
         extends PlanNode
 {
     private final PlanNode source;
-    private final List<Symbol> orderBy;
-    private final Map<Symbol, SortOrder> orderings;
+    private final long limit;
 
     @JsonCreator
-    public SortNode(@JsonProperty("id") PlanNodeId id,
+    public DistinctLimitNode(
+            @JsonProperty("id") PlanNodeId id,
             @JsonProperty("source") PlanNode source,
-            @JsonProperty("orderBy") List<Symbol> orderBy,
-            @JsonProperty("orderings") Map<Symbol, SortOrder> orderings)
+            @JsonProperty("limit") long limit)
     {
         super(id);
-
-        Preconditions.checkNotNull(source, "source is null");
-        Preconditions.checkNotNull(orderBy, "orderBy is null");
-        Preconditions.checkArgument(!orderBy.isEmpty(), "orderBy is empty");
-        Preconditions.checkArgument(orderings.size() == orderBy.size(), "orderBy and orderings sizes don't match");
-
-        this.source = source;
-        this.orderBy = ImmutableList.copyOf(orderBy);
-        this.orderings = ImmutableMap.copyOf(orderings);
+        this.source = checkNotNull(source, "source is null");
+        checkArgument(limit >= 0, "limit must be greater than or equal to zero");
+        this.limit = limit;
     }
 
     @Override
@@ -61,27 +56,21 @@ public class SortNode
         return source;
     }
 
+    @JsonProperty("limit")
+    public long getLimit()
+    {
+        return limit;
+    }
+
     @Override
     public List<Symbol> getOutputSymbols()
     {
         return source.getOutputSymbols();
     }
 
-    @JsonProperty("orderBy")
-    public List<Symbol> getOrderBy()
-    {
-        return orderBy;
-    }
-
-    @JsonProperty("orderings")
-    public Map<Symbol, SortOrder> getOrderings()
-    {
-        return orderings;
-    }
-
     @Override
     public <C, R> R accept(PlanVisitor<C, R> visitor, C context)
     {
-        return visitor.visitSort(this, context);
+        return visitor.visitDistinctLimit(this, context);
     }
 }

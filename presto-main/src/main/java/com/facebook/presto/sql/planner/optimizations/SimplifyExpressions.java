@@ -17,6 +17,7 @@ import com.facebook.presto.metadata.Metadata;
 import com.facebook.presto.sql.analyzer.Session;
 import com.facebook.presto.sql.analyzer.Type;
 import com.facebook.presto.sql.planner.ExpressionInterpreter;
+import com.facebook.presto.sql.planner.LiteralInterpreter;
 import com.facebook.presto.sql.planner.NoOpSymbolResolver;
 import com.facebook.presto.sql.planner.PlanNodeIdAllocator;
 import com.facebook.presto.sql.planner.Symbol;
@@ -71,14 +72,31 @@ public class SimplifyExpressions
             this.session = session;
         }
 
+        /**
+         * Tao Yang
+         * 2014/3/26
+         * call this recursively through planRewriter.rewrite() and return a new copy of source
+         * apply simplifyExpression on node.getOutputMap(Map<Symbol, Expression>) for each projectNode in plan
+         */
         @Override
         public PlanNode rewriteProject(ProjectNode node, Void context, PlanRewriter<Void> planRewriter)
         {
             PlanNode source = planRewriter.rewrite(node.getSource(), context);
+            /**
+             * Tao Yang
+             * 2014/3/25
+             * Maps.transformValues:
+             * public static <K, V1, V2> Map<K, V2> transformValues(Map<K,V1> fromMap, Function<? super V1, V2> function)
+             * Returns a view of a map where each value is transformed by a function.
+             * So the following code is simplify the node's output
+             * 2014/3/26
+             * transform a <K, V1> map into a <K, V2> map using Function, which contains an "apply" function who takes V1 as parameter and returns V2
+             */
             Map<Symbol, Expression> assignments = ImmutableMap.copyOf(Maps.transformValues(node.getOutputMap(), simplifyExpressionFunction()));
             return new ProjectNode(node.getId(), source, assignments);
         }
 
+        // call rewriteFilter only if the query plan has a filterNode. Simplify it's predicate
         @Override
         public PlanNode rewriteFilter(FilterNode node, Void context, PlanRewriter<Void> planRewriter)
         {
@@ -93,7 +111,11 @@ public class SimplifyExpressions
         @Override
         public PlanNode rewriteTableScan(TableScanNode node, Void context, PlanRewriter<Void> planRewriter)
         {
-            return new TableScanNode(node.getId(), node.getTable(), node.getOutputSymbols(), node.getAssignments(), simplifyExpression(node.getPartitionPredicate()), simplifyExpression(node.getUpstreamPredicateHint()));
+            Expression originalConstraint = null;
+            if (node.getOriginalConstraint() != null) {
+                originalConstraint = simplifyExpression(node.getOriginalConstraint());
+            }
+            return new TableScanNode(node.getId(), node.getTable(), node.getOutputSymbols(), node.getAssignments(), originalConstraint, node.getGeneratedPartitions());
         }
 
         private Function<Expression, Expression> simplifyExpressionFunction()
@@ -108,10 +130,18 @@ public class SimplifyExpressions
             };
         }
 
+        /**
+         * Tao Yang
+         * 2014/3/25
+         * this is the key point of this SimplyfyExpressions optimizer
+         * use ExpressionInterpreter.optimize() to optimize the input expressions
+         */
         private Expression simplifyExpression(Expression input)
         {
+            // expressionOptimizer: static method for returning an instance of ExpressionInterpreter
             ExpressionInterpreter interpreter = ExpressionInterpreter.expressionOptimizer(input, metadata, session);
-            return ExpressionInterpreter.toExpression(interpreter.optimize(NoOpSymbolResolver.INSTANCE));
+            // parameter is a static final instance of NoOpSymbolResolver
+            return LiteralInterpreter.toExpression(interpreter.optimize(NoOpSymbolResolver.INSTANCE));
         }
     }
 }

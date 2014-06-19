@@ -15,13 +15,13 @@ package com.facebook.presto.sql.analyzer;
 
 import com.facebook.presto.metadata.Metadata;
 import com.facebook.presto.metadata.MetadataUtil;
-import com.facebook.presto.metadata.NativeTableHandle;
 import com.facebook.presto.metadata.QualifiedTableName;
 import com.facebook.presto.spi.ColumnMetadata;
 import com.facebook.presto.spi.TableHandle;
+import com.facebook.presto.sql.tree.Approximate;
 import com.facebook.presto.sql.tree.BooleanLiteral;
 import com.facebook.presto.sql.tree.Cast;
-import com.facebook.presto.sql.tree.CreateMaterializedView;
+import com.facebook.presto.sql.tree.CreateTable;
 import com.facebook.presto.sql.tree.DefaultTraversalVisitor;
 import com.facebook.presto.sql.tree.Explain;
 import com.facebook.presto.sql.tree.ExplainFormat;
@@ -34,7 +34,6 @@ import com.facebook.presto.sql.tree.LongLiteral;
 import com.facebook.presto.sql.tree.QualifiedName;
 import com.facebook.presto.sql.tree.Query;
 import com.facebook.presto.sql.tree.QuerySpecification;
-import com.facebook.presto.sql.tree.RefreshMaterializedView;
 import com.facebook.presto.sql.tree.SelectItem;
 import com.facebook.presto.sql.tree.ShowCatalogs;
 import com.facebook.presto.sql.tree.ShowColumns;
@@ -45,12 +44,15 @@ import com.facebook.presto.sql.tree.ShowTables;
 import com.facebook.presto.sql.tree.SingleColumn;
 import com.facebook.presto.sql.tree.SortItem;
 import com.facebook.presto.sql.tree.StringLiteral;
+import com.facebook.presto.sql.tree.UseCollection;
 import com.facebook.presto.sql.tree.With;
 import com.facebook.presto.sql.tree.WithQuery;
 import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableList;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static com.facebook.presto.connector.informationSchema.InformationSchemaMetadata.TABLE_COLUMNS;
 import static com.facebook.presto.connector.informationSchema.InformationSchemaMetadata.TABLE_INTERNAL_FUNCTIONS;
@@ -59,8 +61,9 @@ import static com.facebook.presto.connector.informationSchema.InformationSchemaM
 import static com.facebook.presto.connector.informationSchema.InformationSchemaMetadata.TABLE_TABLES;
 import static com.facebook.presto.connector.system.CatalogSystemTable.CATALOG_TABLE_NAME;
 import static com.facebook.presto.sql.analyzer.Analyzer.ExpressionAnalysis;
+import static com.facebook.presto.sql.analyzer.SemanticErrorCode.COLUMN_NAME_NOT_SPECIFIED;
+import static com.facebook.presto.sql.analyzer.SemanticErrorCode.DUPLICATE_COLUMN_NAME;
 import static com.facebook.presto.sql.analyzer.SemanticErrorCode.DUPLICATE_RELATION;
-import static com.facebook.presto.sql.analyzer.SemanticErrorCode.INVALID_MATERIALIZED_VIEW_REFRESH_INTERVAL;
 import static com.facebook.presto.sql.analyzer.SemanticErrorCode.INVALID_ORDINAL;
 import static com.facebook.presto.sql.analyzer.SemanticErrorCode.INVALID_SCHEMA_NAME;
 import static com.facebook.presto.sql.analyzer.SemanticErrorCode.MISSING_TABLE;
@@ -90,12 +93,14 @@ class StatementAnalyzer
     private final Metadata metadata;
     private final Session session;
     private final Optional<QueryExplainer> queryExplainer;
+    private final boolean experimentalSyntaxEnabled;
 
-    public StatementAnalyzer(Analysis analysis, Metadata metadata, Session session, Optional<QueryExplainer> queryExplainer)
+    public StatementAnalyzer(Analysis analysis, Metadata metadata, Session session, boolean experimentalSyntaxEnabled, Optional<QueryExplainer> queryExplainer)
     {
         this.analysis = checkNotNull(analysis, "analysis is null");
         this.metadata = checkNotNull(metadata, "metadata is null");
         this.session = checkNotNull(session, "session is null");
+        this.experimentalSyntaxEnabled = experimentalSyntaxEnabled;
         this.queryExplainer = checkNotNull(queryExplainer, "queryExplainer is null");
     }
 
@@ -139,7 +144,8 @@ class StatementAnalyzer
                         Optional.<String>absent()
                 ),
                 ImmutableList.<SortItem>of(),
-                Optional.<String>absent());
+                Optional.<String>absent(),
+                Optional.<Approximate>absent());
 
         return process(query, context);
     }
@@ -151,7 +157,7 @@ class StatementAnalyzer
                 Optional.<With>absent(),
                 new QuerySpecification(
                         selectList(aliasedName("schema_name", "Schema")),
-                        table(QualifiedName.of(session.getCatalog(), TABLE_SCHEMATA.getSchemaName(), TABLE_SCHEMATA.getTableName())),
+                        table(QualifiedName.of(node.getCatalog().or(session.getCatalog()), TABLE_SCHEMATA.getSchemaName(), TABLE_SCHEMATA.getTableName())),
                         Optional.<Expression>absent(),
                         ImmutableList.<Expression>of(),
                         Optional.<Expression>absent(),
@@ -159,7 +165,8 @@ class StatementAnalyzer
                         Optional.<String>absent()
                 ),
                 ImmutableList.<SortItem>of(),
-                Optional.<String>absent());
+                Optional.<String>absent(),
+                Optional.<Approximate>absent());
 
         return process(query, context);
     }
@@ -179,7 +186,8 @@ class StatementAnalyzer
                         Optional.<String>absent()
                 ),
                 ImmutableList.<SortItem>of(),
-                Optional.<String>absent());
+                Optional.<String>absent(),
+                Optional.<Approximate>absent());
 
         return process(query, context);
     }
@@ -211,9 +219,16 @@ class StatementAnalyzer
                         Optional.<String>absent()
                 ),
                 ImmutableList.<SortItem>of(),
-                Optional.<String>absent());
+                Optional.<String>absent(),
+                Optional.<Approximate>absent());
 
         return process(query, context);
+    }
+
+    @Override
+    protected TupleDescriptor visitUseCollection(UseCollection node, AnalysisContext context)
+    {
+        throw new SemanticException(NOT_SUPPORTED, node, "USE statement is not supported");
     }
 
     private static SelectItem aliasedYesNoToBoolean(String column, String alias)
@@ -278,7 +293,8 @@ class StatementAnalyzer
                         ImmutableList.<SortItem>of(),
                         Optional.<String>absent()),
                 ImmutableList.<SortItem>of(),
-                Optional.<String>absent());
+                Optional.<String>absent(),
+                Optional.<Approximate>absent());
 
         query = new Query(
                 Optional.<With>absent(),
@@ -294,7 +310,8 @@ class StatementAnalyzer
                                 .build(),
                         showPartitions.getLimit()),
                 ImmutableList.<SortItem>of(),
-                Optional.<String>absent());
+                Optional.<String>absent(),
+                Optional.<Approximate>absent());
 
         return process(query, context);
     }
@@ -323,55 +340,42 @@ class StatementAnalyzer
                         Optional.<String>absent()
                 ),
                 ImmutableList.<SortItem>of(),
-                Optional.<String>absent());
+                Optional.<String>absent(),
+                Optional.<Approximate>absent());
 
         return process(query, context);
     }
 
     @Override
-    protected TupleDescriptor visitCreateMaterializedView(CreateMaterializedView node, AnalysisContext context)
+    protected TupleDescriptor visitCreateTable(CreateTable node, AnalysisContext context)
     {
-        // Turn this into a query that has a new table writer node on top.
+        // turn this into a query that has a new table writer node on top.
         QualifiedTableName targetTable = MetadataUtil.createQualifiedTableName(session, node.getName());
-        analysis.setDestination(targetTable);
+        analysis.setCreateTableDestination(targetTable);
 
         Optional<TableHandle> targetTableHandle = metadata.getTableHandle(targetTable);
         if (targetTableHandle.isPresent()) {
             throw new SemanticException(TABLE_ALREADY_EXISTS, node, "Destination table '%s' already exists", targetTable);
         }
 
-        if (node.getRefresh().isPresent()) {
-            int refreshInterval = Integer.parseInt(node.getRefresh().get());
-            if (refreshInterval <= 0) {
-                throw new SemanticException(INVALID_MATERIALIZED_VIEW_REFRESH_INTERVAL, node, "Refresh interval must be > 0 (was %s)", refreshInterval);
+        // analyze the query that creates the table
+        TupleDescriptor descriptor = process(node.getQuery(), context);
+
+        // verify that all column names are specified and unique
+        // TODO: collect errors and return them all at once
+        Set<String> names = new HashSet<>();
+        for (int i = 0; i < descriptor.getFields().size(); i++) {
+            Field field = descriptor.getFields().get(i);
+            Optional<String> fieldName = field.getName();
+            if (!fieldName.isPresent()) {
+                throw new SemanticException(COLUMN_NAME_NOT_SPECIFIED, node, "Column name not specified at position %s", i + 1);
             }
-
-            analysis.setRefreshInterval(Optional.of(refreshInterval));
-        }
-        else {
-            analysis.setRefreshInterval(Optional.<Integer>absent());
+            if (!names.add(fieldName.get())) {
+                throw new SemanticException(DUPLICATE_COLUMN_NAME, node, "Column name '%s' specified more than once", fieldName.get());
+            }
         }
 
-        // Analyze the query that creates the table...
-        process(node.getTableDefinition(), context);
-
-        return new TupleDescriptor(Field.newUnqualified("imported_rows", Type.BIGINT));
-    }
-
-    @Override
-    protected TupleDescriptor visitRefreshMaterializedView(RefreshMaterializedView node, AnalysisContext context)
-    {
-        QualifiedTableName targetTable = MetadataUtil.createQualifiedTableName(session, node.getName());
-        Optional<TableHandle> tableHandle = metadata.getTableHandle(targetTable);
-        if (!tableHandle.isPresent()) {
-            throw new SemanticException(MISSING_TABLE, node, "Destination table '%s' does not exist", targetTable);
-        }
-
-        checkState(tableHandle.get() instanceof NativeTableHandle, "Cannot import into non-native table %s", targetTable);
-        analysis.setDestination(targetTable);
-        analysis.setDoRefresh(true);
-
-        return new TupleDescriptor(Field.newUnqualified("imported_rows", Type.BIGINT));
+        return new TupleDescriptor(Field.newUnqualified("rows", Type.BIGINT));
     }
 
     @Override
@@ -396,6 +400,7 @@ class StatementAnalyzer
                 break;
             }
         }
+
         String queryPlan = getQueryPlan(node, planType, planFormat);
 
         Query query = new Query(
@@ -411,7 +416,8 @@ class StatementAnalyzer
                         Optional.<String>absent()
                 ),
                 ImmutableList.<SortItem>of(),
-                Optional.<String>absent());
+                Optional.<String>absent(),
+                Optional.<Approximate>absent());
 
         return process(query, context);
     }
@@ -421,9 +427,12 @@ class StatementAnalyzer
     {
         switch (planFormat) {
             case GRAPHVIZ:
-                return queryExplainer.get().getGraphvizPlan(node.getQuery(), planType);
+                return queryExplainer.get().getGraphvizPlan(node.getStatement(), planType);
             case TEXT:
-                return queryExplainer.get().getPlan(node.getQuery(), planType);
+                return queryExplainer.get().getPlan(node.getStatement(), planType);
+            case JSON:
+                // ignore planType if planFormat is JSON
+                return queryExplainer.get().getJsonPlan(node.getStatement());
         }
         throw new IllegalArgumentException("Invalid Explain Format: " + planFormat.toString());
     }
@@ -433,9 +442,16 @@ class StatementAnalyzer
     {
         AnalysisContext context = new AnalysisContext(parentContext);
 
+        if (node.getApproximate().isPresent()) {
+            if (!experimentalSyntaxEnabled) {
+                throw new SemanticException(NOT_SUPPORTED, node, "approximate queries are not enabled");
+            }
+            context.setApproximate(true);
+        }
+
         analyzeWith(node, context);
 
-        TupleAnalyzer analyzer = new TupleAnalyzer(analysis, session, metadata);
+        TupleAnalyzer analyzer = new TupleAnalyzer(analysis, session, metadata, experimentalSyntaxEnabled);
         TupleDescriptor descriptor = analyzer.process(node.getQueryBody(), context);
         analyzeOrderBy(node, descriptor, context);
 
@@ -509,7 +525,7 @@ class StatementAnalyzer
                 else {
                     // otherwise, just use the expression as is
                     orderByField = new FieldOrExpression(expression);
-                    ExpressionAnalysis expressionAnalysis = Analyzer.analyzeExpression(session, metadata, tupleDescriptor, analysis, context, orderByField.getExpression());
+                    ExpressionAnalysis expressionAnalysis = Analyzer.analyzeExpression(session, metadata, tupleDescriptor, analysis, experimentalSyntaxEnabled, context, orderByField.getExpression());
                     analysis.addInPredicates(node, expressionAnalysis.getSubqueryInPredicates());
                 }
 

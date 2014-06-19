@@ -28,8 +28,6 @@ import com.facebook.presto.sql.tree.Cast;
 import com.facebook.presto.sql.tree.CoalesceExpression;
 import com.facebook.presto.sql.tree.ComparisonExpression;
 import com.facebook.presto.sql.tree.CurrentTime;
-import com.facebook.presto.sql.tree.DateLiteral;
-import com.facebook.presto.sql.tree.DoubleLiteral;
 import com.facebook.presto.sql.tree.Expression;
 import com.facebook.presto.sql.tree.Extract;
 import com.facebook.presto.sql.tree.FunctionCall;
@@ -38,40 +36,33 @@ import com.facebook.presto.sql.tree.InListExpression;
 import com.facebook.presto.sql.tree.InPredicate;
 import com.facebook.presto.sql.tree.Input;
 import com.facebook.presto.sql.tree.InputReference;
-import com.facebook.presto.sql.tree.IntervalLiteral;
 import com.facebook.presto.sql.tree.IsNotNullPredicate;
 import com.facebook.presto.sql.tree.IsNullPredicate;
 import com.facebook.presto.sql.tree.LikePredicate;
 import com.facebook.presto.sql.tree.Literal;
 import com.facebook.presto.sql.tree.LogicalBinaryExpression;
-import com.facebook.presto.sql.tree.LongLiteral;
 import com.facebook.presto.sql.tree.NegativeExpression;
 import com.facebook.presto.sql.tree.Node;
 import com.facebook.presto.sql.tree.NotExpression;
 import com.facebook.presto.sql.tree.NullIfExpression;
 import com.facebook.presto.sql.tree.NullLiteral;
-import com.facebook.presto.sql.tree.QualifiedName;
 import com.facebook.presto.sql.tree.QualifiedNameReference;
 import com.facebook.presto.sql.tree.SearchedCaseExpression;
 import com.facebook.presto.sql.tree.SimpleCaseExpression;
 import com.facebook.presto.sql.tree.StringLiteral;
-import com.facebook.presto.sql.tree.TimeLiteral;
-import com.facebook.presto.sql.tree.TimestampLiteral;
 import com.facebook.presto.sql.tree.WhenClause;
 import com.facebook.presto.tuple.TupleReadable;
 import com.google.common.base.Charsets;
-import com.google.common.base.Function;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Predicate;
 import com.google.common.base.Throwables;
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
-import com.google.common.collect.Lists;
 import io.airlift.slice.Slice;
 import io.airlift.slice.Slices;
 import org.joni.Regex;
 
 import javax.annotation.Nullable;
+
 import java.lang.invoke.MethodHandle;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -79,8 +70,8 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Set;
 
-import static com.google.common.base.Charsets.UTF_8;
-import static com.google.common.base.Preconditions.checkArgument;
+import static com.facebook.presto.sql.planner.LiteralInterpreter.toExpression;
+import static com.facebook.presto.sql.planner.LiteralInterpreter.toExpressions;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Preconditions.checkState;
 
@@ -94,8 +85,8 @@ public class ExpressionInterpreter
     private final Visitor visitor;
 
     // identity-based cache for LIKE expressions with constant pattern and escape char
-    private final IdentityHashMap<LikePredicate, Regex> LIKE_PATTERN_CACHE = new IdentityHashMap<>();
-    private final IdentityHashMap<InListExpression, Set<Object>> IN_LIST_CACHE = new IdentityHashMap<>();
+    private final IdentityHashMap<LikePredicate, Regex> likePatternCache = new IdentityHashMap<>();
+    private final IdentityHashMap<InListExpression, Set<Object>> inListCache = new IdentityHashMap<>();
 
     public static ExpressionInterpreter expressionInterpreter(Expression expression, Metadata metadata, Session session)
     {
@@ -168,29 +159,26 @@ public class ExpressionInterpreter
             if (context instanceof TupleReadable[]) {
                 TupleReadable[] inputs = (TupleReadable[]) context;
                 TupleReadable tuple = inputs[channel];
-                int field = input.getField();
 
-                if (tuple.isNull(field)) {
+                if (tuple.isNull()) {
                     return null;
                 }
 
-                switch (tuple.getTupleInfo().getTypes().get(field)) {
+                switch (tuple.getTupleInfo().getType()) {
                     case BOOLEAN:
-                        return tuple.getBoolean(field);
+                        return tuple.getBoolean();
                     case FIXED_INT_64:
-                        return tuple.getLong(field);
+                        return tuple.getLong();
                     case DOUBLE:
-                        return tuple.getDouble(field);
+                        return tuple.getDouble();
                     case VARIABLE_BINARY:
-                        return tuple.getSlice(field);
+                        return tuple.getSlice();
                     default:
                         throw new UnsupportedOperationException("not yet implemented");
                 }
             }
             else if (context instanceof RecordCursor) {
                 RecordCursor cursor = (RecordCursor) context;
-                checkArgument(input.getField() == 0, "Field for cursor must be 0 but is %s", input.getField());
-
                 if (cursor.isNull(channel)) {
                     return null;
                 }
@@ -224,54 +212,9 @@ public class ExpressionInterpreter
         }
 
         @Override
-        protected Long visitLongLiteral(LongLiteral node, Object context)
+        protected Object visitLiteral(Literal node, Object context)
         {
-            return node.getValue();
-        }
-
-        @Override
-        protected Double visitDoubleLiteral(DoubleLiteral node, Object context)
-        {
-            return node.getValue();
-        }
-
-        @Override
-        protected Slice visitStringLiteral(StringLiteral node, Object context)
-        {
-            return node.getSlice();
-        }
-
-        @Override
-        protected Object visitDateLiteral(DateLiteral node, Object context)
-        {
-            return node.getUnixTime();
-        }
-
-        @Override
-        protected Object visitTimeLiteral(TimeLiteral node, Object context)
-        {
-            return node.getUnixTime();
-        }
-
-        @Override
-        protected Long visitTimestampLiteral(TimestampLiteral node, Object context)
-        {
-            return node.getUnixTime();
-        }
-
-        @Override
-        protected Long visitIntervalLiteral(IntervalLiteral node, Object context)
-        {
-            if (node.isYearToMonth()) {
-                throw new UnsupportedOperationException("Month based intervals not supported yet: " + node.getType());
-            }
-            return node.getSeconds();
-        }
-
-        @Override
-        protected Object visitNullLiteral(NullLiteral node, Object context)
-        {
-            return null;
+            return LiteralInterpreter.evaluate(node);
         }
 
         @Override
@@ -280,7 +223,7 @@ public class ExpressionInterpreter
             Object value = process(node.getValue(), context);
 
             if (value instanceof Expression) {
-                return node;
+                return new IsNullPredicate(toExpression(value));
             }
 
             return value == null;
@@ -292,7 +235,7 @@ public class ExpressionInterpreter
             Object value = process(node.getValue(), context);
 
             if (value instanceof Expression) {
-                return node;
+                return new IsNotNullPredicate(toExpression(value));
             }
 
             return value != null;
@@ -408,12 +351,12 @@ public class ExpressionInterpreter
             }
             InListExpression valueList = (InListExpression) valueListExpression;
 
-            Set<Object> set = IN_LIST_CACHE.get(valueList);
+            Set<Object> set = inListCache.get(valueList);
 
             // We use the presence of the node in the map to indicate that we've already done
             // the analysis below. If the value is null, it means that we can't apply the HashSet
             // optimization
-            if (!IN_LIST_CACHE.containsKey(valueList)) {
+            if (!inListCache.containsKey(valueList)) {
                 if (Iterables.all(valueList.getValues(), isNonNullLiteralPredicate())) {
                     // if all elements are constant, create a set with them
                     set = new HashSet<>();
@@ -421,7 +364,7 @@ public class ExpressionInterpreter
                         set.add(process(expression, context));
                     }
                 }
-                IN_LIST_CACHE.put(valueList, set);
+                inListCache.put(valueList, set);
             }
 
             if (set != null && !(value instanceof Expression)) {
@@ -473,7 +416,7 @@ public class ExpressionInterpreter
                 return null;
             }
             if (value instanceof Expression) {
-                return node;
+                return new NegativeExpression(toExpression(value));
             }
 
             if (value instanceof Long) {
@@ -495,7 +438,7 @@ public class ExpressionInterpreter
             }
 
             if (left instanceof Expression || right instanceof Expression) {
-                return node;
+                return new ArithmeticExpression(node.getType(), toExpression(left), toExpression(right));
             }
 
             Number leftNumber = (Number) left;
@@ -697,7 +640,7 @@ public class ExpressionInterpreter
                 return first.equals(second) ? null : first;
             }
 
-            return node;
+            return new NullIfExpression(toExpression(first), toExpression(second));
         }
 
         @Override
@@ -734,7 +677,7 @@ public class ExpressionInterpreter
             }
 
             if (value instanceof Expression) {
-                return node;
+                return new NotExpression(toExpression(value));
             }
 
             return !(Boolean) value;
@@ -773,7 +716,7 @@ public class ExpressionInterpreter
                 return null;
             }
 
-            return node;
+            return new LogicalBinaryExpression(node.getType(), toExpression(left), toExpression(right));
         }
 
         @Override
@@ -816,7 +759,7 @@ public class ExpressionInterpreter
                 argumentValues.add(value);
                 argumentTypes.add(type);
             }
-            FunctionInfo function = metadata.getFunction(node.getName(), argumentTypes);
+            FunctionInfo function = metadata.getFunction(node.getName(), argumentTypes, false);
             // do not optimize non-deterministic functions
             if (optimize && !function.isDeterministic()) {
                 return new FunctionCall(node.getName(), node.getWindow().orNull(), node.isDistinct(), toExpressions(argumentValues));
@@ -892,7 +835,7 @@ public class ExpressionInterpreter
 
         private Regex getConstantPattern(LikePredicate node)
         {
-            Regex result = LIKE_PATTERN_CACHE.get(node);
+            Regex result = likePatternCache.get(node);
 
             if (result == null) {
                 StringLiteral pattern = (StringLiteral) node.getPattern();
@@ -900,7 +843,7 @@ public class ExpressionInterpreter
 
                 result = LikeUtils.likeToPattern(pattern.getSlice(), escape == null ? null : escape.getSlice());
 
-                LIKE_PATTERN_CACHE.put(node, result);
+                likePatternCache.put(node, result);
             }
 
             return result;
@@ -1003,58 +946,6 @@ public class ExpressionInterpreter
                 return node;
             }
         }
-    }
-
-    private static List<Expression> toExpressions(List<?> objects)
-    {
-        return ImmutableList.copyOf(Lists.transform(objects, new Function<Object, Expression>()
-        {
-            public Expression apply(@Nullable Object value)
-            {
-                return toExpression(value);
-            }
-        }));
-    }
-
-    public static Expression toExpression(Object object)
-    {
-        if (object instanceof Expression) {
-            return (Expression) object;
-        }
-
-        if (object instanceof Long) {
-            return new LongLiteral(object.toString());
-        }
-
-        if (object instanceof Double) {
-            Double value = (Double) object;
-            if (value.isNaN()) {
-                return new FunctionCall(new QualifiedName("nan"), ImmutableList.<Expression>of());
-            }
-            else if (value == Double.NEGATIVE_INFINITY) {
-                return new NegativeExpression(new FunctionCall(new QualifiedName("infinity"), ImmutableList.<Expression>of()));
-            }
-            else if (value == Double.POSITIVE_INFINITY) {
-                return new FunctionCall(new QualifiedName("infinity"), ImmutableList.<Expression>of());
-            }
-            else {
-                return new DoubleLiteral(object.toString());
-            }
-        }
-
-        if (object instanceof Slice) {
-            return new StringLiteral(((Slice) object).toString(UTF_8));
-        }
-
-        if (object instanceof Boolean) {
-            return new BooleanLiteral(object.toString());
-        }
-
-        if (object == null) {
-            return new NullLiteral();
-        }
-
-        throw new UnsupportedOperationException("not yet implemented: " + object.getClass().getName());
     }
 
     private static Predicate<Expression> isNonNullLiteralPredicate()

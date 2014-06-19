@@ -21,6 +21,7 @@ import com.google.common.collect.ImmutableList;
 
 import javax.annotation.concurrent.Immutable;
 
+import java.util.Iterator;
 import java.util.List;
 
 @Immutable
@@ -76,5 +77,25 @@ public class OutputNode
     public <C, R> R accept(PlanVisitor<C, R> visitor, C context)
     {
         return visitor.visitOutput(this, context);
+    }
+
+    public void print(int level)
+    {
+        String prefix = new String();
+        for(int i = 0 ; i <= level ; i ++)
+            prefix += " ";
+        System.out.println(prefix + "--" + this.getClass().getName() + "(" + getId() + "): ");
+        getSource().print(level + 1);
+        prefix += " --";
+
+        String str = prefix;
+        for(int i = 0 ; i < columnNames.size() ; i ++)
+            str += columnNames.get(i) + "; ";
+        System.out.println(str);
+
+        str = prefix;
+        for(int i = 0 ; i < outputs.size() ; i ++)
+            str += outputs.get(i).getName() + "; ";
+        System.out.println(str);
     }
 }

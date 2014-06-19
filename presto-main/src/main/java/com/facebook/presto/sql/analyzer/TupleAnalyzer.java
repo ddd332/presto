@@ -46,6 +46,7 @@ import com.facebook.presto.sql.tree.QualifiedNameReference;
 import com.facebook.presto.sql.tree.Query;
 import com.facebook.presto.sql.tree.QuerySpecification;
 import com.facebook.presto.sql.tree.Relation;
+import com.facebook.presto.sql.tree.Row;
 import com.facebook.presto.sql.tree.SampledRelation;
 import com.facebook.presto.sql.tree.SelectItem;
 import com.facebook.presto.sql.tree.SingleColumn;
@@ -53,10 +54,11 @@ import com.facebook.presto.sql.tree.SortItem;
 import com.facebook.presto.sql.tree.Table;
 import com.facebook.presto.sql.tree.TableSubquery;
 import com.facebook.presto.sql.tree.Union;
+import com.facebook.presto.sql.tree.Values;
 import com.facebook.presto.sql.tree.Window;
 import com.google.common.base.Function;
+import com.google.common.base.Joiner;
 import com.google.common.base.Optional;
-import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
@@ -89,7 +91,8 @@ import static com.facebook.presto.sql.analyzer.SemanticErrorCode.NOT_SUPPORTED;
 import static com.facebook.presto.sql.analyzer.SemanticErrorCode.ORDER_BY_MUST_BE_IN_SELECT;
 import static com.facebook.presto.sql.analyzer.SemanticErrorCode.TYPE_MISMATCH;
 import static com.facebook.presto.sql.analyzer.SemanticErrorCode.WILDCARD_WITHOUT_FROM;
-import static com.facebook.presto.sql.tree.FunctionCall.distinctPredicate;
+import static com.google.common.base.Preconditions.checkNotNull;
+import static com.google.common.base.Preconditions.checkState;
 import static com.google.common.collect.Iterables.elementsEqual;
 import static com.google.common.collect.Iterables.transform;
 
@@ -99,16 +102,18 @@ class TupleAnalyzer
     private final Analysis analysis;
     private final Session session;
     private final Metadata metadata;
+    private final boolean experimentalSyntaxEnabled;
 
-    public TupleAnalyzer(Analysis analysis, Session session, Metadata metadata)
+    public TupleAnalyzer(Analysis analysis, Session session, Metadata metadata, boolean experimentalSyntaxEnabled)
     {
-        Preconditions.checkNotNull(analysis, "analysis is null");
-        Preconditions.checkNotNull(session, "session is null");
-        Preconditions.checkNotNull(metadata, "metadata is null");
+        checkNotNull(analysis, "analysis is null");
+        checkNotNull(session, "session is null");
+        checkNotNull(metadata, "metadata is null");
 
         this.analysis = analysis;
         this.session = session;
         this.metadata = metadata;
+        this.experimentalSyntaxEnabled = experimentalSyntaxEnabled;
     }
 
     @Override
@@ -198,7 +203,6 @@ class TupleAnalyzer
     @Override
     protected TupleDescriptor visitSampledRelation(final SampledRelation relation, AnalysisContext context)
     {
-
         if (relation.getColumnsToStratifyOn().isPresent()) {
             throw new SemanticException(NOT_SUPPORTED, relation, "STRATIFY ON is not yet implemented");
         }
@@ -223,8 +227,15 @@ class TupleAnalyzer
 
         double samplePercentageValue = ((Number) samplePercentageObject).doubleValue();
 
-        if (samplePercentageValue < 0.0 || samplePercentageValue > 100.0) {
-            throw new SemanticException(SemanticErrorCode.SAMPLE_PERCENTAGE_OUT_OF_RANGE, relation.getSamplePercentage(), "Sample percentage must be between 0 and 100");
+        if (samplePercentageValue < 0.0) {
+            throw new SemanticException(SemanticErrorCode.SAMPLE_PERCENTAGE_OUT_OF_RANGE, relation.getSamplePercentage(), "Sample percentage must be greater than or equal to 0");
+        }
+        else if ((samplePercentageValue > 100.0) && (relation.getType() != SampledRelation.Type.POISSONIZED || relation.isRescaled())) {
+            throw new SemanticException(SemanticErrorCode.SAMPLE_PERCENTAGE_OUT_OF_RANGE, relation.getSamplePercentage(), "Sample percentage must be less than or equal to 100");
+        }
+
+        if (relation.isRescaled() && !experimentalSyntaxEnabled) {
+            throw new SemanticException(NOT_SUPPORTED, relation, "Rescaling is not enabled");
         }
 
         TupleDescriptor descriptor = process(relation.getRelation(), context);
@@ -238,7 +249,7 @@ class TupleAnalyzer
     @Override
     protected TupleDescriptor visitTableSubquery(TableSubquery node, AnalysisContext context)
     {
-        StatementAnalyzer analyzer = new StatementAnalyzer(analysis, metadata, session, Optional.<QueryExplainer>absent());
+        StatementAnalyzer analyzer = new StatementAnalyzer(analysis, metadata, session, experimentalSyntaxEnabled, Optional.<QueryExplainer>absent());
         TupleDescriptor descriptor = analyzer.process(node.getQuery(), context);
 
         analysis.setOutputDescriptor(node, descriptor);
@@ -275,9 +286,9 @@ class TupleAnalyzer
     @Override
     protected TupleDescriptor visitUnion(Union node, AnalysisContext context)
     {
-        Preconditions.checkState(node.getRelations().size() >= 2);
+        checkState(node.getRelations().size() >= 2);
 
-        TupleAnalyzer analyzer = new TupleAnalyzer(analysis, session, metadata);
+        TupleAnalyzer analyzer = new TupleAnalyzer(analysis, session, metadata, experimentalSyntaxEnabled);
 
         // Use the first descriptor as the output descriptor for the UNION
         TupleDescriptor outputDescriptor = analyzer.process(node.getRelations().get(0), context);
@@ -308,11 +319,11 @@ class TupleAnalyzer
     @Override
     protected TupleDescriptor visitJoin(Join node, AnalysisContext context)
     {
-        if (!EnumSet.of(Join.Type.INNER, Join.Type.LEFT, Join.Type.RIGHT).contains(node.getType())) {
-            throw new SemanticException(NOT_SUPPORTED, node, "Only inner, left, and right joins are supported");
+        if (EnumSet.of(Join.Type.FULL).contains(node.getType())) {
+            throw new SemanticException(NOT_SUPPORTED, node, "Full outer joins are not supported");
         }
 
-        JoinCriteria criteria = node.getCriteria();
+        JoinCriteria criteria = node.getCriteria().orNull();
         if (criteria instanceof NaturalJoin) {
             throw new SemanticException(NOT_SUPPORTED, node, "Natural join not supported");
         }
@@ -333,6 +344,11 @@ class TupleAnalyzer
 
         TupleDescriptor output = new TupleDescriptor(outputFields);
 
+        if (node.getType() == Join.Type.CROSS) {
+            analysis.setOutputDescriptor(node, output);
+            return output;
+        }
+
         if (criteria instanceof JoinUsing) {
             // TODO: implement proper "using" semantics with respect to output columns
             List<String> columns = ((JoinUsing) criteria).getColumns();
@@ -342,10 +358,10 @@ class TupleAnalyzer
                 Expression leftExpression = new QualifiedNameReference(QualifiedName.of(column));
                 Expression rightExpression = new QualifiedNameReference(QualifiedName.of(column));
 
-                ExpressionAnalysis leftExpressionAnalysis = Analyzer.analyzeExpression(session, metadata, left, analysis, context, leftExpression);
-                ExpressionAnalysis rightExpressionAnalysis = Analyzer.analyzeExpression(session, metadata, right, analysis, context, rightExpression);
-                Preconditions.checkState(leftExpressionAnalysis.getSubqueryInPredicates().isEmpty(), "INVARIANT");
-                Preconditions.checkState(rightExpressionAnalysis.getSubqueryInPredicates().isEmpty(), "INVARIANT");
+                ExpressionAnalysis leftExpressionAnalysis = Analyzer.analyzeExpression(session, metadata, left, analysis, experimentalSyntaxEnabled, context, leftExpression);
+                ExpressionAnalysis rightExpressionAnalysis = Analyzer.analyzeExpression(session, metadata, right, analysis, experimentalSyntaxEnabled, context, rightExpression);
+                checkState(leftExpressionAnalysis.getSubqueryInPredicates().isEmpty(), "INVARIANT");
+                checkState(rightExpressionAnalysis.getSubqueryInPredicates().isEmpty(), "INVARIANT");
 
                 builder.add(new EquiJoinClause(leftExpression, rightExpression));
             }
@@ -357,15 +373,25 @@ class TupleAnalyzer
 
             // ensure all names can be resolved, types match, etc (we don't need to record resolved names, subexpression types, etc. because
             // we do it further down when after we determine which subexpressions apply to left vs right tuple)
-            ExpressionAnalyzer analyzer = new ExpressionAnalyzer(analysis, session, metadata);
+            ExpressionAnalyzer analyzer = new ExpressionAnalyzer(analysis, session, metadata, experimentalSyntaxEnabled);
             analyzer.analyze(expression, output, context);
 
             Analyzer.verifyNoAggregatesOrWindowFunctions(metadata, expression, "JOIN");
 
             Object optimizedExpression = ExpressionInterpreter.expressionOptimizer(expression, metadata, session).optimize(NoOpSymbolResolver.INSTANCE);
 
+            if (!(optimizedExpression instanceof Expression) && optimizedExpression instanceof Boolean) {
+                // If the JoinOn clause evaluates to a boolean expression, simulate a cross join by adding the relevant redundant expression
+                if (optimizedExpression.equals(Boolean.TRUE)) {
+                    optimizedExpression = new ComparisonExpression(ComparisonExpression.Type.EQUAL, new LongLiteral("0"), new LongLiteral("0"));
+                }
+                else {
+                    optimizedExpression = new ComparisonExpression(ComparisonExpression.Type.EQUAL, new LongLiteral("0"), new LongLiteral("1"));
+                }
+            }
+
             if (!(optimizedExpression instanceof Expression)) {
-                throw new SemanticException(NOT_SUPPORTED, node, "Joins on constant expressions (i.e., cross joins) not supported");
+                throw new SemanticException(TYPE_MISMATCH, node, "Join clause must be a boolean expression");
             }
 
             ImmutableList.Builder<EquiJoinClause> clauses = ImmutableList.builder();
@@ -398,8 +424,8 @@ class TupleAnalyzer
                 }
 
                 // analyze the clauses to record the types of all subexpressions and resolve names against the left/right underlying tuples
-                ExpressionAnalysis leftExpressionAnalysis = Analyzer.analyzeExpression(session, metadata, left, analysis, context, leftExpression);
-                ExpressionAnalysis rightExpressionAnalysis = Analyzer.analyzeExpression(session, metadata, right, analysis, context, rightExpression);
+                ExpressionAnalysis leftExpressionAnalysis = Analyzer.analyzeExpression(session, metadata, left, analysis, experimentalSyntaxEnabled, context, leftExpression);
+                ExpressionAnalysis rightExpressionAnalysis = Analyzer.analyzeExpression(session, metadata, right, analysis, experimentalSyntaxEnabled, context, rightExpression);
                 analysis.addJoinInPredicates(node, new Analysis.JoinInPredicates(leftExpressionAnalysis.getSubqueryInPredicates(), rightExpressionAnalysis.getSubqueryInPredicates()));
 
                 clauses.add(new EquiJoinClause(leftExpression, rightExpression));
@@ -413,6 +439,42 @@ class TupleAnalyzer
 
         analysis.setOutputDescriptor(node, output);
         return output;
+    }
+
+    @Override
+    protected TupleDescriptor visitValues(Values node, AnalysisContext context)
+    {
+        checkState(node.getRows().size() >= 1);
+
+        TupleAnalyzer analyzer = new TupleAnalyzer(analysis, session, metadata, experimentalSyntaxEnabled);
+
+        // Use the first descriptor as the output descriptor for the VALUES
+        TupleDescriptor outputDescriptor = analyzer.process(node.getRows().get(0), context);
+        Iterable<Type> types = transform(outputDescriptor.getFields(), typeGetter());
+
+        for (Row row : Iterables.skip(node.getRows(), 1)) {
+            TupleDescriptor descriptor = analyzer.process(row, context);
+            Iterable<Type> rowTypes = transform(descriptor.getFields(), typeGetter());
+            if (!elementsEqual(types, rowTypes)) {
+                throw new SemanticException(MISMATCHED_SET_COLUMN_TYPES, node, "Values rows have mismatched types: " +
+                        "Expected: (" + Joiner.on(", ").join(types) + "), " +
+                        "Actual: (" + Joiner.on(", ").join(rowTypes) + ")");
+            }
+        }
+
+        analysis.setOutputDescriptor(node, outputDescriptor);
+        return outputDescriptor;
+    }
+
+    @Override
+    protected TupleDescriptor visitRow(Row node, AnalysisContext context)
+    {
+        ImmutableList.Builder<Field> outputFields = ImmutableList.builder();
+        for (Expression expression : node.getItems()) {
+            ExpressionAnalysis expressionAnalysis = Analyzer.analyzeExpression(session, metadata, new TupleDescriptor(), analysis, experimentalSyntaxEnabled, context, expression);
+            outputFields.add(Field.newUnqualified(Optional.<String>absent(), expressionAnalysis.getType()));
+        }
+        return new TupleDescriptor(outputFields.build());
     }
 
     private void analyzeWindowFunctions(QuerySpecification node, List<FieldOrExpression> outputExpressions, List<FieldOrExpression> orderByExpressions)
@@ -470,7 +532,7 @@ class TupleAnalyzer
                 }
             });
 
-            FunctionInfo info = metadata.getFunction(windowFunction.getName(), argumentTypes);
+            FunctionInfo info = metadata.getFunction(windowFunction.getName(), argumentTypes, false);
             if (!info.isWindow()) {
                 throw new SemanticException(MUST_BE_WINDOW_FUNCTION, node, "Not a window function: %s", windowFunction.getName());
             }
@@ -484,7 +546,7 @@ class TupleAnalyzer
         if (node.getHaving().isPresent()) {
             Expression predicate = node.getHaving().get();
 
-            ExpressionAnalysis expressionAnalysis = Analyzer.analyzeExpression(session, metadata, tupleDescriptor, analysis, context, predicate);
+            ExpressionAnalysis expressionAnalysis = Analyzer.analyzeExpression(session, metadata, tupleDescriptor, analysis, experimentalSyntaxEnabled, context, predicate);
             analysis.addInPredicates(node, expressionAnalysis.getSubqueryInPredicates());
 
             if (expressionAnalysis.getType() != Type.BOOLEAN && expressionAnalysis.getType() != Type.NULL) {
@@ -549,7 +611,7 @@ class TupleAnalyzer
                 }
 
                 if (orderByExpression.isExpression()) {
-                    ExpressionAnalysis expressionAnalysis = Analyzer.analyzeExpression(session, metadata, tupleDescriptor, analysis, context, orderByExpression.getExpression());
+                    ExpressionAnalysis expressionAnalysis = Analyzer.analyzeExpression(session, metadata, tupleDescriptor, analysis, experimentalSyntaxEnabled, context, orderByExpression.getExpression());
                     analysis.addInPredicates(node, expressionAnalysis.getSubqueryInPredicates());
                 }
 
@@ -584,7 +646,7 @@ class TupleAnalyzer
                     groupByExpression = outputExpressions.get((int) (ordinal - 1));
                 }
                 else {
-                    ExpressionAnalysis expressionAnalysis = Analyzer.analyzeExpression(session, metadata, tupleDescriptor, analysis, context, expression);
+                    ExpressionAnalysis expressionAnalysis = Analyzer.analyzeExpression(session, metadata, tupleDescriptor, analysis, experimentalSyntaxEnabled, context, expression);
                     analysis.addInPredicates(node, expressionAnalysis.getSubqueryInPredicates());
                     groupByExpression = new FieldOrExpression(expression);
                 }
@@ -658,7 +720,7 @@ class TupleAnalyzer
             }
             else if (item instanceof SingleColumn) {
                 SingleColumn column = (SingleColumn) item;
-                ExpressionAnalysis expressionAnalysis = Analyzer.analyzeExpression(session, metadata, tupleDescriptor, analysis, context, column.getExpression());
+                ExpressionAnalysis expressionAnalysis = Analyzer.analyzeExpression(session, metadata, tupleDescriptor, analysis, experimentalSyntaxEnabled, context, column.getExpression());
                 analysis.addInPredicates(node, expressionAnalysis.getSubqueryInPredicates());
                 outputExpressionBuilder.add(new FieldOrExpression(column.getExpression()));
             }
@@ -680,7 +742,7 @@ class TupleAnalyzer
 
             Analyzer.verifyNoAggregatesOrWindowFunctions(metadata, predicate, "WHERE");
 
-            ExpressionAnalysis expressionAnalysis = Analyzer.analyzeExpression(session, metadata, tupleDescriptor, analysis, context, predicate);
+            ExpressionAnalysis expressionAnalysis = Analyzer.analyzeExpression(session, metadata, tupleDescriptor, analysis, experimentalSyntaxEnabled, context, predicate);
             analysis.addInPredicates(node, expressionAnalysis.getSubqueryInPredicates());
 
             if (expressionAnalysis.getType() != Type.BOOLEAN && expressionAnalysis.getType() != Type.NULL) {
@@ -696,14 +758,12 @@ class TupleAnalyzer
         TupleDescriptor fromDescriptor = new TupleDescriptor();
 
         if (node.getFrom() != null && !node.getFrom().isEmpty()) {
-            TupleAnalyzer analyzer = new TupleAnalyzer(analysis, session, metadata);
+            TupleAnalyzer analyzer = new TupleAnalyzer(analysis, session, metadata, experimentalSyntaxEnabled);
             if (node.getFrom().size() != 1) {
-                throw new SemanticException(NOT_SUPPORTED, node, "Cross joins not yet supported");
+                throw new SemanticException(NOT_SUPPORTED, node, "Implicit cross joins are not yet supported; use CROSS JOIN");
             }
-
             fromDescriptor = analyzer.process(Iterables.getOnlyElement(node.getFrom()), context);
         }
-
         return fromDescriptor;
     }
 
@@ -717,10 +777,6 @@ class TupleAnalyzer
 
         // is this an aggregation query?
         if (!aggregates.isEmpty() || !groupByExpressions.isEmpty()) {
-            if (Iterables.any(aggregates, distinctPredicate())) {
-                throw new SemanticException(NOT_SUPPORTED, node, "DISTINCT in aggregation parameters not yet supported");
-            }
-
             // ensure SELECT, ORDER BY and HAVING are constant with respect to group
             // e.g, these are all valid expressions:
             //     SELECT f(a) GROUP BY a

@@ -60,6 +60,7 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Ordering;
 import com.google.common.io.Files;
 import io.airlift.log.Logger;
@@ -68,6 +69,7 @@ import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.util.CheckClassAdapter;
 import org.objectweb.asm.util.TraceClassVisitor;
+import org.weakref.jmx.Managed;
 
 import javax.inject.Inject;
 
@@ -99,6 +101,7 @@ import static com.facebook.presto.byteCode.ParameterizedType.type;
 import static com.facebook.presto.byteCode.ParameterizedType.typeFromPathName;
 import static com.facebook.presto.byteCode.control.ForLoop.forLoopBuilder;
 import static com.google.common.base.Objects.toStringHelper;
+import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Preconditions.checkState;
 import static com.google.common.collect.Iterables.transform;
@@ -125,7 +128,7 @@ public class ExpressionCompiler
                 public FilterAndProjectOperatorFactoryFactory load(OperatorCacheKey key)
                         throws Exception
                 {
-                    return internalCompileFilterAndProjectOperator(key.getFilter(), key.getProjections(), key.getInputTypes());
+                    return internalCompileFilterAndProjectOperator(key.getFilter(), key.getProjections(), key.getInputTypes(), key.getOutputTypes());
                 }
             });
 
@@ -136,9 +139,11 @@ public class ExpressionCompiler
                 public ScanFilterAndProjectOperatorFactoryFactory load(OperatorCacheKey key)
                         throws Exception
                 {
-                    return internalCompileScanFilterAndProjectOperator(key.getSourceId(), key.getFilter(), key.getProjections(), key.getInputTypes());
+                    return internalCompileScanFilterAndProjectOperator(key.getSourceId(), key.getFilter(), key.getProjections(), key.getInputTypes(), key.getOutputTypes());
                 }
             });
+
+    private final AtomicLong generatedClasses = new AtomicLong();
 
     @Inject
     public ExpressionCompiler(Metadata metadata)
@@ -192,9 +197,27 @@ public class ExpressionCompiler
         }
     }
 
-    public OperatorFactory compileFilterAndProjectOperator(int operatorId, Expression filter, List<Expression> projections, Map<Input, Type> inputTypes)
+    @Managed
+    public long getGeneratedClasses()
     {
-        return operatorFactories.getUnchecked(new OperatorCacheKey(filter, projections, inputTypes, null)).create(operatorId);
+        return generatedClasses.get();
+    }
+
+    @Managed
+    public long getCachedFilterAndProjectOperators()
+    {
+        return operatorFactories.size();
+    }
+
+    @Managed
+    public long getCachedScanFilterAndProjectOperators()
+    {
+        return sourceOperatorFactories.size();
+    }
+
+    public OperatorFactory compileFilterAndProjectOperator(int operatorId, Expression filter, List<Expression> projections, Map<Input, Type> inputTypes, List<Type> outputTypes)
+    {
+        return operatorFactories.getUnchecked(new OperatorCacheKey(filter, projections, inputTypes, outputTypes, null)).create(operatorId);
     }
 
     private DynamicClassLoader createClassLoader()
@@ -203,12 +226,16 @@ public class ExpressionCompiler
     }
 
     @VisibleForTesting
-    public FilterAndProjectOperatorFactoryFactory internalCompileFilterAndProjectOperator(Expression filter, List<Expression> projections, Map<Input, Type> inputTypes)
+    public FilterAndProjectOperatorFactoryFactory internalCompileFilterAndProjectOperator(
+            Expression filter,
+            List<Expression> projections,
+            Map<Input, Type> inputTypes,
+            List<Type> outputTypes)
     {
         DynamicClassLoader classLoader = createClassLoader();
 
         // create filter and project page iterator class
-        TypedOperatorClass typedOperatorClass = compileFilterAndProjectOperator(filter, projections, inputTypes, classLoader);
+        TypedOperatorClass typedOperatorClass = compileFilterAndProjectOperator(filter, projections, inputTypes, outputTypes, classLoader);
 
         Constructor<? extends Operator> constructor;
         try {
@@ -226,6 +253,7 @@ public class ExpressionCompiler
             Expression filter,
             List<Expression> projections,
             Map<Input, Type> inputTypes,
+            List<Type> outputTypes,
             DynamicClassLoader classLoader)
     {
         ClassDefinition classDefinition = new ClassDefinition(new CompilerContext(bootstrapMethod),
@@ -267,21 +295,30 @@ public class ExpressionCompiler
         //
         List<TupleInfo> tupleInfos = new ArrayList<>();
         int projectionIndex = 0;
-        for (Expression projection : projections) {
+        for (int i = 0; i < projections.size(); i++) {
+            Type outputType = outputTypes.get(i);
+            checkArgument(outputType != Type.NULL, "NULL output type is not supported");
+            tupleInfos.add(new TupleInfo(outputType.getRawType()));
+
+            // verify the compiled projection has the correct type
+            Expression projection = projections.get(i);
+
             Class<?> type = generateProjectMethod(classDefinition, "project_" + projectionIndex, projection, inputTypes, true);
             generateProjectMethod(classDefinition, "project_" + projectionIndex, projection, inputTypes, false);
             if (type == boolean.class) {
-                tupleInfos.add(TupleInfo.SINGLE_BOOLEAN);
+                checkState(outputType == Type.BOOLEAN);
             }
-            // todo remove assumption that void is a long
-            else if (type == long.class || type == void.class) {
-                tupleInfos.add(TupleInfo.SINGLE_LONG);
+            else if (type == long.class) {
+                checkState(outputType == Type.BIGINT);
             }
             else if (type == double.class) {
-                tupleInfos.add(TupleInfo.SINGLE_DOUBLE);
+                checkState(outputType == Type.DOUBLE);
             }
             else if (type == Slice.class) {
-                tupleInfos.add(TupleInfo.SINGLE_VARBINARY);
+                checkState(outputType == Type.VARCHAR);
+            }
+            else if (type == void.class) {
+                // void type is a null literal so it can be any type
             }
             else {
                 throw new IllegalStateException("Type " + type.getName() + "can be output");
@@ -311,9 +348,10 @@ public class ExpressionCompiler
             List<ColumnHandle> columns,
             Expression filter,
             List<Expression> projections,
-            Map<Input, Type> inputTypes)
+            Map<Input, Type> inputTypes,
+            List<Type> outputTypes)
     {
-        return sourceOperatorFactories.getUnchecked(new OperatorCacheKey(filter, projections, inputTypes, sourceId)).create(operatorId, dataStreamProvider, columns);
+        return sourceOperatorFactories.getUnchecked(new OperatorCacheKey(filter, projections, inputTypes, outputTypes, sourceId)).create(operatorId, dataStreamProvider, columns);
     }
 
     @VisibleForTesting
@@ -321,12 +359,13 @@ public class ExpressionCompiler
             PlanNodeId sourceId,
             Expression filter,
             List<Expression> projections,
-            Map<Input, Type> inputTypes)
+            Map<Input, Type> inputTypes,
+            List<Type> outputTypes)
     {
         DynamicClassLoader classLoader = createClassLoader();
 
         // create filter and project page iterator class
-        TypedOperatorClass typedOperatorClass = compileScanFilterAndProjectOperator(filter, projections, inputTypes, classLoader);
+        TypedOperatorClass typedOperatorClass = compileScanFilterAndProjectOperator(filter, projections, inputTypes, outputTypes, classLoader);
 
         Constructor<? extends SourceOperator> constructor;
         try {
@@ -353,6 +392,7 @@ public class ExpressionCompiler
             Expression filter,
             List<Expression> projections,
             Map<Input, Type> inputTypes,
+            List<Type> outputTypes,
             DynamicClassLoader classLoader)
     {
         ClassDefinition classDefinition = new ClassDefinition(new CompilerContext(bootstrapMethod),
@@ -401,21 +441,30 @@ public class ExpressionCompiler
         //
         List<TupleInfo> tupleInfos = new ArrayList<>();
         int projectionIndex = 0;
-        for (Expression projection : projections) {
+        for (int i = 0; i < projections.size(); i++) {
+            Type outputType = outputTypes.get(i);
+            checkArgument(outputType != Type.NULL, "NULL output type is not supported");
+            tupleInfos.add(new TupleInfo(outputType.getRawType()));
+
+            // verify the compiled projection has the correct type
+            Expression projection = projections.get(i);
+
             Class<?> type = generateProjectMethod(classDefinition, "project_" + projectionIndex, projection, inputTypes, true);
             generateProjectMethod(classDefinition, "project_" + projectionIndex, projection, inputTypes, false);
             if (type == boolean.class) {
-                tupleInfos.add(TupleInfo.SINGLE_BOOLEAN);
+                checkState(outputType == Type.BOOLEAN);
             }
-            // todo remove assumption that void is a long
-            else if (type == long.class || type == void.class) {
-                tupleInfos.add(TupleInfo.SINGLE_LONG);
+            else if (type == long.class) {
+                checkState(outputType == Type.BIGINT);
             }
             else if (type == double.class) {
-                tupleInfos.add(TupleInfo.SINGLE_DOUBLE);
+                checkState(outputType == Type.DOUBLE);
             }
             else if (type == Slice.class) {
-                tupleInfos.add(TupleInfo.SINGLE_VARBINARY);
+                checkState(outputType == Type.VARCHAR);
+            }
+            else if (type == void.class) {
+                // void type is a null literal so it can be any type
             }
             else {
                 throw new IllegalStateException("Type " + type.getName() + "can be output");
@@ -446,7 +495,7 @@ public class ExpressionCompiler
                 a(PUBLIC),
                 "filterAndProjectRowOriented",
                 type(void.class),
-                arg("blocks", com.facebook.presto.block.Block[].class),
+                arg("page", com.facebook.presto.operator.Page.class),
                 arg("pageBuilder", PageBuilder.class));
 
         CompilerContext compilerContext = filterAndProjectMethod.getCompilerContext();
@@ -455,23 +504,21 @@ public class ExpressionCompiler
 
         LocalVariableDefinition rowsVariable = compilerContext.declareVariable(int.class, "rows");
         filterAndProjectMethod.getBody()
-                .comment("int rows = blocks[0].getPositionCount();")
-                .getVariable("blocks")
-                .push(0)
-                .getObjectArrayElement()
-                .invokeInterface(com.facebook.presto.block.Block.class, "getPositionCount", int.class)
+                .comment("int rows = page.getPositionCount();")
+                .getVariable("page")
+                .invokeVirtual(com.facebook.presto.operator.Page.class, "getPositionCount", int.class)
                 .putVariable(rowsVariable);
 
         List<LocalVariableDefinition> cursorVariables = new ArrayList<>();
-        int channels = Ordering.natural().max(transform(inputTypes.keySet(), Input.channelGetter())) + 1;
+        int channels = inputTypes.isEmpty() ? 0 : Ordering.natural().max(transform(inputTypes.keySet(), Input.channelGetter())) + 1;
         for (int i = 0; i < channels; i++) {
             LocalVariableDefinition cursorVariable = compilerContext.declareVariable(BlockCursor.class, "cursor_" + i);
             cursorVariables.add(cursorVariable);
             filterAndProjectMethod.getBody()
-                    .comment("BlockCursor %s = blocks[%s].cursor();", cursorVariable.getName(), i)
-                    .getVariable("blocks")
+                    .comment("BlockCursor %s = page.getBlock(%s).cursor();", cursorVariable.getName(), i)
+                    .getVariable("page")
                     .push(i)
-                    .getObjectArrayElement()
+                    .invokeVirtual(com.facebook.presto.operator.Page.class, "getBlock", com.facebook.presto.block.Block.class, int.class)
                     .invokeInterface(com.facebook.presto.block.Block.class, "cursor", BlockCursor.class)
                     .putVariable(cursorVariable);
         }
@@ -820,20 +867,20 @@ public class ExpressionCompiler
     private List<NamedParameterDefinition> toTupleReaderParameters(Map<Input, Type> inputTypes)
     {
         ImmutableList.Builder<NamedParameterDefinition> parameters = ImmutableList.builder();
-        int channels = Ordering.natural().max(transform(inputTypes.keySet(), Input.channelGetter())) + 1;
+        int channels = inputTypes.isEmpty() ? 0 : Ordering.natural().max(transform(inputTypes.keySet(), Input.channelGetter())) + 1;
         for (int i = 0; i < channels; i++) {
             parameters.add(arg("channel_" + i, TupleReadable.class));
         }
         return parameters.build();
     }
 
-    private static <T> Class<? extends T> defineClass(ClassDefinition classDefinition, Class<T> superType, DynamicClassLoader classLoader)
+    private <T> Class<? extends T> defineClass(ClassDefinition classDefinition, Class<T> superType, DynamicClassLoader classLoader)
     {
         Class<?> clazz = defineClasses(ImmutableList.of(classDefinition), classLoader).values().iterator().next();
         return clazz.asSubclass(superType);
     }
 
-    private static Map<String, Class<?>> defineClasses(List<ClassDefinition> classDefinitions, DynamicClassLoader classLoader)
+    private Map<String, Class<?>> defineClasses(List<ClassDefinition> classDefinitions, DynamicClassLoader classLoader)
     {
         ClassInfoLoader classInfoLoader = ClassInfoLoader.createClassInfoLoader(classDefinitions, classLoader);
 
@@ -844,7 +891,7 @@ public class ExpressionCompiler
             }
         }
 
-        Map<ParameterizedType, byte[]> byteCodes = new LinkedHashMap<>();
+        Map<String, byte[]> byteCodes = new LinkedHashMap<>();
         for (ClassDefinition classDefinition : classDefinitions) {
             ClassWriter cw = new SmartClassWriter(classInfoLoader);
             classDefinition.visit(cw);
@@ -853,13 +900,13 @@ public class ExpressionCompiler
                 ClassReader reader = new ClassReader(byteCode);
                 CheckClassAdapter.verify(reader, classLoader, true, new PrintWriter(System.out));
             }
-            byteCodes.put(classDefinition.getType(), byteCode);
+            byteCodes.put(classDefinition.getType().getJavaClassName(), byteCode);
         }
 
         String dumpClassPath = DUMP_CLASS_FILES_TO.get();
         if (dumpClassPath != null) {
-            for (Entry<ParameterizedType, byte[]> entry : byteCodes.entrySet()) {
-                File file = new File(dumpClassPath, entry.getKey().getClassName() + ".class");
+            for (Entry<String, byte[]> entry : byteCodes.entrySet()) {
+                File file = new File(dumpClassPath, ParameterizedType.typeFromJavaClassName(entry.getKey()).getClassName() + ".class");
                 try {
                     log.debug("ClassFile: " + file.getAbsolutePath());
                     Files.createParentDirs(file);
@@ -876,7 +923,9 @@ public class ExpressionCompiler
                 classReader.accept(new TraceClassVisitor(new PrintWriter(System.err)), ClassReader.SKIP_FRAMES);
             }
         }
-        return classLoader.defineClasses(byteCodes);
+        Map<String, Class<?>> classes = classLoader.defineClasses(byteCodes);
+        generatedClasses.addAndGet(classes.size());
+        return classes;
     }
 
     private static final class OperatorCacheKey
@@ -884,13 +933,15 @@ public class ExpressionCompiler
         private final Expression filter;
         private final List<Expression> projections;
         private final Map<Input, Type> inputTypes;
+        private final List<Type> outputTypes;
         private final PlanNodeId sourceId;
 
-        private OperatorCacheKey(Expression expression, List<Expression> projections, Map<Input, Type> inputTypes, PlanNodeId sourceId)
+        private OperatorCacheKey(Expression expression, List<Expression> projections, Map<Input, Type> inputTypes, List<Type> outputTypes, PlanNodeId sourceId)
         {
             this.filter = expression;
             this.projections = ImmutableList.copyOf(projections);
-            this.inputTypes = inputTypes;
+            this.inputTypes = ImmutableMap.copyOf(inputTypes);
+            this.outputTypes = ImmutableList.copyOf(outputTypes);
             this.sourceId = sourceId;
         }
 
@@ -907,6 +958,11 @@ public class ExpressionCompiler
         private Map<Input, Type> getInputTypes()
         {
             return inputTypes;
+        }
+
+        public List<Type> getOutputTypes()
+        {
+            return outputTypes;
         }
 
         private PlanNodeId getSourceId()
@@ -929,10 +985,11 @@ public class ExpressionCompiler
             if (obj == null || getClass() != obj.getClass()) {
                 return false;
             }
-            final OperatorCacheKey other = (OperatorCacheKey) obj;
+            OperatorCacheKey other = (OperatorCacheKey) obj;
             return Objects.equal(this.filter, other.filter) &&
                     Objects.equal(this.projections, other.projections) &&
                     Objects.equal(this.inputTypes, other.inputTypes) &&
+                    Objects.equal(this.outputTypes, other.outputTypes) &&
                     Objects.equal(this.sourceId, other.sourceId);
         }
 
@@ -943,6 +1000,7 @@ public class ExpressionCompiler
                     .add("filter", filter)
                     .add("projections", projections)
                     .add("inputTypes", inputTypes)
+                    .add("outputTypes", outputTypes)
                     .add("sourceId", sourceId)
                     .toString();
         }

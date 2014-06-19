@@ -16,11 +16,13 @@ package com.facebook.presto.sql.planner.plan;
 import com.facebook.presto.sql.planner.Symbol;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 
 import javax.annotation.concurrent.Immutable;
 
+import java.util.Iterator;
 import java.util.List;
 
 @Immutable
@@ -29,17 +31,23 @@ public class LimitNode
 {
     private final PlanNode source;
     private final long count;
+    private final Optional<Symbol> sampleWeight;
 
     @JsonCreator
-    public LimitNode(@JsonProperty("id") PlanNodeId id, @JsonProperty("source") PlanNode source, @JsonProperty("count") long count)
+    public LimitNode(@JsonProperty("id") PlanNodeId id, @JsonProperty("source") PlanNode source, @JsonProperty("count") long count, @JsonProperty("sampleWeight") Optional<Symbol> sampleWeight)
     {
         super(id);
 
         Preconditions.checkNotNull(source, "source is null");
         Preconditions.checkArgument(count >= 0, "count must be greater than or equal to zero");
+        Preconditions.checkNotNull(sampleWeight, "sampleWeight is null");
+        if (sampleWeight.isPresent()) {
+            Preconditions.checkArgument(source.getOutputSymbols().contains(sampleWeight.get()), "source does not output sample weight");
+        }
 
         this.source = source;
         this.count = count;
+        this.sampleWeight = sampleWeight;
     }
 
     @Override
@@ -60,6 +68,12 @@ public class LimitNode
         return count;
     }
 
+    @JsonProperty("sampleWeight")
+    public Optional<Symbol> getSampleWeight()
+    {
+        return sampleWeight;
+    }
+
     @Override
     public List<Symbol> getOutputSymbols()
     {
@@ -70,5 +84,17 @@ public class LimitNode
     public <C, R> R accept(PlanVisitor<C, R> visitor, C context)
     {
         return visitor.visitLimit(this, context);
+    }
+
+    public void print(int level)
+    {
+        String prefix = new String();
+        for(int i = 0 ; i <= level ; i ++)
+            prefix += " ";
+        System.out.println(prefix + "--" + this.getClass().getName() + "(" + getId() + "): ");
+        getSource().print(level + 1);
+        prefix += " --";
+        System.out.print(prefix + "count: " + count);
+
     }
 }

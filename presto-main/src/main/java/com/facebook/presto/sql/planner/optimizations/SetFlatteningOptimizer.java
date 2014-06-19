@@ -91,13 +91,13 @@ public class SetFlatteningOptimizer
             boolean distinct = isDistinctOperator(node);
 
             PlanNode rewrittenNode = planRewriter.rewrite(node.getSource(), distinct);
-
+            // check if has the distinct operator, if not, return the original ones
             if (upstreamDistinct && distinct) {
                 // Assumes underlying node has same output symbols as this distinct node
                 return rewrittenNode;
             }
 
-            return new AggregationNode(node.getId(), rewrittenNode, node.getGroupBy(), node.getAggregations(), node.getFunctions());
+            return new AggregationNode(node.getId(), rewrittenNode, node.getGroupBy(), node.getAggregations(), node.getFunctions(), node.getMasks(), node.getSampleWeight(), node.getConfidence());
         }
 
         private static boolean isDistinctOperator(AggregationNode node)
