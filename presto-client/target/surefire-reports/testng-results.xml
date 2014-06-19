@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="com.facebook.presto.client.TestInput" duration-ms="126" started-at="2014-05-07T06:42:02Z" finished-at="2014-05-07T06:42:02Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="126" started-at="2014-05-07T06:42:02Z" finished-at="2014-05-07T06:42:02Z">
+      <class name="com.facebook.presto.client.TestInput">
+        <test-method status="PASS" signature="testRoundTrip()[pri:0, instance:com.facebook.presto.client.TestInput@17dc5237]" name="testRoundTrip" duration-ms="115" started-at="2014-05-07T06:42:02Z" finished-at="2014-05-07T06:42:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRoundTrip -->
+      </class> <!-- com.facebook.presto.client.TestInput -->
+    </test> <!-- Command line test -->
+  </suite> <!-- com.facebook.presto.client.TestInput -->
+</testng-results>

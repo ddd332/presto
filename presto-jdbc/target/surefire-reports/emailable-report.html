@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TestNG:  Unit Test</title>
+<style type="text/css">
+table caption,table.info_table,table.result,table.passed,table.failed {margin-bottom:10px;border:1px solid #000099;border-collapse:collapse;empty-cells:show;}
+table.info_table td,table.info_table th,table.result td,table.result th,table.passed td,table.passed th,table.failed td,table.failed th {
+border:1px solid #000099;padding:.25em .5em .25em .5em
+}
+table.result th {vertical-align:bottom}
+tr.param th {padding-left:1em;padding-right:1em}
+tr.param td {padding-left:.5em;padding-right:2em}
+td.numi,th.numi,td.numi_attn {
+text-align:right
+}
+tr.total td {font-weight:bold}
+table caption {
+text-align:center;font-weight:bold;
+}
+table.passed tr.stripe td,table tr.passedodd td {background-color: #00AA00;}
+table.passed td,table tr.passedeven td {background-color: #33FF33;}
+table.passed tr.stripe td,table tr.skippedodd td {background-color: #cccccc;}
+table.passed td,table tr.skippedodd td {background-color: #dddddd;}
+table.failed tr.stripe td,table tr.failedodd td,table.result td.numi_attn {background-color: #FF3333;}
+table.failed td,table tr.failedeven td,table.result tr.stripe td.numi_attn {background-color: #DD0000;}
+tr.stripe td,tr.stripe th {background-color: #E6EBF9;}
+p.totop {font-size:85%;text-align:center;border-bottom:2px black solid}
+div.shootout {padding:2em;border:3px #4854A8 solid}
+</style>
+</head>
+<body>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
+<tr><td style="text-align:left;padding-right:2em">Command line test</td><td class="numi">6</td><td class="numi">6</td><td class="numi">0</td><td class="numi">0</td><td class="numi">17.5 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+</table>
+<table cellspacing="0" cellpadding="0" class="passed" id="summary">
+<tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Start</th><th>Time<br/>(ms)</th></tr>
+<tr><th colspan="4">Command line test &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="3">com.facebook.presto.jdbc.TestDriver</td><td><a href="#m1"><b>testBadQuery</b>  </a></td><td class="numi">1</td><td>1399446256190</td><td class="numi">596</td></tr><tr class="passedodd"><td><a href="#m2"><b>testConnectionResourceHandling</b>  </a></td><td class="numi">1</td><td>1399446258105</td><td class="numi">4977</td></tr><tr class="passedodd"><td><a href="#m3"><b>testDriverManager</b>  </a></td><td class="numi">1</td><td>1399446264180</td><td class="numi">529</td></tr>
+<tr class="passedeven"><td rowspan="2">com.facebook.presto.jdbc.TestJdbcResultSet</td><td><a href="#m4"><b>testDuplicateColumnLabels</b>  </a></td><td class="numi">1</td><td>1399446266581</td><td class="numi">391</td></tr><tr class="passedeven"><td><a href="#m5"><b>testObjectTypes</b>  </a></td><td class="numi">1</td><td>1399446267832</td><td class="numi">383</td></tr>
+<tr class="passedodd"><td rowspan="1">com.facebook.presto.jdbc.TestDriver</td><td><a href="#m6"><b>testUserIsRequired</b>  </a></td><td class="numi">1</td><td>1399446265632</td><td class="numi">0</td></tr>
+</table>
+<h1>Command line test</h1>
+<h2 id="m1">com.facebook.presto.jdbc.TestDriver:testConnectionResourceHandling</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m2">com.facebook.presto.jdbc.TestJdbcResultSet:testObjectTypes</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m3">com.facebook.presto.jdbc.TestDriver:testDriverManager</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m4">com.facebook.presto.jdbc.TestDriver:testUserIsRequired</h2>
+<div style="padding-left:3em">
+<p>Username property (user) must be set</p>
+com.facebook.presto.jdbc.PrestoDriver.connect(PrestoDriver.java:84)
+<br/>at java.sql.DriverManager.getConnection(DriverManager.java:579)
+<br/>at java.sql.DriverManager.getConnection(DriverManager.java:243)
+<br/>at com.facebook.presto.jdbc.TestDriver.testUserIsRequired(TestDriver.java:125)
+<br/>35 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m5">com.facebook.presto.jdbc.TestJdbcResultSet:testDuplicateColumnLabels</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m6">com.facebook.presto.jdbc.TestDriver:testBadQuery</h2>
+<div style="padding-left:3em">
+<p>Query failed (#20140507_070416_00000_dqa5j): Schema default does not exist</p>
+com.facebook.presto.jdbc.PrestoResultSet.resultsException(PrestoResultSet.java:1568)
+<br/>at com.facebook.presto.jdbc.PrestoResultSet.getColumns(PrestoResultSet.java:1519)
+<br/>at com.facebook.presto.jdbc.PrestoResultSet.&lt;init&gt;(PrestoResultSet.java:78)
+<br/>at com.facebook.presto.jdbc.PrestoStatement.executeQuery(PrestoStatement.java:48)
+<br/>at com.facebook.presto.jdbc.TestDriver.testBadQuery(TestDriver.java:114)
+<br/>35 lines not shown
+<p>Caused by Schema default does not exist</p>
+com.facebook.presto.sql.analyzer.TupleAnalyzer.visitTable(TupleAnalyzer.java:146)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitTable(TupleAnalyzer.java:96)
+<br/>at com.facebook.presto.sql.tree.Table.accept(Table.java:36)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.analyzeFrom(TupleAnalyzer.java:704)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitQuerySpecification(TupleAnalyzer.java:257)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitQuerySpecification(TupleAnalyzer.java:96)
+<br/>at com.facebook.presto.sql.tree.QuerySpecification.accept(QuerySpecification.java:99)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.StatementAnalyzer.visitQuery(StatementAnalyzer.java:439)
+<br/>at com.facebook.presto.sql.analyzer.StatementAnalyzer.visitQuery(StatementAnalyzer.java:86)
+<br/>at com.facebook.presto.sql.tree.Query.accept(Query.java:71)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.Analyzer.analyze(Analyzer.java:50)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.doAnalyzeQuery(SqlQueryExecution.java:198)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.analyzeQuery(SqlQueryExecution.java:183)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.start(SqlQueryExecution.java:142)
+<br/>at com.facebook.presto.execution.SqlQueryManager$QueryStarter.run(SqlQueryManager.java:388)
+<br/>at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+<br/>at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+<br/>at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+<br/>at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+<br/>at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+<br/>at java.lang.Thread.run(Thread.java:722)
+<br/>1 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+</body></html>

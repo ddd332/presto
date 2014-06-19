@@ -1,0 +1,1669 @@
+<html>
+<head>
+<title>TestNG:  Command line test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Command line test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>48/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed May 07 06:42:09 UTC 2014</td>
+</tr>
+<tr><td>Total time:</td><td>1 seconds (1655 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testCurrentTimestamp()'><b>testCurrentTimestamp</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testDate()'><b>testDate</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testDouble()'><b>testDouble</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testDoubleInQuery()'><b>testDoubleInQuery</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testEmptyExpression()'><b>testEmptyExpression</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td><div><pre>com.facebook.presto.sql.parser.ParsingException: line 1:1: no viable alternative at input &apos;&lt;EOF&gt;&apos;
+	at com.facebook.presto.sql.parser.StatementParser.booleanPrimary(StatementParser.java:7174)
+	at com.facebook.presto.sql.parser.StatementParser.booleanTest(StatementParser.java:6955)
+	at com.facebook.presto.sql.parser.StatementParser.notExpression(StatementParser.java:6893)
+	at com.facebook.presto.sql.parser.StatementParser.andExpression(StatementParser.java:6754)
+	at com.facebook.presto.sql.parser.StatementParser.orExpression(StatementParser.java:6647)
+	at com.facebook.presto.sql.parser.StatementParser.expr(StatementParser.java:6581)
+	at com.facebook.presto.sql.parser.StatementParser.singleExpression(StatementParser.java:408)
+	at com.facebook.presto.sql.parser.SqlParser.parseExpression(SqlParser.java:91)
+	at com.facebook.presto.sql.parser.SqlParser.createExpression(SqlParser.java:45)
+	at com.facebook.presto.sql.parser.TestSqlParser.testEmptyExpression(TestSqlParser.java:97)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(-1@[])
+	at com.facebook.presto.sql.parser.StatementParser.booleanPrimary(StatementParser.java:7089)
+	... 43 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1255952461", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1255952461'><pre>com.facebook.presto.sql.parser.ParsingException: line 1:1: no viable alternative at input &apos;&lt;EOF&gt;&apos;
+	at com.facebook.presto.sql.parser.StatementParser.booleanPrimary(StatementParser.java:7174)
+	at com.facebook.presto.sql.parser.StatementParser.booleanTest(StatementParser.java:6955)
+	at com.facebook.presto.sql.parser.StatementParser.notExpression(StatementParser.java:6893)
+	at com.facebook.presto.sql.parser.StatementParser.andExpression(StatementParser.java:6754)
+	at com.facebook.presto.sql.parser.StatementParser.orExpression(StatementParser.java:6647)
+	at com.facebook.presto.sql.parser.StatementParser.expr(StatementParser.java:6581)
+	at com.facebook.presto.sql.parser.StatementParser.singleExpression(StatementParser.java:408)
+	at com.facebook.presto.sql.parser.SqlParser.parseExpression(SqlParser.java:91)
+	at com.facebook.presto.sql.parser.SqlParser.createExpression(SqlParser.java:45)
+	at com.facebook.presto.sql.parser.TestSqlParser.testEmptyExpression(TestSqlParser.java:97)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(-1@[])
+	at com.facebook.presto.sql.parser.StatementParser.booleanPrimary(StatementParser.java:7089)
+	... 43 more
+</pre></div></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testEmptyStatement()'><b>testEmptyStatement</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td><div><pre>com.facebook.presto.sql.parser.ParsingException: line 1:1: no viable alternative at input &apos;&lt;EOF&gt;&apos;
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:873)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testEmptyStatement(TestSqlParser.java:103)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(-1@[])
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:642)
+	... 38 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1176245664", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1176245664'><pre>com.facebook.presto.sql.parser.ParsingException: line 1:1: no viable alternative at input &apos;&lt;EOF&gt;&apos;
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:873)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testEmptyStatement(TestSqlParser.java:103)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(-1@[])
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:642)
+	... 38 more
+</pre></div></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testExpressionWithTrailingJunk()'><b>testExpressionWithTrailingJunk</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td><div><pre>com.facebook.presto.sql.parser.ParsingException: line 1:7: mismatched input &apos;x&apos; expecting EOF
+	at com.facebook.presto.sql.parser.StatementParser.singleExpression(StatementParser.java:454)
+	at com.facebook.presto.sql.parser.SqlParser.parseExpression(SqlParser.java:91)
+	at com.facebook.presto.sql.parser.SqlParser.createExpression(SqlParser.java:45)
+	at com.facebook.presto.sql.parser.TestSqlParser.testExpressionWithTrailingJunk(TestSqlParser.java:109)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: MismatchedTokenException(85!=-1)
+	at com.facebook.presto.sql.parser.StatementParser.recoverFromMismatchedToken(StatementParser.java:263)
+	at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:115)
+	at com.facebook.presto.sql.parser.StatementParser.singleExpression(StatementParser.java:414)
+	... 37 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1573904213", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1573904213'><pre>com.facebook.presto.sql.parser.ParsingException: line 1:7: mismatched input &apos;x&apos; expecting EOF
+	at com.facebook.presto.sql.parser.StatementParser.singleExpression(StatementParser.java:454)
+	at com.facebook.presto.sql.parser.SqlParser.parseExpression(SqlParser.java:91)
+	at com.facebook.presto.sql.parser.SqlParser.createExpression(SqlParser.java:45)
+	at com.facebook.presto.sql.parser.TestSqlParser.testExpressionWithTrailingJunk(TestSqlParser.java:109)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: MismatchedTokenException(85!=-1)
+	at com.facebook.presto.sql.parser.StatementParser.recoverFromMismatchedToken(StatementParser.java:263)
+	at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:115)
+	at com.facebook.presto.sql.parser.StatementParser.singleExpression(StatementParser.java:414)
+	... 37 more
+</pre></div></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testIdentifierWithColon()'><b>testIdentifierWithColon</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td><div><pre>com.facebook.presto.sql.parser.ParsingException: line 1:15: identifiers must not contain a colon; use &apos;@&apos; instead of &apos;:&apos; for table links
+	at com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5509)
+	at com.facebook.presto.sql.parser.StatementParser.tablePrimary(StatementParser.java:5103)
+	at com.facebook.presto.sql.parser.StatementParser.tableFactor(StatementParser.java:4889)
+	at com.facebook.presto.sql.parser.StatementParser.tableRef(StatementParser.java:4315)
+	at com.facebook.presto.sql.parser.StatementParser.fromClause(StatementParser.java:2651)
+	at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2189)
+	at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+	at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+	at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+	at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+	at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testIdentifierWithColon(TestSqlParser.java:175)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(24@[])
+	at com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5443)
+	... 49 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2052027792", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2052027792'><pre>com.facebook.presto.sql.parser.ParsingException: line 1:15: identifiers must not contain a colon; use &apos;@&apos; instead of &apos;:&apos; for table links
+	at com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5509)
+	at com.facebook.presto.sql.parser.StatementParser.tablePrimary(StatementParser.java:5103)
+	at com.facebook.presto.sql.parser.StatementParser.tableFactor(StatementParser.java:4889)
+	at com.facebook.presto.sql.parser.StatementParser.tableRef(StatementParser.java:4315)
+	at com.facebook.presto.sql.parser.StatementParser.fromClause(StatementParser.java:2651)
+	at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2189)
+	at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+	at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+	at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+	at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+	at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testIdentifierWithColon(TestSqlParser.java:175)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(24@[])
+	at com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5443)
+	... 49 more
+</pre></div></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testInterval()'><b>testInterval</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testParseErrorBackquotes()'><b>testParseErrorBackquotes</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td><div><pre>com.facebook.presto.sql.parser.ParsingException: line 1:15: backquoted identifiers are not supported; use double quotes to quote identifiers
+	at com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5509)
+	at com.facebook.presto.sql.parser.StatementParser.tablePrimary(StatementParser.java:5103)
+	at com.facebook.presto.sql.parser.StatementParser.tableFactor(StatementParser.java:4889)
+	at com.facebook.presto.sql.parser.StatementParser.tableRef(StatementParser.java:4315)
+	at com.facebook.presto.sql.parser.StatementParser.fromClause(StatementParser.java:2651)
+	at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2189)
+	at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+	at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+	at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+	at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+	at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorBackquotes(TestSqlParser.java:157)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(12@[])
+	at com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5443)
+	... 49 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1415079679", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1415079679'><pre>com.facebook.presto.sql.parser.ParsingException: line 1:15: backquoted identifiers are not supported; use double quotes to quote identifiers
+	at com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5509)
+	at com.facebook.presto.sql.parser.StatementParser.tablePrimary(StatementParser.java:5103)
+	at com.facebook.presto.sql.parser.StatementParser.tableFactor(StatementParser.java:4889)
+	at com.facebook.presto.sql.parser.StatementParser.tableRef(StatementParser.java:4315)
+	at com.facebook.presto.sql.parser.StatementParser.fromClause(StatementParser.java:2651)
+	at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2189)
+	at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+	at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+	at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+	at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+	at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorBackquotes(TestSqlParser.java:157)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(12@[])
+	at com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5443)
+	... 49 more
+</pre></div></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testParseErrorBackquotesEndOfInput()'><b>testParseErrorBackquotesEndOfInput</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td><div><pre>com.facebook.presto.sql.parser.ParsingException: line 1:19: backquoted identifiers are not supported; use double quotes to quote identifiers
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:365)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorBackquotesEndOfInput(TestSqlParser.java:163)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: MismatchedTokenException(12!=-1)
+	at com.facebook.presto.sql.parser.StatementParser.recoverFromMismatchedToken(StatementParser.java:263)
+	at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:115)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:325)
+	... 37 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2010258075", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2010258075'><pre>com.facebook.presto.sql.parser.ParsingException: line 1:19: backquoted identifiers are not supported; use double quotes to quote identifiers
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:365)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorBackquotesEndOfInput(TestSqlParser.java:163)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: MismatchedTokenException(12!=-1)
+	at com.facebook.presto.sql.parser.StatementParser.recoverFromMismatchedToken(StatementParser.java:263)
+	at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:115)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:325)
+	... 37 more
+</pre></div></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testParseErrorDigitIdentifiers()'><b>testParseErrorDigitIdentifiers</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td><div><pre>com.facebook.presto.sql.parser.ParsingException: line 1:8: identifiers must not start with a digit; surround the identifier with double quotes
+	at com.facebook.presto.sql.parser.StatementParser.selectSublist(StatementParser.java:4245)
+	at com.facebook.presto.sql.parser.StatementParser.selectList(StatementParser.java:3852)
+	at com.facebook.presto.sql.parser.StatementParser.selectExpr(StatementParser.java:3716)
+	at com.facebook.presto.sql.parser.StatementParser.selectClause(StatementParser.java:2547)
+	at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2168)
+	at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+	at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+	at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+	at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+	at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorDigitIdentifiers(TestSqlParser.java:169)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(49@[268:1: selectSublist : ( expr ( ( AS )? ident )? -&gt; ^( SELECT_ITEM expr ( ident )? ) | qname &apos;.&apos; &apos;*&apos; -&gt; ^( ALL_COLUMNS qname ) | &apos;*&apos; -&gt; ALL_COLUMNS );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:116)
+	at com.facebook.presto.sql.parser.StatementParser.selectSublist(StatementParser.java:4003)
+	... 48 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace47248274", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace47248274'><pre>com.facebook.presto.sql.parser.ParsingException: line 1:8: identifiers must not start with a digit; surround the identifier with double quotes
+	at com.facebook.presto.sql.parser.StatementParser.selectSublist(StatementParser.java:4245)
+	at com.facebook.presto.sql.parser.StatementParser.selectList(StatementParser.java:3852)
+	at com.facebook.presto.sql.parser.StatementParser.selectExpr(StatementParser.java:3716)
+	at com.facebook.presto.sql.parser.StatementParser.selectClause(StatementParser.java:2547)
+	at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2168)
+	at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+	at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+	at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+	at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+	at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorDigitIdentifiers(TestSqlParser.java:169)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(49@[268:1: selectSublist : ( expr ( ( AS )? ident )? -&gt; ^( SELECT_ITEM expr ( ident )? ) | qname &apos;.&apos; &apos;*&apos; -&gt; ^( ALL_COLUMNS qname ) | &apos;*&apos; -&gt; ALL_COLUMNS );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:116)
+	at com.facebook.presto.sql.parser.StatementParser.selectSublist(StatementParser.java:4003)
+	... 48 more
+</pre></div></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testParseErrorDualOrderBy()'><b>testParseErrorDualOrderBy</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td><div><pre>com.facebook.presto.sql.parser.ParsingException: line 1:35: no viable alternative at input &apos;order&apos;
+	at com.facebook.presto.sql.parser.StatementParser.ordering(StatementParser.java:10313)
+	at com.facebook.presto.sql.parser.StatementParser.sortItem(StatementParser.java:10078)
+	at com.facebook.presto.sql.parser.StatementParser.orderClause(StatementParser.java:3159)
+	at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1118)
+	at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorDualOrderBy(TestSqlParser.java:181)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(127@[])
+	at com.facebook.presto.sql.parser.StatementParser.ordering(StatementParser.java:10230)
+	... 43 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1680275375", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1680275375'><pre>com.facebook.presto.sql.parser.ParsingException: line 1:35: no viable alternative at input &apos;order&apos;
+	at com.facebook.presto.sql.parser.StatementParser.ordering(StatementParser.java:10313)
+	at com.facebook.presto.sql.parser.StatementParser.sortItem(StatementParser.java:10078)
+	at com.facebook.presto.sql.parser.StatementParser.orderClause(StatementParser.java:3159)
+	at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1118)
+	at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorDualOrderBy(TestSqlParser.java:181)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(127@[])
+	at com.facebook.presto.sql.parser.StatementParser.ordering(StatementParser.java:10230)
+	... 43 more
+</pre></div></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testParseErrorEndOfInput()'><b>testParseErrorEndOfInput</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td><div><pre>com.facebook.presto.sql.parser.ParsingException: line 1:14: no viable alternative at input &apos;&lt;EOF&gt;&apos;
+	at com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5509)
+	at com.facebook.presto.sql.parser.StatementParser.tablePrimary(StatementParser.java:5103)
+	at com.facebook.presto.sql.parser.StatementParser.tableFactor(StatementParser.java:4889)
+	at com.facebook.presto.sql.parser.StatementParser.tableRef(StatementParser.java:4315)
+	at com.facebook.presto.sql.parser.StatementParser.fromClause(StatementParser.java:2651)
+	at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2189)
+	at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+	at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+	at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+	at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+	at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorEndOfInput(TestSqlParser.java:145)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(-1@[])
+	at com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5443)
+	... 49 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace978269575", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace978269575'><pre>com.facebook.presto.sql.parser.ParsingException: line 1:14: no viable alternative at input &apos;&lt;EOF&gt;&apos;
+	at com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5509)
+	at com.facebook.presto.sql.parser.StatementParser.tablePrimary(StatementParser.java:5103)
+	at com.facebook.presto.sql.parser.StatementParser.tableFactor(StatementParser.java:4889)
+	at com.facebook.presto.sql.parser.StatementParser.tableRef(StatementParser.java:4315)
+	at com.facebook.presto.sql.parser.StatementParser.fromClause(StatementParser.java:2651)
+	at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2189)
+	at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+	at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+	at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+	at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+	at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorEndOfInput(TestSqlParser.java:145)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(-1@[])
+	at com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5443)
+	... 49 more
+</pre></div></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testParseErrorEndOfInputWhitespace()'><b>testParseErrorEndOfInputWhitespace</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td><div><pre>com.facebook.presto.sql.parser.ParsingException: line 1:16: no viable alternative at input &apos;&lt;EOF&gt;&apos;
+	at com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5509)
+	at com.facebook.presto.sql.parser.StatementParser.tablePrimary(StatementParser.java:5103)
+	at com.facebook.presto.sql.parser.StatementParser.tableFactor(StatementParser.java:4889)
+	at com.facebook.presto.sql.parser.StatementParser.tableRef(StatementParser.java:4315)
+	at com.facebook.presto.sql.parser.StatementParser.fromClause(StatementParser.java:2651)
+	at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2189)
+	at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+	at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+	at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+	at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+	at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorEndOfInputWhitespace(TestSqlParser.java:151)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(-1@[])
+	at com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5443)
+	... 49 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace641945593", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace641945593'><pre>com.facebook.presto.sql.parser.ParsingException: line 1:16: no viable alternative at input &apos;&lt;EOF&gt;&apos;
+	at com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5509)
+	at com.facebook.presto.sql.parser.StatementParser.tablePrimary(StatementParser.java:5103)
+	at com.facebook.presto.sql.parser.StatementParser.tableFactor(StatementParser.java:4889)
+	at com.facebook.presto.sql.parser.StatementParser.tableRef(StatementParser.java:4315)
+	at com.facebook.presto.sql.parser.StatementParser.fromClause(StatementParser.java:2651)
+	at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2189)
+	at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+	at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+	at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+	at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+	at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorEndOfInputWhitespace(TestSqlParser.java:151)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(-1@[])
+	at com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5443)
+	... 49 more
+</pre></div></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testParseErrorMiddleOfLine()'><b>testParseErrorMiddleOfLine</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td><div><pre>com.facebook.presto.sql.parser.ParsingException: line 3:7: no viable alternative at input &apos;from&apos;
+	at com.facebook.presto.sql.parser.StatementParser.booleanPrimary(StatementParser.java:7174)
+	at com.facebook.presto.sql.parser.StatementParser.booleanTest(StatementParser.java:6955)
+	at com.facebook.presto.sql.parser.StatementParser.notExpression(StatementParser.java:6893)
+	at com.facebook.presto.sql.parser.StatementParser.andExpression(StatementParser.java:6754)
+	at com.facebook.presto.sql.parser.StatementParser.orExpression(StatementParser.java:6647)
+	at com.facebook.presto.sql.parser.StatementParser.expr(StatementParser.java:6581)
+	at com.facebook.presto.sql.parser.StatementParser.whereClause(StatementParser.java:2794)
+	at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2216)
+	at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+	at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+	at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+	at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+	at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorMiddleOfLine(TestSqlParser.java:139)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(73@[])
+	at com.facebook.presto.sql.parser.StatementParser.booleanPrimary(StatementParser.java:7089)
+	... 51 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace221739023", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace221739023'><pre>com.facebook.presto.sql.parser.ParsingException: line 3:7: no viable alternative at input &apos;from&apos;
+	at com.facebook.presto.sql.parser.StatementParser.booleanPrimary(StatementParser.java:7174)
+	at com.facebook.presto.sql.parser.StatementParser.booleanTest(StatementParser.java:6955)
+	at com.facebook.presto.sql.parser.StatementParser.notExpression(StatementParser.java:6893)
+	at com.facebook.presto.sql.parser.StatementParser.andExpression(StatementParser.java:6754)
+	at com.facebook.presto.sql.parser.StatementParser.orExpression(StatementParser.java:6647)
+	at com.facebook.presto.sql.parser.StatementParser.expr(StatementParser.java:6581)
+	at com.facebook.presto.sql.parser.StatementParser.whereClause(StatementParser.java:2794)
+	at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2216)
+	at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+	at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+	at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+	at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+	at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorMiddleOfLine(TestSqlParser.java:139)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(73@[])
+	at com.facebook.presto.sql.parser.StatementParser.booleanPrimary(StatementParser.java:7089)
+	... 51 more
+</pre></div></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testParseErrorReverseOrderByLimit()'><b>testParseErrorReverseOrderByLimit</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td><div><pre>com.facebook.presto.sql.parser.ParsingException: line 1:31: mismatched input &apos;order&apos; expecting EOF
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:365)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorReverseOrderByLimit(TestSqlParser.java:187)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: MismatchedTokenException(127!=-1)
+	at com.facebook.presto.sql.parser.StatementParser.recoverFromMismatchedToken(StatementParser.java:263)
+	at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:115)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:325)
+	... 37 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace883632016", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace883632016'><pre>com.facebook.presto.sql.parser.ParsingException: line 1:31: mismatched input &apos;order&apos; expecting EOF
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:365)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorReverseOrderByLimit(TestSqlParser.java:187)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: MismatchedTokenException(127!=-1)
+	at com.facebook.presto.sql.parser.StatementParser.recoverFromMismatchedToken(StatementParser.java:263)
+	at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:115)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:325)
+	... 37 more
+</pre></div></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testParseErrorStartOfLine()'><b>testParseErrorStartOfLine</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td><div><pre>com.facebook.presto.sql.parser.ParsingException: line 3:1: mismatched input &apos;from&apos; expecting EOF
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:365)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorStartOfLine(TestSqlParser.java:133)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: MismatchedTokenException(73!=-1)
+	at com.facebook.presto.sql.parser.StatementParser.recoverFromMismatchedToken(StatementParser.java:263)
+	at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:115)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:325)
+	... 37 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1353873907", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1353873907'><pre>com.facebook.presto.sql.parser.ParsingException: line 3:1: mismatched input &apos;from&apos; expecting EOF
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:365)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorStartOfLine(TestSqlParser.java:133)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: MismatchedTokenException(73!=-1)
+	at com.facebook.presto.sql.parser.StatementParser.recoverFromMismatchedToken(StatementParser.java:263)
+	at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:115)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:325)
+	... 37 more
+</pre></div></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testParsingExceptionPositionInfo()'><b>testParsingExceptionPositionInfo</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testPossibleExponentialBacktracking()'><b>testPossibleExponentialBacktracking</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementSplitter.testSplitterCustomDelimiters()'><b>testSplitterCustomDelimiters</b><br>Test class: com.facebook.presto.sql.parser.TestStatementSplitter</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementSplitter@269d5241</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementSplitter.testSplitterEmptyInput()'><b>testSplitterEmptyInput</b><br>Test class: com.facebook.presto.sql.parser.TestStatementSplitter</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementSplitter@269d5241</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementSplitter.testSplitterEmptyStatements()'><b>testSplitterEmptyStatements</b><br>Test class: com.facebook.presto.sql.parser.TestStatementSplitter</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementSplitter@269d5241</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementSplitter.testSplitterErrorAfterComplete()'><b>testSplitterErrorAfterComplete</b><br>Test class: com.facebook.presto.sql.parser.TestStatementSplitter</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementSplitter@269d5241</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementSplitter.testSplitterErrorBeforeComplete()'><b>testSplitterErrorBeforeComplete</b><br>Test class: com.facebook.presto.sql.parser.TestStatementSplitter</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementSplitter@269d5241</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementSplitter.testSplitterIncomplete()'><b>testSplitterIncomplete</b><br>Test class: com.facebook.presto.sql.parser.TestStatementSplitter</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementSplitter@269d5241</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementSplitter.testSplitterMultiple()'><b>testSplitterMultiple</b><br>Test class: com.facebook.presto.sql.parser.TestStatementSplitter</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementSplitter@269d5241</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementSplitter.testSplitterMultipleWithEmpty()'><b>testSplitterMultipleWithEmpty</b><br>Test class: com.facebook.presto.sql.parser.TestStatementSplitter</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementSplitter@269d5241</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementSplitter.testSplitterSingle()'><b>testSplitterSingle</b><br>Test class: com.facebook.presto.sql.parser.TestStatementSplitter</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementSplitter@269d5241</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementSplitter.testSplitterWithBackquote()'><b>testSplitterWithBackquote</b><br>Test class: com.facebook.presto.sql.parser.TestStatementSplitter</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementSplitter@269d5241</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementSplitter.testSplitterWithDigitIdentifier()'><b>testSplitterWithDigitIdentifier</b><br>Test class: com.facebook.presto.sql.parser.TestStatementSplitter</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementSplitter@269d5241</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementSplitter.testSplitterWithEscapedSingleQuote()'><b>testSplitterWithEscapedSingleQuote</b><br>Test class: com.facebook.presto.sql.parser.TestStatementSplitter</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementSplitter@269d5241</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementSplitter.testSplitterWithIncompleteQuotedString()'><b>testSplitterWithIncompleteQuotedString</b><br>Test class: com.facebook.presto.sql.parser.TestStatementSplitter</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementSplitter@269d5241</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementSplitter.testSplitterWithQuotedIdentifier()'><b>testSplitterWithQuotedIdentifier</b><br>Test class: com.facebook.presto.sql.parser.TestStatementSplitter</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementSplitter@269d5241</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementSplitter.testSplitterWithQuotedString()'><b>testSplitterWithQuotedString</b><br>Test class: com.facebook.presto.sql.parser.TestStatementSplitter</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementSplitter@269d5241</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementSplitter.testSqueezeStatement()'><b>testSqueezeStatement</b><br>Test class: com.facebook.presto.sql.parser.TestStatementSplitter</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementSplitter@269d5241</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementSplitter.testSqueezeStatementAlternateDelimiter()'><b>testSqueezeStatementAlternateDelimiter</b><br>Test class: com.facebook.presto.sql.parser.TestStatementSplitter</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementSplitter@269d5241</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementSplitter.testSqueezeStatementError()'><b>testSqueezeStatementError</b><br>Test class: com.facebook.presto.sql.parser.TestStatementSplitter</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementSplitter@269d5241</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementSplitter.testSqueezeStatementWithBackquote()'><b>testSqueezeStatementWithBackquote</b><br>Test class: com.facebook.presto.sql.parser.TestStatementSplitter</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementSplitter@269d5241</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementSplitter.testSqueezeStatementWithIncompleteQuotedString()'><b>testSqueezeStatementWithIncompleteQuotedString</b><br>Test class: com.facebook.presto.sql.parser.TestStatementSplitter</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementSplitter@269d5241</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testStackOverflowExpression()'><b>testStackOverflowExpression</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td><div><pre>com.facebook.presto.sql.parser.ParsingException: line 1:1: expression is too large (stack overflow while parsing)
+	at com.facebook.presto.sql.parser.SqlParser.createExpression(SqlParser.java:48)
+	at com.facebook.presto.sql.parser.TestSqlParser.testStackOverflowExpression(TestSqlParser.java:244)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: org.antlr.runtime.RecognitionException
+	at com.facebook.presto.sql.parser.ParsingException.&lt;init&gt;(ParsingException.java:31)
+	... 36 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1156127351", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1156127351'><pre>com.facebook.presto.sql.parser.ParsingException: line 1:1: expression is too large (stack overflow while parsing)
+	at com.facebook.presto.sql.parser.SqlParser.createExpression(SqlParser.java:48)
+	at com.facebook.presto.sql.parser.TestSqlParser.testStackOverflowExpression(TestSqlParser.java:244)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: org.antlr.runtime.RecognitionException
+	at com.facebook.presto.sql.parser.ParsingException.&lt;init&gt;(ParsingException.java:31)
+	... 36 more
+</pre></div></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testStackOverflowStatement()'><b>testStackOverflowStatement</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td><div><pre>com.facebook.presto.sql.parser.ParsingException: line 1:1: statement is too large (stack overflow while parsing)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:38)
+	at com.facebook.presto.sql.parser.TestSqlParser.testStackOverflowStatement(TestSqlParser.java:250)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: org.antlr.runtime.RecognitionException
+	at com.facebook.presto.sql.parser.ParsingException.&lt;init&gt;(ParsingException.java:31)
+	... 36 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace600350201", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace600350201'><pre>com.facebook.presto.sql.parser.ParsingException: line 1:1: statement is too large (stack overflow while parsing)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:38)
+	at com.facebook.presto.sql.parser.TestSqlParser.testStackOverflowStatement(TestSqlParser.java:250)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: org.antlr.runtime.RecognitionException
+	at com.facebook.presto.sql.parser.ParsingException.&lt;init&gt;(ParsingException.java:31)
+	... 36 more
+</pre></div></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementBuilder.testStatementBuilder()'><b>testStatementBuilder</b><br>Test class: com.facebook.presto.sql.parser.TestStatementBuilder</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementBuilder@7d365e01</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestStatementBuilder.testStatementBuilderTpch()'><b>testStatementBuilderTpch</b><br>Test class: com.facebook.presto.sql.parser.TestStatementBuilder</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestStatementBuilder@7d365e01</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testTime()'><b>testTime</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testTokenizeErrorIncompleteToken()'><b>testTokenizeErrorIncompleteToken</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td><div><pre>com.facebook.presto.sql.parser.ParsingException: line 1:20: mismatched character &apos;&lt;EOF&gt;&apos; expecting &apos;&apos;&apos;
+	at com.facebook.presto.sql.parser.StatementLexer.reportError(StatementLexer.java:223)
+	at org.antlr.runtime.Lexer.nextToken(Lexer.java:103)
+	at org.antlr.runtime.BufferedTokenStream.fetch(BufferedTokenStream.java:133)
+	at org.antlr.runtime.BufferedTokenStream.sync(BufferedTokenStream.java:127)
+	at org.antlr.runtime.CommonTokenStream.consume(CommonTokenStream.java:70)
+	at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:106)
+	at com.facebook.presto.sql.parser.StatementParser.fromClause(StatementParser.java:2646)
+	at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2189)
+	at com.facebook.presto.sql.parser.StatementParser.orderOrLimitQuerySpec(StatementParser.java:1224)
+	at com.facebook.presto.sql.parser.StatementParser.synpred1_Statement_fragment(StatementParser.java:20031)
+	at com.facebook.presto.sql.parser.StatementParser.synpred1_Statement(StatementParser.java:20105)
+	at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1049)
+	at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testTokenizeErrorIncompleteToken(TestSqlParser.java:127)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: MismatchedTokenException(-1!=39)
+	at org.antlr.runtime.Lexer.match(Lexer.java:197)
+	at com.facebook.presto.sql.parser.StatementLexer.mSTRING(StatementLexer.java:3374)
+	at com.facebook.presto.sql.parser.StatementLexer.mTokens(StatementLexer.java:5826)
+	at org.antlr.runtime.Lexer.nextToken(Lexer.java:89)
+	... 50 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1072316483", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1072316483'><pre>com.facebook.presto.sql.parser.ParsingException: line 1:20: mismatched character &apos;&lt;EOF&gt;&apos; expecting &apos;&apos;&apos;
+	at com.facebook.presto.sql.parser.StatementLexer.reportError(StatementLexer.java:223)
+	at org.antlr.runtime.Lexer.nextToken(Lexer.java:103)
+	at org.antlr.runtime.BufferedTokenStream.fetch(BufferedTokenStream.java:133)
+	at org.antlr.runtime.BufferedTokenStream.sync(BufferedTokenStream.java:127)
+	at org.antlr.runtime.CommonTokenStream.consume(CommonTokenStream.java:70)
+	at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:106)
+	at com.facebook.presto.sql.parser.StatementParser.fromClause(StatementParser.java:2646)
+	at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2189)
+	at com.facebook.presto.sql.parser.StatementParser.orderOrLimitQuerySpec(StatementParser.java:1224)
+	at com.facebook.presto.sql.parser.StatementParser.synpred1_Statement_fragment(StatementParser.java:20031)
+	at com.facebook.presto.sql.parser.StatementParser.synpred1_Statement(StatementParser.java:20105)
+	at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1049)
+	at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testTokenizeErrorIncompleteToken(TestSqlParser.java:127)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: MismatchedTokenException(-1!=39)
+	at org.antlr.runtime.Lexer.match(Lexer.java:197)
+	at com.facebook.presto.sql.parser.StatementLexer.mSTRING(StatementLexer.java:3374)
+	at com.facebook.presto.sql.parser.StatementLexer.mTokens(StatementLexer.java:5826)
+	at org.antlr.runtime.Lexer.nextToken(Lexer.java:89)
+	... 50 more
+</pre></div></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testTokenizeErrorMiddleOfLine()'><b>testTokenizeErrorMiddleOfLine</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td><div><pre>com.facebook.presto.sql.parser.ParsingException: line 1:25: no viable alternative at character &apos;@&apos;
+	at com.facebook.presto.sql.parser.StatementLexer.reportError(StatementLexer.java:223)
+	at org.antlr.runtime.Lexer.nextToken(Lexer.java:107)
+	at org.antlr.runtime.BufferedTokenStream.fetch(BufferedTokenStream.java:133)
+	at org.antlr.runtime.BufferedTokenStream.sync(BufferedTokenStream.java:127)
+	at org.antlr.runtime.CommonTokenStream.consume(CommonTokenStream.java:70)
+	at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:106)
+	at com.facebook.presto.sql.parser.StatementParser.whereClause(StatementParser.java:2789)
+	at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2216)
+	at com.facebook.presto.sql.parser.StatementParser.orderOrLimitQuerySpec(StatementParser.java:1224)
+	at com.facebook.presto.sql.parser.StatementParser.synpred1_Statement_fragment(StatementParser.java:20031)
+	at com.facebook.presto.sql.parser.StatementParser.synpred1_Statement(StatementParser.java:20105)
+	at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1049)
+	at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testTokenizeErrorMiddleOfLine(TestSqlParser.java:121)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(&apos;@&apos;@[1:1: Tokens : ( T__199 | T__200 | T__201 | T__202 | T__203 | T__204 | T__205 | T__206 | T__207 | T__208 | SELECT | FROM | AS | ALL | DISTINCT | WHERE | GROUP | BY | ORDER | HAVING | LIMIT | OR | AND | IN | NOT | EXISTS | BETWEEN | LIKE | IS | NULL | TRUE | FALSE | NULLS | FIRST | LAST | ESCAPE | ASC | DESC | SUBSTRING | FOR | DATE | TIME | TIMESTAMP | INTERVAL | YEAR | MONTH | DAY | HOUR | MINUTE | SECOND | CURRENT_DATE | CURRENT_TIME | CURRENT_TIMESTAMP | EXTRACT | COALESCE | NULLIF | CASE | WHEN | THEN | ELSE | END | IF | JOIN | CROSS | OUTER | INNER | LEFT | RIGHT | FULL | NATURAL | USING | ON | OVER | PARTITION | RANGE | ROWS | UNBOUNDED | PRECEDING | FOLLOWING | CURRENT | ROW | WITH | RECURSIVE | CREATE | TABLE | CHAR | CHARACTER | VARYING | VARCHAR | NUMERIC | NUMBER | DECIMAL | DEC | INTEGER | INT | DOUBLE | BIGINT | BOOLEAN | CONSTRAINT | DESCRIBE | EXPLAIN | FORMAT | TYPE | TEXT | GRAPHVIZ | LOGICAL | DISTRIBUTED | CAST | SHOW | TABLES | SCHEMAS | CATALOGS | COLUMNS | PARTITIONS | FUNCTIONS | MATERIALIZED | VIEW | REFRESH | DROP | ALIAS | UNION | EXCEPT | INTERSECT | SYSTEM | BERNOULLI | TABLESAMPLE | STRATIFY | EQ | NEQ | LT | LTE | GT | GTE | STRING | INTEGER_VALUE | DECIMAL_VALUE | IDENT | DIGIT_IDENT | QUOTED_IDENT | BACKQUOTED_IDENT | COLON_IDENT | COMMENT | WS );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:116)
+	at com.facebook.presto.sql.parser.StatementLexer.mTokens(StatementLexer.java:4757)
+	at org.antlr.runtime.Lexer.nextToken(Lexer.java:89)
+	... 50 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace740364157", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace740364157'><pre>com.facebook.presto.sql.parser.ParsingException: line 1:25: no viable alternative at character &apos;@&apos;
+	at com.facebook.presto.sql.parser.StatementLexer.reportError(StatementLexer.java:223)
+	at org.antlr.runtime.Lexer.nextToken(Lexer.java:107)
+	at org.antlr.runtime.BufferedTokenStream.fetch(BufferedTokenStream.java:133)
+	at org.antlr.runtime.BufferedTokenStream.sync(BufferedTokenStream.java:127)
+	at org.antlr.runtime.CommonTokenStream.consume(CommonTokenStream.java:70)
+	at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:106)
+	at com.facebook.presto.sql.parser.StatementParser.whereClause(StatementParser.java:2789)
+	at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2216)
+	at com.facebook.presto.sql.parser.StatementParser.orderOrLimitQuerySpec(StatementParser.java:1224)
+	at com.facebook.presto.sql.parser.StatementParser.synpred1_Statement_fragment(StatementParser.java:20031)
+	at com.facebook.presto.sql.parser.StatementParser.synpred1_Statement(StatementParser.java:20105)
+	at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1049)
+	at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+	at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testTokenizeErrorMiddleOfLine(TestSqlParser.java:121)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(&apos;@&apos;@[1:1: Tokens : ( T__199 | T__200 | T__201 | T__202 | T__203 | T__204 | T__205 | T__206 | T__207 | T__208 | SELECT | FROM | AS | ALL | DISTINCT | WHERE | GROUP | BY | ORDER | HAVING | LIMIT | OR | AND | IN | NOT | EXISTS | BETWEEN | LIKE | IS | NULL | TRUE | FALSE | NULLS | FIRST | LAST | ESCAPE | ASC | DESC | SUBSTRING | FOR | DATE | TIME | TIMESTAMP | INTERVAL | YEAR | MONTH | DAY | HOUR | MINUTE | SECOND | CURRENT_DATE | CURRENT_TIME | CURRENT_TIMESTAMP | EXTRACT | COALESCE | NULLIF | CASE | WHEN | THEN | ELSE | END | IF | JOIN | CROSS | OUTER | INNER | LEFT | RIGHT | FULL | NATURAL | USING | ON | OVER | PARTITION | RANGE | ROWS | UNBOUNDED | PRECEDING | FOLLOWING | CURRENT | ROW | WITH | RECURSIVE | CREATE | TABLE | CHAR | CHARACTER | VARYING | VARCHAR | NUMERIC | NUMBER | DECIMAL | DEC | INTEGER | INT | DOUBLE | BIGINT | BOOLEAN | CONSTRAINT | DESCRIBE | EXPLAIN | FORMAT | TYPE | TEXT | GRAPHVIZ | LOGICAL | DISTRIBUTED | CAST | SHOW | TABLES | SCHEMAS | CATALOGS | COLUMNS | PARTITIONS | FUNCTIONS | MATERIALIZED | VIEW | REFRESH | DROP | ALIAS | UNION | EXCEPT | INTERSECT | SYSTEM | BERNOULLI | TABLESAMPLE | STRATIFY | EQ | NEQ | LT | LTE | GT | GTE | STRING | INTEGER_VALUE | DECIMAL_VALUE | IDENT | DIGIT_IDENT | QUOTED_IDENT | BACKQUOTED_IDENT | COLON_IDENT | COMMENT | WS );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:116)
+	at com.facebook.presto.sql.parser.StatementLexer.mTokens(StatementLexer.java:4757)
+	at org.antlr.runtime.Lexer.nextToken(Lexer.java:89)
+	... 50 more
+</pre></div></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+<tr>
+<td title='com.facebook.presto.sql.parser.TestSqlParser.testTokenizeErrorStartOfLine()'><b>testTokenizeErrorStartOfLine</b><br>Test class: com.facebook.presto.sql.parser.TestSqlParser</td>
+<td><div><pre>com.facebook.presto.sql.parser.ParsingException: line 1:1: no viable alternative at character &apos;@&apos;
+	at com.facebook.presto.sql.parser.StatementLexer.reportError(StatementLexer.java:223)
+	at org.antlr.runtime.Lexer.nextToken(Lexer.java:107)
+	at org.antlr.runtime.BufferedTokenStream.fetch(BufferedTokenStream.java:133)
+	at org.antlr.runtime.BufferedTokenStream.sync(BufferedTokenStream.java:127)
+	at org.antlr.runtime.CommonTokenStream.setup(CommonTokenStream.java:132)
+	at org.antlr.runtime.CommonTokenStream.LT(CommonTokenStream.java:91)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:299)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testTokenizeErrorStartOfLine(TestSqlParser.java:115)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(&apos;@&apos;@[1:1: Tokens : ( T__199 | T__200 | T__201 | T__202 | T__203 | T__204 | T__205 | T__206 | T__207 | T__208 | SELECT | FROM | AS | ALL | DISTINCT | WHERE | GROUP | BY | ORDER | HAVING | LIMIT | OR | AND | IN | NOT | EXISTS | BETWEEN | LIKE | IS | NULL | TRUE | FALSE | NULLS | FIRST | LAST | ESCAPE | ASC | DESC | SUBSTRING | FOR | DATE | TIME | TIMESTAMP | INTERVAL | YEAR | MONTH | DAY | HOUR | MINUTE | SECOND | CURRENT_DATE | CURRENT_TIME | CURRENT_TIMESTAMP | EXTRACT | COALESCE | NULLIF | CASE | WHEN | THEN | ELSE | END | IF | JOIN | CROSS | OUTER | INNER | LEFT | RIGHT | FULL | NATURAL | USING | ON | OVER | PARTITION | RANGE | ROWS | UNBOUNDED | PRECEDING | FOLLOWING | CURRENT | ROW | WITH | RECURSIVE | CREATE | TABLE | CHAR | CHARACTER | VARYING | VARCHAR | NUMERIC | NUMBER | DECIMAL | DEC | INTEGER | INT | DOUBLE | BIGINT | BOOLEAN | CONSTRAINT | DESCRIBE | EXPLAIN | FORMAT | TYPE | TEXT | GRAPHVIZ | LOGICAL | DISTRIBUTED | CAST | SHOW | TABLES | SCHEMAS | CATALOGS | COLUMNS | PARTITIONS | FUNCTIONS | MATERIALIZED | VIEW | REFRESH | DROP | ALIAS | UNION | EXCEPT | INTERSECT | SYSTEM | BERNOULLI | TABLESAMPLE | STRATIFY | EQ | NEQ | LT | LTE | GT | GTE | STRING | INTEGER_VALUE | DECIMAL_VALUE | IDENT | DIGIT_IDENT | QUOTED_IDENT | BACKQUOTED_IDENT | COLON_IDENT | COMMENT | WS );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:116)
+	at com.facebook.presto.sql.parser.StatementLexer.mTokens(StatementLexer.java:4757)
+	at org.antlr.runtime.Lexer.nextToken(Lexer.java:89)
+	... 42 more
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace780135981", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace780135981'><pre>com.facebook.presto.sql.parser.ParsingException: line 1:1: no viable alternative at character &apos;@&apos;
+	at com.facebook.presto.sql.parser.StatementLexer.reportError(StatementLexer.java:223)
+	at org.antlr.runtime.Lexer.nextToken(Lexer.java:107)
+	at org.antlr.runtime.BufferedTokenStream.fetch(BufferedTokenStream.java:133)
+	at org.antlr.runtime.BufferedTokenStream.sync(BufferedTokenStream.java:127)
+	at org.antlr.runtime.CommonTokenStream.setup(CommonTokenStream.java:132)
+	at org.antlr.runtime.CommonTokenStream.LT(CommonTokenStream.java:91)
+	at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:299)
+	at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+	at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+	at com.facebook.presto.sql.parser.TestSqlParser.testTokenizeErrorStartOfLine(TestSqlParser.java:115)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+Caused by: NoViableAltException(&apos;@&apos;@[1:1: Tokens : ( T__199 | T__200 | T__201 | T__202 | T__203 | T__204 | T__205 | T__206 | T__207 | T__208 | SELECT | FROM | AS | ALL | DISTINCT | WHERE | GROUP | BY | ORDER | HAVING | LIMIT | OR | AND | IN | NOT | EXISTS | BETWEEN | LIKE | IS | NULL | TRUE | FALSE | NULLS | FIRST | LAST | ESCAPE | ASC | DESC | SUBSTRING | FOR | DATE | TIME | TIMESTAMP | INTERVAL | YEAR | MONTH | DAY | HOUR | MINUTE | SECOND | CURRENT_DATE | CURRENT_TIME | CURRENT_TIMESTAMP | EXTRACT | COALESCE | NULLIF | CASE | WHEN | THEN | ELSE | END | IF | JOIN | CROSS | OUTER | INNER | LEFT | RIGHT | FULL | NATURAL | USING | ON | OVER | PARTITION | RANGE | ROWS | UNBOUNDED | PRECEDING | FOLLOWING | CURRENT | ROW | WITH | RECURSIVE | CREATE | TABLE | CHAR | CHARACTER | VARYING | VARCHAR | NUMERIC | NUMBER | DECIMAL | DEC | INTEGER | INT | DOUBLE | BIGINT | BOOLEAN | CONSTRAINT | DESCRIBE | EXPLAIN | FORMAT | TYPE | TEXT | GRAPHVIZ | LOGICAL | DISTRIBUTED | CAST | SHOW | TABLES | SCHEMAS | CATALOGS | COLUMNS | PARTITIONS | FUNCTIONS | MATERIALIZED | VIEW | REFRESH | DROP | ALIAS | UNION | EXCEPT | INTERSECT | SYSTEM | BERNOULLI | TABLESAMPLE | STRATIFY | EQ | NEQ | LT | LTE | GT | GTE | STRING | INTEGER_VALUE | DECIMAL_VALUE | IDENT | DIGIT_IDENT | QUOTED_IDENT | BACKQUOTED_IDENT | COLON_IDENT | COMMENT | WS );])
+	at org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+	at org.antlr.runtime.DFA.predict(DFA.java:116)
+	at com.facebook.presto.sql.parser.StatementLexer.mTokens(StatementLexer.java:4757)
+	at org.antlr.runtime.Lexer.nextToken(Lexer.java:89)
+	... 42 more
+</pre></div></td>
+<td>0</td>
+<td>com.facebook.presto.sql.parser.TestSqlParser@66c9153e</td></tr>
+</table><p>
+</body>
+</html>

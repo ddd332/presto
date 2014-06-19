@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/presto-cli" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/presto-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/presto-docs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/presto-example-http" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/presto-hive" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/presto-hive-cdh4" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/presto-hive-hadoop1" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/presto-jdbc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/presto-main" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/presto-parser" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/presto-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/presto-spi" charset="UTF-8" />
+  </component>
+</project>
+

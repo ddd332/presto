@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="20" passed="20">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Command line suite" duration-ms="99" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="99" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+      <class name="com.facebook.presto.cli.TestCsvPrinter">
+        <test-method status="PASS" signature="testCsvPrinting()[pri:0, instance:com.facebook.presto.cli.TestCsvPrinter@18de9738]" name="testCsvPrinting" duration-ms="4" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCsvPrinting -->
+        <test-method status="PASS" signature="testCsvPrintingNoHeader()[pri:0, instance:com.facebook.presto.cli.TestCsvPrinter@18de9738]" name="testCsvPrintingNoHeader" duration-ms="0" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCsvPrintingNoHeader -->
+        <test-method status="PASS" signature="testCsvPrintingNoRows()[pri:0, instance:com.facebook.presto.cli.TestCsvPrinter@18de9738]" name="testCsvPrintingNoRows" duration-ms="0" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCsvPrintingNoRows -->
+      </class> <!-- com.facebook.presto.cli.TestCsvPrinter -->
+      <class name="com.facebook.presto.cli.TestTsvPrinter">
+        <test-method status="PASS" signature="testTsvPrinting()[pri:0, instance:com.facebook.presto.cli.TestTsvPrinter@2d8dea20]" name="testTsvPrinting" duration-ms="1" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testTsvPrinting -->
+        <test-method status="PASS" signature="testTsvPrintingNoHeader()[pri:0, instance:com.facebook.presto.cli.TestTsvPrinter@2d8dea20]" name="testTsvPrintingNoHeader" duration-ms="0" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testTsvPrintingNoHeader -->
+        <test-method status="PASS" signature="testTsvPrintingNoRows()[pri:0, instance:com.facebook.presto.cli.TestTsvPrinter@2d8dea20]" name="testTsvPrintingNoRows" duration-ms="0" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testTsvPrintingNoRows -->
+      </class> <!-- com.facebook.presto.cli.TestTsvPrinter -->
+      <class name="com.facebook.presto.cli.TestAlignedTuplePrinter">
+        <test-method status="PASS" signature="testAlignedPrinting()[pri:0, instance:com.facebook.presto.cli.TestAlignedTuplePrinter@576a13d5]" name="testAlignedPrinting" duration-ms="57" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAlignedPrinting -->
+        <test-method status="PASS" signature="testAlignedPrintingNoRows()[pri:0, instance:com.facebook.presto.cli.TestAlignedTuplePrinter@576a13d5]" name="testAlignedPrintingNoRows" duration-ms="0" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAlignedPrintingNoRows -->
+        <test-method status="PASS" signature="testAlignedPrintingOneRow()[pri:0, instance:com.facebook.presto.cli.TestAlignedTuplePrinter@576a13d5]" name="testAlignedPrintingOneRow" duration-ms="1" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAlignedPrintingOneRow -->
+      </class> <!-- com.facebook.presto.cli.TestAlignedTuplePrinter -->
+      <class name="com.facebook.presto.cli.TestVerticalTuplePrinter">
+        <test-method status="PASS" signature="testVerticalLongName()[pri:0, instance:com.facebook.presto.cli.TestVerticalTuplePrinter@2a4640]" name="testVerticalLongName" duration-ms="1" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testVerticalLongName -->
+        <test-method status="PASS" signature="testVerticalLongerName()[pri:0, instance:com.facebook.presto.cli.TestVerticalTuplePrinter@2a4640]" name="testVerticalLongerName" duration-ms="0" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testVerticalLongerName -->
+        <test-method status="PASS" signature="testVerticalPrinting()[pri:0, instance:com.facebook.presto.cli.TestVerticalTuplePrinter@2a4640]" name="testVerticalPrinting" duration-ms="1" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testVerticalPrinting -->
+        <test-method status="PASS" signature="testVerticalPrintingNoRows()[pri:0, instance:com.facebook.presto.cli.TestVerticalTuplePrinter@2a4640]" name="testVerticalPrintingNoRows" duration-ms="1" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testVerticalPrintingNoRows -->
+        <test-method status="PASS" signature="testVerticalShortName()[pri:0, instance:com.facebook.presto.cli.TestVerticalTuplePrinter@2a4640]" name="testVerticalShortName" duration-ms="0" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testVerticalShortName -->
+      </class> <!-- com.facebook.presto.cli.TestVerticalTuplePrinter -->
+      <class name="com.facebook.presto.cli.TestClientOptions">
+        <test-method status="PASS" signature="testDefault()[pri:0, instance:com.facebook.presto.cli.TestClientOptions@42e87d99]" name="testDefault" duration-ms="4" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDefault -->
+        <test-method status="PASS" signature="testInvalidServer()[pri:0, instance:com.facebook.presto.cli.TestClientOptions@42e87d99]" name="testInvalidServer" duration-ms="0" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+          <exception class="java.lang.IllegalArgumentException">
+            <message>
+              <![CDATA[Unparseable port number: x:y]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IllegalArgumentException: Unparseable port number: x:y
+	at com.google.common.net.HostAndPort.fromString(HostAndPort.java:181)
+	at com.facebook.presto.cli.ClientOptions.parseServer(ClientOptions.java:71)
+	at com.facebook.presto.cli.ClientOptions.toClientSession(ClientOptions.java:61)
+	at com.facebook.presto.cli.TestClientOptions.testInvalidServer(TestClientOptions.java:71)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IllegalArgumentException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInvalidServer -->
+        <test-method status="PASS" signature="testServerHostOnly()[pri:0, instance:com.facebook.presto.cli.TestClientOptions@42e87d99]" name="testServerHostOnly" duration-ms="0" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testServerHostOnly -->
+        <test-method status="PASS" signature="testServerHostPort()[pri:0, instance:com.facebook.presto.cli.TestClientOptions@42e87d99]" name="testServerHostPort" duration-ms="0" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testServerHostPort -->
+        <test-method status="PASS" signature="testServerHttpUri()[pri:0, instance:com.facebook.presto.cli.TestClientOptions@42e87d99]" name="testServerHttpUri" duration-ms="0" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testServerHttpUri -->
+        <test-method status="PASS" signature="testServerHttpsUri()[pri:0, instance:com.facebook.presto.cli.TestClientOptions@42e87d99]" name="testServerHttpsUri" duration-ms="0" started-at="2014-05-07T07:04:50Z" finished-at="2014-05-07T07:04:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testServerHttpsUri -->
+      </class> <!-- com.facebook.presto.cli.TestClientOptions -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>

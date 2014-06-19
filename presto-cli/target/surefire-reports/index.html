@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-Command_line_suite">
+              <span class="suite-name border-passed">Command line suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Command_line_suite">
+                    <span>[unset file name]</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-Command_line_suite">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-Command_line_suite">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-Command_line_suite">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-Command_line_suite">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Command_line_suite">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-Command_line_suite">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">20 methods,   20 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Command_line_suite" class="hide-methods passed suite-Command_line_suite"> (hide)</a> <!-- hide-methods passed suite-Command_line_suite -->
+                      <a href="#" panel-name="suite-Command_line_suite" class="show-methods passed suite-Command_line_suite"> (show)</a> <!-- show-methods passed suite-Command_line_suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Command_line_suite">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.facebook.presto.cli.TestAlignedTuplePrinter" hash-for-method="testAlignedPrinting">testAlignedPrinting</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.facebook.presto.cli.TestAlignedTuplePrinter" hash-for-method="testAlignedPrintingNoRows">testAlignedPrintingNoRows</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.facebook.presto.cli.TestAlignedTuplePrinter" hash-for-method="testAlignedPrintingOneRow">testAlignedPrintingOneRow</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.facebook.presto.cli.TestCsvPrinter" hash-for-method="testCsvPrinting">testCsvPrinting</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.facebook.presto.cli.TestCsvPrinter" hash-for-method="testCsvPrintingNoHeader">testCsvPrintingNoHeader</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.facebook.presto.cli.TestCsvPrinter" hash-for-method="testCsvPrintingNoRows">testCsvPrintingNoRows</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.facebook.presto.cli.TestClientOptions" hash-for-method="testDefault">testDefault</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.facebook.presto.cli.TestClientOptions" hash-for-method="testInvalidServer">testInvalidServer</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.facebook.presto.cli.TestClientOptions" hash-for-method="testServerHostOnly">testServerHostOnly</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.facebook.presto.cli.TestClientOptions" hash-for-method="testServerHostPort">testServerHostPort</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.facebook.presto.cli.TestClientOptions" hash-for-method="testServerHttpUri">testServerHttpUri</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.facebook.presto.cli.TestClientOptions" hash-for-method="testServerHttpsUri">testServerHttpsUri</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.facebook.presto.cli.TestTsvPrinter" hash-for-method="testTsvPrinting">testTsvPrinting</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.facebook.presto.cli.TestTsvPrinter" hash-for-method="testTsvPrintingNoHeader">testTsvPrintingNoHeader</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.facebook.presto.cli.TestTsvPrinter" hash-for-method="testTsvPrintingNoRows">testTsvPrintingNoRows</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.facebook.presto.cli.TestVerticalTuplePrinter" hash-for-method="testVerticalLongName">testVerticalLongName</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.facebook.presto.cli.TestVerticalTuplePrinter" hash-for-method="testVerticalLongerName">testVerticalLongerName</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.facebook.presto.cli.TestVerticalTuplePrinter" hash-for-method="testVerticalPrinting">testVerticalPrinting</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.facebook.presto.cli.TestVerticalTuplePrinter" hash-for-method="testVerticalPrintingNoRows">testVerticalPrintingNoRows</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Command_line_suite" title="com.facebook.presto.cli.TestVerticalTuplePrinter" hash-for-method="testVerticalShortName">testVerticalShortName</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Command_line_suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Command_line_suite" class="panel Command_line_suite">
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.facebook.presto.cli.TestCsvPrinter</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCsvPrinting">
+                  </a> <!-- testCsvPrinting -->
+                  <span class="method-name">testCsvPrinting</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCsvPrintingNoHeader">
+                  </a> <!-- testCsvPrintingNoHeader -->
+                  <span class="method-name">testCsvPrintingNoHeader</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCsvPrintingNoRows">
+                  </a> <!-- testCsvPrintingNoRows -->
+                  <span class="method-name">testCsvPrintingNoRows</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.facebook.presto.cli.TestVerticalTuplePrinter</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testVerticalLongName">
+                  </a> <!-- testVerticalLongName -->
+                  <span class="method-name">testVerticalLongName</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testVerticalLongerName">
+                  </a> <!-- testVerticalLongerName -->
+                  <span class="method-name">testVerticalLongerName</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testVerticalPrinting">
+                  </a> <!-- testVerticalPrinting -->
+                  <span class="method-name">testVerticalPrinting</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testVerticalPrintingNoRows">
+                  </a> <!-- testVerticalPrintingNoRows -->
+                  <span class="method-name">testVerticalPrintingNoRows</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testVerticalShortName">
+                  </a> <!-- testVerticalShortName -->
+                  <span class="method-name">testVerticalShortName</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.facebook.presto.cli.TestAlignedTuplePrinter</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAlignedPrinting">
+                  </a> <!-- testAlignedPrinting -->
+                  <span class="method-name">testAlignedPrinting</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAlignedPrintingNoRows">
+                  </a> <!-- testAlignedPrintingNoRows -->
+                  <span class="method-name">testAlignedPrintingNoRows</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAlignedPrintingOneRow">
+                  </a> <!-- testAlignedPrintingOneRow -->
+                  <span class="method-name">testAlignedPrintingOneRow</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.facebook.presto.cli.TestClientOptions</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDefault">
+                  </a> <!-- testDefault -->
+                  <span class="method-name">testDefault</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testInvalidServer">
+                  </a> <!-- testInvalidServer -->
+                  <span class="method-name">testInvalidServer</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testServerHostOnly">
+                  </a> <!-- testServerHostOnly -->
+                  <span class="method-name">testServerHostOnly</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testServerHostPort">
+                  </a> <!-- testServerHostPort -->
+                  <span class="method-name">testServerHostPort</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testServerHttpUri">
+                  </a> <!-- testServerHttpUri -->
+                  <span class="method-name">testServerHttpUri</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testServerHttpsUri">
+                  </a> <!-- testServerHttpsUri -->
+                  <span class="method-name">testServerHttpsUri</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+          <div class="suite-Command_line_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.facebook.presto.cli.TestTsvPrinter</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTsvPrinting">
+                  </a> <!-- testTsvPrinting -->
+                  <span class="method-name">testTsvPrinting</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTsvPrintingNoHeader">
+                  </a> <!-- testTsvPrintingNoHeader -->
+                  <span class="method-name">testTsvPrintingNoHeader</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testTsvPrintingNoRows">
+                  </a> <!-- testTsvPrintingNoRows -->
+                  <span class="method-name">testTsvPrintingNoRows</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Command_line_suite-class-passed -->
+        </div> <!-- panel Command_line_suite -->
+        <div panel-name="test-xml-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite verbose=&quot;0&quot; name=&quot;Command line suite&quot;&gt;
+  &lt;test name=&quot;Command line test&quot; preserve-order=&quot;false&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.facebook.presto.cli.TestClientOptions&quot;/&gt;
+      &lt;class name=&quot;com.facebook.presto.cli.TestVerticalTuplePrinter&quot;/&gt;
+      &lt;class name=&quot;com.facebook.presto.cli.TestCsvPrinter&quot;/&gt;
+      &lt;class name=&quot;com.facebook.presto.cli.TestAlignedTuplePrinter&quot;/&gt;
+      &lt;class name=&quot;com.facebook.presto.cli.TestTsvPrinter&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Command line test --&gt;
+&lt;/suite&gt; &lt;!-- Command line suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Command line suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Command line test (5 classes)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Command line suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Command line suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Command_line_suite');
+function tableData_Command_line_suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(20);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'testAlignedPrinting')
+data.setCell(0, 2, 'com.facebook.presto.cli.TestAlignedTuplePrinter')
+data.setCell(0, 3, 57);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'testCsvPrinting')
+data.setCell(1, 2, 'com.facebook.presto.cli.TestCsvPrinter')
+data.setCell(1, 3, 4);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'testDefault')
+data.setCell(2, 2, 'com.facebook.presto.cli.TestClientOptions')
+data.setCell(2, 3, 4);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'testVerticalLongName')
+data.setCell(3, 2, 'com.facebook.presto.cli.TestVerticalTuplePrinter')
+data.setCell(3, 3, 1);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'testAlignedPrintingOneRow')
+data.setCell(4, 2, 'com.facebook.presto.cli.TestAlignedTuplePrinter')
+data.setCell(4, 3, 1);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'testTsvPrinting')
+data.setCell(5, 2, 'com.facebook.presto.cli.TestTsvPrinter')
+data.setCell(5, 3, 1);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'testVerticalPrintingNoRows')
+data.setCell(6, 2, 'com.facebook.presto.cli.TestVerticalTuplePrinter')
+data.setCell(6, 3, 1);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'testVerticalPrinting')
+data.setCell(7, 2, 'com.facebook.presto.cli.TestVerticalTuplePrinter')
+data.setCell(7, 3, 1);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'testServerHttpsUri')
+data.setCell(8, 2, 'com.facebook.presto.cli.TestClientOptions')
+data.setCell(8, 3, 0);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'testCsvPrintingNoRows')
+data.setCell(9, 2, 'com.facebook.presto.cli.TestCsvPrinter')
+data.setCell(9, 3, 0);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'testVerticalLongerName')
+data.setCell(10, 2, 'com.facebook.presto.cli.TestVerticalTuplePrinter')
+data.setCell(10, 3, 0);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'testServerHttpUri')
+data.setCell(11, 2, 'com.facebook.presto.cli.TestClientOptions')
+data.setCell(11, 3, 0);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'testCsvPrintingNoHeader')
+data.setCell(12, 2, 'com.facebook.presto.cli.TestCsvPrinter')
+data.setCell(12, 3, 0);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'testTsvPrintingNoHeader')
+data.setCell(13, 2, 'com.facebook.presto.cli.TestTsvPrinter')
+data.setCell(13, 3, 0);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'testTsvPrintingNoRows')
+data.setCell(14, 2, 'com.facebook.presto.cli.TestTsvPrinter')
+data.setCell(14, 3, 0);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'testAlignedPrintingNoRows')
+data.setCell(15, 2, 'com.facebook.presto.cli.TestAlignedTuplePrinter')
+data.setCell(15, 3, 0);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'testServerHostPort')
+data.setCell(16, 2, 'com.facebook.presto.cli.TestClientOptions')
+data.setCell(16, 3, 0);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'testServerHostOnly')
+data.setCell(17, 2, 'com.facebook.presto.cli.TestClientOptions')
+data.setCell(17, 3, 0);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'testInvalidServer')
+data.setCell(18, 2, 'com.facebook.presto.cli.TestClientOptions')
+data.setCell(18, 3, 0);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'testVerticalShortName')
+data.setCell(19, 2, 'com.facebook.presto.cli.TestVerticalTuplePrinter')
+data.setCell(19, 3, 0);
+window.suiteTableData['Command_line_suite']= { tableData: data, tableDiv: 'times-div-Command_line_suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 70 ms</span>
+              <div id="times-div-Command_line_suite">
+              </div> <!-- times-div-Command_line_suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Command line suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Command_line_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.facebook.presto.cli.TestAlignedTuplePrinter</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testAlignedPrinting</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testAlignedPrintingNoRows</span>
+                <span class="method-start">58 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testAlignedPrintingOneRow</span>
+                <span class="method-start">59 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.facebook.presto.cli.TestClientOptions</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testDefault</span>
+                <span class="method-start">60 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testInvalidServer</span>
+                <span class="method-start">66 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testServerHostOnly</span>
+                <span class="method-start">67 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testServerHostPort</span>
+                <span class="method-start">68 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testServerHttpUri</span>
+                <span class="method-start">69 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testServerHttpsUri</span>
+                <span class="method-start">70 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.facebook.presto.cli.TestCsvPrinter</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testCsvPrinting</span>
+                <span class="method-start">71 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testCsvPrintingNoHeader</span>
+                <span class="method-start">76 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testCsvPrintingNoRows</span>
+                <span class="method-start">77 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.facebook.presto.cli.TestTsvPrinter</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testTsvPrinting</span>
+                <span class="method-start">77 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testTsvPrintingNoHeader</span>
+                <span class="method-start">79 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testTsvPrintingNoRows</span>
+                <span class="method-start">80 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.facebook.presto.cli.TestVerticalTuplePrinter</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testVerticalLongName</span>
+                <span class="method-start">80 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testVerticalLongerName</span>
+                <span class="method-start">82 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testVerticalPrinting</span>
+                <span class="method-start">83 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testVerticalPrintingNoRows</span>
+                <span class="method-start">84 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testVerticalShortName</span>
+                <span class="method-start">85 ms</span>
+              </div> <!-- test-method -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

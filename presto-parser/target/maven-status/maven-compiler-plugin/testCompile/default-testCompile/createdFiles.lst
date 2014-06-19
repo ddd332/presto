@@ -1,0 +1,6 @@
+com/facebook/presto/sql/parser/TreeAssertions$1.class
+com/facebook/presto/sql/parser/TestStatementBuilder.class
+com/facebook/presto/sql/parser/TestSqlParser.class
+com/facebook/presto/sql/parser/TreePrinter.class
+com/facebook/presto/sql/parser/TreeAssertions.class
+com/facebook/presto/sql/parser/TestStatementSplitter.class

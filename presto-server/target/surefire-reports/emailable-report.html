@@ -1,0 +1,881 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TestNG:  Unit Test</title>
+<style type="text/css">
+table caption,table.info_table,table.result,table.passed,table.failed {margin-bottom:10px;border:1px solid #000099;border-collapse:collapse;empty-cells:show;}
+table.info_table td,table.info_table th,table.result td,table.result th,table.passed td,table.passed th,table.failed td,table.failed th {
+border:1px solid #000099;padding:.25em .5em .25em .5em
+}
+table.result th {vertical-align:bottom}
+tr.param th {padding-left:1em;padding-right:1em}
+tr.param td {padding-left:.5em;padding-right:2em}
+td.numi,th.numi,td.numi_attn {
+text-align:right
+}
+tr.total td {font-weight:bold}
+table caption {
+text-align:center;font-weight:bold;
+}
+table.passed tr.stripe td,table tr.passedodd td {background-color: #00AA00;}
+table.passed td,table tr.passedeven td {background-color: #33FF33;}
+table.passed tr.stripe td,table tr.skippedodd td {background-color: #cccccc;}
+table.passed td,table tr.skippedodd td {background-color: #dddddd;}
+table.failed tr.stripe td,table tr.failedodd td,table.result td.numi_attn {background-color: #FF3333;}
+table.failed td,table tr.failedeven td,table.result tr.stripe td.numi_attn {background-color: #DD0000;}
+tr.stripe td,tr.stripe th {background-color: #E6EBF9;}
+p.totop {font-size:85%;text-align:center;border-bottom:2px black solid}
+div.shootout {padding:2em;border:3px #4854A8 solid}
+</style>
+</head>
+<body>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
+<tr><td style="text-align:left;padding-right:2em">Command line test</td><td class="numi">252</td><td class="numi">252</td><td class="numi">0</td><td class="numi">0</td><td class="numi">184.3 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+</table>
+<table cellspacing="0" cellpadding="0" class="passed" id="summary">
+<tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Start</th><th>Time<br/>(ms)</th></tr>
+<tr><th colspan="4">Command line test &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="38">com.facebook.presto.server.TestDistributedQueries</td><td><a href="#m1"><b>testAggregationWithLimit</b>  </a></td><td class="numi">1</td><td>1399446070762</td><td class="numi">693</td></tr><tr class="passedodd"><td><a href="#m2"><b>testAggregationWithProjection</b>  </a></td><td class="numi">1</td><td>1399446071456</td><td class="numi">265</td></tr><tr class="passedodd"><td><a href="#m3"><b>testAggregationWithProjection2</b>  </a></td><td class="numi">1</td><td>1399446071722</td><td class="numi">328</td></tr><tr class="passedodd"><td><a href="#m4"><b>testAliasedInInlineView</b>  </a></td><td class="numi">1</td><td>1399446072051</td><td class="numi">729</td></tr><tr class="passedodd"><td><a href="#m5"><b>testAntiJoin</b>  </a></td><td class="numi">1</td><td>1399446072781</td><td class="numi">1799</td></tr><tr class="passedodd"><td><a href="#m6"><b>testApproxPercentile</b>  </a></td><td class="numi">1</td><td>1399446074580</td><td class="numi">1050</td></tr><tr class="passedodd"><td><a href="#m7"><b>testApproximateCountDistinct</b>  </a></td><td class="numi">1</td><td>1399446075630</td><td class="numi">240</td></tr><tr class="passedodd"><td><a href="#m8"><b>testApproximateCountDistinctGroupBy</b>  </a></td><td class="numi">1</td><td>1399446075871</td><td class="numi">199</td></tr><tr class="passedodd"><td><a href="#m9"><b>testArithmeticNegation</b>  </a></td><td class="numi">1</td><td>1399446076070</td><td class="numi">260</td></tr><tr class="passedodd"><td><a href="#m10"><b>testAverageAll</b>  </a></td><td class="numi">1</td><td>1399446076331</td><td class="numi">143</td></tr><tr class="passedodd"><td><a href="#m11"><b>testBuildFilteredLeftJoin</b>  </a></td><td class="numi">1</td><td>1399446076474</td><td class="numi">4894</td></tr><tr class="passedodd"><td><a href="#m12"><b>testBuildFilteredRightJoin</b>  </a></td><td class="numi">1</td><td>1399446081369</td><td class="numi">1328</td></tr><tr class="passedodd"><td><a href="#m13"><b>testCaseInsensitiveAliasedRelation</b>  </a></td><td class="numi">1</td><td>1399446082698</td><td class="numi">569</td></tr><tr class="passedodd"><td><a href="#m14"><b>testCaseInsensitiveAttribute</b>  </a></td><td class="numi">1</td><td>1399446083268</td><td class="numi">238</td></tr><tr class="passedodd"><td><a href="#m15"><b>testCaseInsensitiveOutputAliasInOrderBy</b>  </a></td><td class="numi">1</td><td>1399446083507</td><td class="numi">356</td></tr><tr class="passedodd"><td><a href="#m16"><b>testCaseNoElse</b>  </a></td><td class="numi">1</td><td>1399446083864</td><td class="numi">315</td></tr><tr class="passedodd"><td><a href="#m17"><b>testCast</b>  </a></td><td class="numi">1</td><td>1399446084180</td><td class="numi">1125</td></tr><tr class="passedodd"><td><a href="#m18"><b>testChainedUnionsWithOrder</b>  </a></td><td class="numi">1</td><td>1399446085305</td><td class="numi">828</td></tr><tr class="passedodd"><td><a href="#m19"><b>testColumnAliases</b>  </a></td><td class="numi">1</td><td>1399446086134</td><td class="numi">318</td></tr><tr class="passedodd"><td><a href="#m20"><b>testComplexQuery</b>  </a></td><td class="numi">1</td><td>1399446086453</td><td class="numi">197</td></tr><tr class="passedodd"><td><a href="#m21"><b>testConcatOperator</b>  </a></td><td class="numi">1</td><td>1399446086651</td><td class="numi">200</td></tr><tr class="passedodd"><td><a href="#m22"><b>testCountAll</b>  </a></td><td class="numi">1</td><td>1399446086851</td><td class="numi">124</td></tr><tr class="passedodd"><td><a href="#m23"><b>testCountAllWithComparison</b>  </a></td><td class="numi">1</td><td>1399446086975</td><td class="numi">283</td></tr><tr class="passedodd"><td><a href="#m24"><b>testCountAllWithPredicate</b>  </a></td><td class="numi">1</td><td>1399446087259</td><td class="numi">214</td></tr><tr class="passedodd"><td><a href="#m25"><b>testCountBoolean</b>  </a></td><td class="numi">1</td><td>1399446087474</td><td class="numi">202</td></tr><tr class="passedodd"><td><a href="#m26"><b>testCountColumn</b>  </a></td><td class="numi">1</td><td>1399446087677</td><td class="numi">993</td></tr><tr class="passedodd"><td><a href="#m27"><b>testCountDistinct</b>  </a></td><td class="numi">1</td><td>1399446088672</td><td class="numi">38</td></tr><tr class="passedodd"><td><a href="#m28"><b>testCountWithAndPredicate</b>  </a></td><td class="numi">1</td><td>1399446088711</td><td class="numi">260</td></tr><tr class="passedodd"><td><a href="#m29"><b>testCountWithCoalescePredicate</b>  </a></td><td class="numi">1</td><td>1399446088972</td><td class="numi">82</td></tr><tr class="passedodd"><td><a href="#m30"><b>testCountWithInlineView</b>  </a></td><td class="numi">1</td><td>1399446089055</td><td class="numi">213</td></tr><tr class="passedodd"><td><a href="#m31"><b>testCountWithIsNotNullPredicate</b>  </a></td><td class="numi">1</td><td>1399446089268</td><td class="numi">188</td></tr><tr class="passedodd"><td><a href="#m32"><b>testCountWithIsNullPredicate</b>  </a></td><td class="numi">1</td><td>1399446089456</td><td class="numi">217</td></tr><tr class="passedodd"><td><a href="#m33"><b>testCountWithNotPredicate</b>  </a></td><td class="numi">1</td><td>1399446089674</td><td class="numi">122</td></tr><tr class="passedodd"><td><a href="#m34"><b>testCountWithNullIfPredicate</b>  </a></td><td class="numi">1</td><td>1399446089797</td><td class="numi">195</td></tr><tr class="passedodd"><td><a href="#m35"><b>testCountWithNullPredicate</b>  </a></td><td class="numi">1</td><td>1399446089993</td><td class="numi">190</td></tr><tr class="passedodd"><td><a href="#m36"><b>testCountWithOrPredicate</b>  </a></td><td class="numi">1</td><td>1399446090183</td><td class="numi">267</td></tr><tr class="passedodd"><td><a href="#m37"><b>testDefaultExplainGraphvizFormat</b>  </a></td><td class="numi">1</td><td>1399446090450</td><td class="numi">84</td></tr><tr class="passedodd"><td><a href="#m38"><b>testDefaultExplainTextFormat</b>  </a></td><td class="numi">1</td><td>1399446090535</td><td class="numi">63</td></tr>
+<tr class="passedeven"><td rowspan="1">com.facebook.presto.discovery.TestEmbeddedDiscoveryConfig</td><td><a href="#m39"><b>testDefaults</b>  </a></td><td class="numi">1</td><td>1399446226331</td><td class="numi">136</td></tr>
+<tr class="passedodd"><td rowspan="1">com.facebook.presto.server.TestPluginManagerConfig</td><td><a href="#m40"><b>testDefaults</b>  </a></td><td class="numi">1</td><td>1399446230147</td><td class="numi">35</td></tr>
+<tr class="passedeven"><td rowspan="1">com.facebook.presto.server.TestServerConfig</td><td><a href="#m41"><b>testDefaults</b>  </a></td><td class="numi">1</td><td>1399446231369</td><td class="numi">25</td></tr>
+<tr class="passedodd"><td rowspan="13">com.facebook.presto.server.TestDistributedQueries</td><td><a href="#m42"><b>testDistinct</b>  </a></td><td class="numi">1</td><td>1399446090599</td><td class="numi">248</td></tr><tr class="passedodd"><td><a href="#m43"><b>testDistinctMultipleFields</b>  </a></td><td class="numi">1</td><td>1399446090847</td><td class="numi">182</td></tr><tr class="passedodd"><td><a href="#m44"><b>testDistinctWithOrderBy</b>  </a></td><td class="numi">1</td><td>1399446091029</td><td class="numi">152</td></tr><tr class="passedodd"><td><a href="#m45"><b>testDistinctWithOrderByNotInSelect</b>  </a></td><td class="numi">1</td><td>1399446091181</td><td class="numi">11</td></tr><tr class="passedodd"><td><a href="#m46"><b>testDistributedExplain</b>  </a></td><td class="numi">1</td><td>1399446091193</td><td class="numi">60</td></tr><tr class="passedodd"><td><a href="#m47"><b>testDistributedExplainGraphvizFormat</b>  </a></td><td class="numi">1</td><td>1399446091254</td><td class="numi">63</td></tr><tr class="passedodd"><td><a href="#m48"><b>testDistributedExplainTextFormat</b>  </a></td><td class="numi">1</td><td>1399446091317</td><td class="numi">52</td></tr><tr class="passedodd"><td><a href="#m49"><b>testDoubleFilteredLeftJoinWithLeftConstantEquality</b>  </a></td><td class="numi">1</td><td>1399446091370</td><td class="numi">241</td></tr><tr class="passedodd"><td><a href="#m50"><b>testDoubleFilteredLeftJoinWithRightConstantEquality</b>  </a></td><td class="numi">1</td><td>1399446091611</td><td class="numi">193</td></tr><tr class="passedodd"><td><a href="#m51"><b>testDoubleFilteredRightJoinWithLeftConstantEquality</b>  </a></td><td class="numi">1</td><td>1399446091805</td><td class="numi">256</td></tr><tr class="passedodd"><td><a href="#m52"><b>testDoubleFilteredRightJoinWithRightConstantEquality</b>  </a></td><td class="numi">1</td><td>1399446092061</td><td class="numi">245</td></tr><tr class="passedodd"><td><a href="#m53"><b>testDual</b>  </a></td><td class="numi">1</td><td>1399446092307</td><td class="numi">29</td></tr><tr class="passedodd"><td><a href="#m54"><b>testDuplicateFields</b>  </a></td><td class="numi">1</td><td>1399446092337</td><td class="numi">159</td></tr>
+<tr class="passedeven"><td rowspan="1">com.facebook.presto.server.TestExecuteResource</td><td><a href="#m55"><b>testExecute</b>  </a></td><td class="numi">1</td><td>1399446227362</td><td class="numi">351</td></tr>
+<tr class="passedodd"><td rowspan="1">com.facebook.presto.discovery.TestEmbeddedDiscoveryConfig</td><td><a href="#m56"><b>testExplicitPropertyMappings</b>  </a></td><td class="numi">1</td><td>1399446226467</td><td class="numi">2</td></tr>
+<tr class="passedeven"><td rowspan="1">com.facebook.presto.server.TestPluginManagerConfig</td><td><a href="#m57"><b>testExplicitPropertyMappings</b>  </a></td><td class="numi">1</td><td>1399446230183</td><td class="numi">5</td></tr>
+<tr class="passedodd"><td rowspan="1">com.facebook.presto.server.TestServerConfig</td><td><a href="#m58"><b>testExplicitPropertyMappings</b>  </a></td><td class="numi">1</td><td>1399446231394</td><td class="numi">2</td></tr>
+<tr class="passedeven"><td rowspan="1">com.facebook.presto.server.TestDistributedQueries</td><td><a href="#m59"><b>testFunctionNotRegistered</b>  </a></td><td class="numi">1</td><td>1399446092497</td><td class="numi">11</td></tr>
+<tr class="passedodd"><td rowspan="2">com.facebook.presto.server.TestNodeResource</td><td><a href="#m60"><b>testGetAllNodes</b>  </a></td><td class="numi">1</td><td>1399446228632</td><td class="numi">232</td></tr><tr class="passedodd"><td><a href="#m61"><b>testGetFailedNodes</b>  </a></td><td class="numi">1</td><td>1399446229771</td><td class="numi">222</td></tr>
+<tr class="passedeven"><td rowspan="131">com.facebook.presto.server.TestDistributedQueries</td><td><a href="#m62"><b>testGroupAggregationOverNestedGroupByAggregation</b>  </a></td><td class="numi">1</td><td>1399446092508</td><td class="numi">351</td></tr><tr class="passedeven"><td><a href="#m63"><b>testGroupByBetween</b>  </a></td><td class="numi">1</td><td>1399446092860</td><td class="numi">1038</td></tr><tr class="passedeven"><td><a href="#m64"><b>testGroupByCase</b>  </a></td><td class="numi">1</td><td>1399446093899</td><td class="numi">572</td></tr><tr class="passedeven"><td><a href="#m65"><b>testGroupByCaseNoElse</b>  </a></td><td class="numi">1</td><td>1399446094472</td><td class="numi">585</td></tr><tr class="passedeven"><td><a href="#m66"><b>testGroupByCast</b>  </a></td><td class="numi">1</td><td>1399446095057</td><td class="numi">1009</td></tr><tr class="passedeven"><td><a href="#m67"><b>testGroupByCoalesce</b>  </a></td><td class="numi">1</td><td>1399446096066</td><td class="numi">825</td></tr><tr class="passedeven"><td><a href="#m68"><b>testGroupByCount</b>  </a></td><td class="numi">1</td><td>1399446096892</td><td class="numi">179</td></tr><tr class="passedeven"><td><a href="#m69"><b>testGroupByExtract</b>  </a></td><td class="numi">1</td><td>1399446097072</td><td class="numi">994</td></tr><tr class="passedeven"><td><a href="#m70"><b>testGroupByIf</b>  </a></td><td class="numi">1</td><td>1399446098066</td><td class="numi">212</td></tr><tr class="passedeven"><td><a href="#m71"><b>testGroupByKeyPredicatePushdown</b>  </a></td><td class="numi">1</td><td>1399446098279</td><td class="numi">554</td></tr><tr class="passedeven"><td><a href="#m72"><b>testGroupByMultipleFields</b>  </a></td><td class="numi">1</td><td>1399446098834</td><td class="numi">250</td></tr><tr class="passedeven"><td><a href="#m73"><b>testGroupByMultipleFieldsWithPredicateOnAggregationArgument</b>  </a></td><td class="numi">1</td><td>1399446099085</td><td class="numi">89</td></tr><tr class="passedeven"><td><a href="#m74"><b>testGroupByNoAggregations</b>  </a></td><td class="numi">1</td><td>1399446099174</td><td class="numi">86</td></tr><tr class="passedeven"><td><a href="#m75"><b>testGroupByNullIf</b>  </a></td><td class="numi">1</td><td>1399446099261</td><td class="numi">1138</td></tr><tr class="passedeven"><td><a href="#m76"><b>testGroupByOrderByLimit</b>  </a></td><td class="numi">1</td><td>1399446100399</td><td class="numi">77</td></tr><tr class="passedeven"><td><a href="#m77"><b>testGroupByOrdinal</b>  </a></td><td class="numi">1</td><td>1399446100477</td><td class="numi">195</td></tr><tr class="passedeven"><td><a href="#m78"><b>testGroupByRepeatedField</b>  </a></td><td class="numi">1</td><td>1399446100673</td><td class="numi">188</td></tr><tr class="passedeven"><td><a href="#m79"><b>testGroupByRepeatedField2</b>  </a></td><td class="numi">1</td><td>1399446100862</td><td class="numi">199</td></tr><tr class="passedeven"><td><a href="#m80"><b>testGroupBySearchedCase</b>  </a></td><td class="numi">1</td><td>1399446101062</td><td class="numi">311</td></tr><tr class="passedeven"><td><a href="#m81"><b>testGroupBySearchedCaseNoElse</b>  </a></td><td class="numi">1</td><td>1399446101374</td><td class="numi">483</td></tr><tr class="passedeven"><td><a href="#m82"><b>testGroupBySum</b>  </a></td><td class="numi">1</td><td>1399446101857</td><td class="numi">124</td></tr><tr class="passedeven"><td><a href="#m83"><b>testGroupByWithAlias</b>  </a></td><td class="numi">1</td><td>1399446101982</td><td class="numi">105</td></tr><tr class="passedeven"><td><a href="#m84"><b>testGroupByWithWildcard</b>  </a></td><td class="numi">1</td><td>1399446102087</td><td class="numi">250</td></tr><tr class="passedeven"><td><a href="#m85"><b>testGroupByWithoutAggregation</b>  </a></td><td class="numi">1</td><td>1399446102338</td><td class="numi">130</td></tr><tr class="passedeven"><td><a href="#m86"><b>testHaving</b>  </a></td><td class="numi">1</td><td>1399446102469</td><td class="numi">114</td></tr><tr class="passedeven"><td><a href="#m87"><b>testHaving2</b>  </a></td><td class="numi">1</td><td>1399446102583</td><td class="numi">87</td></tr><tr class="passedeven"><td><a href="#m88"><b>testHaving3</b>  </a></td><td class="numi">1</td><td>1399446102670</td><td class="numi">129</td></tr><tr class="passedeven"><td><a href="#m89"><b>testHistogram</b>  </a></td><td class="numi">1</td><td>1399446102800</td><td class="numi">222</td></tr><tr class="passedeven"><td><a href="#m90"><b>testIfExpression</b>  </a></td><td class="numi">1</td><td>1399446103023</td><td class="numi">865</td></tr><tr class="passedeven"><td><a href="#m91"><b>testIn</b>  </a></td><td class="numi">1</td><td>1399446103888</td><td class="numi">314</td></tr><tr class="passedeven"><td><a href="#m92"><b>testInlineView</b>  </a></td><td class="numi">1</td><td>1399446104202</td><td class="numi">248</td></tr><tr class="passedeven"><td><a href="#m93"><b>testInlineViewWithProjections</b>  </a></td><td class="numi">1</td><td>1399446104451</td><td class="numi">308</td></tr><tr class="passedeven"><td><a href="#m94"><b>testInvalidColumn</b>  </a></td><td class="numi">1</td><td>1399446104760</td><td class="numi">17</td></tr><tr class="passedeven"><td><a href="#m95"><b>testJoinAggregations</b>  </a></td><td class="numi">1</td><td>1399446104778</td><td class="numi">5223</td></tr><tr class="passedeven"><td><a href="#m96"><b>testJoinDoubleClauseWithLeftOverlap</b>  </a></td><td class="numi">1</td><td>1399446110002</td><td class="numi">257</td></tr><tr class="passedeven"><td><a href="#m97"><b>testJoinDoubleClauseWithRightOverlap</b>  </a></td><td class="numi">1</td><td>1399446110259</td><td class="numi">257</td></tr><tr class="passedeven"><td><a href="#m98"><b>testJoinOnConstantExpression</b>  </a></td><td class="numi">1</td><td>1399446110516</td><td class="numi">12</td></tr><tr class="passedeven"><td><a href="#m99"><b>testJoinOnMultipleFields</b>  </a></td><td class="numi">1</td><td>1399446110529</td><td class="numi">193</td></tr><tr class="passedeven"><td><a href="#m100"><b>testJoinPredicateMoveAround</b>  </a></td><td class="numi">1</td><td>1399446110723</td><td class="numi">1820</td></tr><tr class="passedeven"><td><a href="#m101"><b>testJoinPredicatePushdown</b>  </a></td><td class="numi">1</td><td>1399446112544</td><td class="numi">270</td></tr><tr class="passedeven"><td><a href="#m102"><b>testJoinUnaliasedSubqueries</b>  </a></td><td class="numi">1</td><td>1399446112815</td><td class="numi">230</td></tr><tr class="passedeven"><td><a href="#m103"><b>testJoinUsing</b>  </a></td><td class="numi">1</td><td>1399446113045</td><td class="numi">205</td></tr><tr class="passedeven"><td><a href="#m104"><b>testJoinUsingMultipleFields</b>  </a></td><td class="numi">1</td><td>1399446113251</td><td class="numi">122</td></tr><tr class="passedeven"><td><a href="#m105"><b>testJoinWithAlias</b>  </a></td><td class="numi">1</td><td>1399446113373</td><td class="numi">4696</td></tr><tr class="passedeven"><td><a href="#m106"><b>testJoinWithComplexExpressions</b>  </a></td><td class="numi">1</td><td>1399446118070</td><td class="numi">256</td></tr><tr class="passedeven"><td><a href="#m107"><b>testJoinWithComplexExpressions2</b>  </a></td><td class="numi">1</td><td>1399446118326</td><td class="numi">178</td></tr><tr class="passedeven"><td><a href="#m108"><b>testJoinWithComplexExpressions3</b>  </a></td><td class="numi">1</td><td>1399446118505</td><td class="numi">231</td></tr><tr class="passedeven"><td><a href="#m109"><b>testJoinWithConstantExpression</b>  </a></td><td class="numi">1</td><td>1399446118736</td><td class="numi">181</td></tr><tr class="passedeven"><td><a href="#m110"><b>testJoinWithFullyPushedDownJoinClause</b>  </a></td><td class="numi">1</td><td>1399446118917</td><td class="numi">251</td></tr><tr class="passedeven"><td><a href="#m111"><b>testJoinWithLeftConstantEquality</b>  </a></td><td class="numi">1</td><td>1399446119168</td><td class="numi">116</td></tr><tr class="passedeven"><td><a href="#m112"><b>testJoinWithMultiFieldGroupBy</b>  </a></td><td class="numi">1</td><td>1399446119285</td><td class="numi">420</td></tr><tr class="passedeven"><td><a href="#m113"><b>testJoinWithNonJoinExpression</b>  </a></td><td class="numi">1</td><td>1399446119705</td><td class="numi">166</td></tr><tr class="passedeven"><td><a href="#m114"><b>testJoinWithNullValues</b>  </a></td><td class="numi">1</td><td>1399446119871</td><td class="numi">718</td></tr><tr class="passedeven"><td><a href="#m115"><b>testJoinWithReversedComparison</b>  </a></td><td class="numi">1</td><td>1399446120589</td><td class="numi">235</td></tr><tr class="passedeven"><td><a href="#m116"><b>testJoinWithRightConstantEquality</b>  </a></td><td class="numi">1</td><td>1399446120824</td><td class="numi">240</td></tr><tr class="passedeven"><td><a href="#m117"><b>testLargeQueryFailure</b>  </a></td><td class="numi">1</td><td>1399446204067</td><td class="numi">118</td></tr><tr class="passedeven"><td><a href="#m118"><b>testLargeQuerySuccess</b>  </a></td><td class="numi">1</td><td>1399446204185</td><td class="numi">77</td></tr><tr class="passedeven"><td><a href="#m119"><b>testLeftFilteredJoin</b>  </a></td><td class="numi">1</td><td>1399446121065</td><td class="numi">802</td></tr><tr class="passedeven"><td><a href="#m120"><b>testLeftJoinAsInnerPredicatePushdown</b>  </a></td><td class="numi">1</td><td>1399446121868</td><td class="numi">397</td></tr><tr class="passedeven"><td><a href="#m121"><b>testLeftJoinDoubleClauseWithLeftOverlap</b>  </a></td><td class="numi">1</td><td>1399446122266</td><td class="numi">425</td></tr><tr class="passedeven"><td><a href="#m122"><b>testLeftJoinDoubleClauseWithRightOverlap</b>  </a></td><td class="numi">1</td><td>1399446122692</td><td class="numi">293</td></tr><tr class="passedeven"><td><a href="#m123"><b>testLeftJoinEqualityInference</b>  </a></td><td class="numi">1</td><td>1399446122985</td><td class="numi">1046</td></tr><tr class="passedeven"><td><a href="#m124"><b>testLeftJoinNormalizedToInner</b>  </a></td><td class="numi">1</td><td>1399446124032</td><td class="numi">368</td></tr><tr class="passedeven"><td><a href="#m125"><b>testLeftJoinPredicateMoveAround</b>  </a></td><td class="numi">1</td><td>1399446124400</td><td class="numi">2528</td></tr><tr class="passedeven"><td><a href="#m126"><b>testLeftJoinPredicatePushdownWithSelfEquality</b>  </a></td><td class="numi">1</td><td>1399446126928</td><td class="numi">320</td></tr><tr class="passedeven"><td><a href="#m127"><b>testLeftJoinWithLeftConstantEquality</b>  </a></td><td class="numi">1</td><td>1399446127248</td><td class="numi">243</td></tr><tr class="passedeven"><td><a href="#m128"><b>testLeftJoinWithNullValues</b>  </a></td><td class="numi">1</td><td>1399446127492</td><td class="numi">485</td></tr><tr class="passedeven"><td><a href="#m129"><b>testLeftJoinWithRightConstantEquality</b>  </a></td><td class="numi">1</td><td>1399446127977</td><td class="numi">731</td></tr><tr class="passedeven"><td><a href="#m130"><b>testLimit</b>  </a></td><td class="numi">1</td><td>1399446128709</td><td class="numi">152</td></tr><tr class="passedeven"><td><a href="#m131"><b>testLimitInInlineView</b>  </a></td><td class="numi">1</td><td>1399446128861</td><td class="numi">211</td></tr><tr class="passedeven"><td><a href="#m132"><b>testLimitPushDown</b>  </a></td><td class="numi">1</td><td>1399446129072</td><td class="numi">570</td></tr><tr class="passedeven"><td><a href="#m133"><b>testLimitZero</b>  </a></td><td class="numi">1</td><td>1399446129642</td><td class="numi">32</td></tr><tr class="passedeven"><td><a href="#m134"><b>testLogicalExplain</b>  </a></td><td class="numi">1</td><td>1399446129675</td><td class="numi">42</td></tr><tr class="passedeven"><td><a href="#m135"><b>testLogicalExplainGraphvizFormat</b>  </a></td><td class="numi">1</td><td>1399446129718</td><td class="numi">46</td></tr><tr class="passedeven"><td><a href="#m136"><b>testLogicalExplainTextFormat</b>  </a></td><td class="numi">1</td><td>1399446129764</td><td class="numi">41</td></tr><tr class="passedeven"><td><a href="#m137"><b>testMaxMinStringWithNulls</b>  </a></td><td class="numi">1</td><td>1399446129805</td><td class="numi">200</td></tr><tr class="passedeven"><td><a href="#m138"><b>testMixedWildcards</b>  </a></td><td class="numi">1</td><td>1399446130005</td><td class="numi">859</td></tr><tr class="passedeven"><td><a href="#m139"><b>testMultiColumnUnionAll</b>  </a></td><td class="numi">1</td><td>1399446130864</td><td class="numi">898</td></tr><tr class="passedeven"><td><a href="#m140"><b>testMultipleWildcards</b>  </a></td><td class="numi">1</td><td>1399446131762</td><td class="numi">936</td></tr><tr class="passedeven"><td><a href="#m141"><b>testNestedCount</b>  </a></td><td class="numi">1</td><td>1399446132699</td><td class="numi">194</td></tr><tr class="passedeven"><td><a href="#m142"><b>testNoFrom</b>  </a></td><td class="numi">1</td><td>1399446132893</td><td class="numi">28</td></tr><tr class="passedeven"><td><a href="#m143"><b>testNodeRoster</b>  </a></td><td class="numi">1</td><td>1399446132921</td><td class="numi">37</td></tr><tr class="passedeven"><td><a href="#m144"><b>testNonDeterministicAggregationPredicatePushdown</b>  </a></td><td class="numi">1</td><td>1399446132958</td><td class="numi">91</td></tr><tr class="passedeven"><td><a href="#m145"><b>testNonDeterministicJoinPredicatePushdown</b>  </a></td><td class="numi">1</td><td>1399446133050</td><td class="numi">400</td></tr><tr class="passedeven"><td><a href="#m146"><b>testNonDeterministicTableScanPredicatePushdown</b>  </a></td><td class="numi">1</td><td>1399446133451</td><td class="numi">212</td></tr><tr class="passedeven"><td><a href="#m147"><b>testOrderBy</b>  </a></td><td class="numi">1</td><td>1399446133663</td><td class="numi">230</td></tr><tr class="passedeven"><td><a href="#m148"><b>testOrderBy2</b>  </a></td><td class="numi">1</td><td>1399446133893</td><td class="numi">195</td></tr><tr class="passedeven"><td><a href="#m149"><b>testOrderByAlias</b>  </a></td><td class="numi">1</td><td>1399446134089</td><td class="numi">205</td></tr><tr class="passedeven"><td><a href="#m150"><b>testOrderByAliasWithSameNameAsUnselectedColumn</b>  </a></td><td class="numi">1</td><td>1399446134294</td><td class="numi">120</td></tr><tr class="passedeven"><td><a href="#m151"><b>testOrderByExpressionWithLimit</b>  </a></td><td class="numi">1</td><td>1399446134415</td><td class="numi">172</td></tr><tr class="passedeven"><td><a href="#m152"><b>testOrderByLimit</b>  </a></td><td class="numi">1</td><td>1399446134587</td><td class="numi">83</td></tr><tr class="passedeven"><td><a href="#m153"><b>testOrderByMultipleFields</b>  </a></td><td class="numi">1</td><td>1399446134670</td><td class="numi">171</td></tr><tr class="passedeven"><td><a href="#m154"><b>testOrderByOrdinal</b>  </a></td><td class="numi">1</td><td>1399446134841</td><td class="numi">235</td></tr><tr class="passedeven"><td><a href="#m155"><b>testOrderByOrdinalWithWildcard</b>  </a></td><td class="numi">1</td><td>1399446135076</td><td class="numi">499</td></tr><tr class="passedeven"><td><a href="#m156"><b>testOrderByWindowFunction</b>  </a></td><td class="numi">1</td><td>1399446135575</td><td class="numi">73</td></tr><tr class="passedeven"><td><a href="#m157"><b>testOrderLimitCompaction</b>  </a></td><td class="numi">1</td><td>1399446135648</td><td class="numi">133</td></tr><tr class="passedeven"><td><a href="#m158"><b>testPlainLeftJoinPredicatePushdown</b>  </a></td><td class="numi">1</td><td>1399446135781</td><td class="numi">263</td></tr><tr class="passedeven"><td><a href="#m159"><b>testPlainRightJoinPredicatePushdown</b>  </a></td><td class="numi">1</td><td>1399446136045</td><td class="numi">344</td></tr><tr class="passedeven"><td><a href="#m160"><b>testPredicatePushdown</b>  </a></td><td class="numi">1</td><td>1399446136390</td><td class="numi">240</td></tr><tr class="passedeven"><td><a href="#m161"><b>testPredicatePushdownJoinEqualityGroups</b>  </a></td><td class="numi">1</td><td>1399446136630</td><td class="numi">270</td></tr><tr class="passedeven"><td><a href="#m162"><b>testProbeFilteredLeftJoin</b>  </a></td><td class="numi">1</td><td>1399446136900</td><td class="numi">2250</td></tr><tr class="passedeven"><td><a href="#m163"><b>testProbeFilteredRightJoin</b>  </a></td><td class="numi">1</td><td>1399446139151</td><td class="numi">807</td></tr><tr class="passedeven"><td><a href="#m164"><b>testQualifiedWildcard</b>  </a></td><td class="numi">1</td><td>1399446139958</td><td class="numi">589</td></tr><tr class="passedeven"><td><a href="#m165"><b>testQualifiedWildcardFromAlias</b>  </a></td><td class="numi">1</td><td>1399446140547</td><td class="numi">510</td></tr><tr class="passedeven"><td><a href="#m166"><b>testQualifiedWildcardFromInlineView</b>  </a></td><td class="numi">1</td><td>1399446141057</td><td class="numi">169</td></tr><tr class="passedeven"><td><a href="#m167"><b>testQualifiedWildcardFromJoin</b>  </a></td><td class="numi">1</td><td>1399446141227</td><td class="numi">700</td></tr><tr class="passedeven"><td><a href="#m168"><b>testQuotedIdentifiers</b>  </a></td><td class="numi">1</td><td>1399446141927</td><td class="numi">146</td></tr><tr class="passedeven"><td><a href="#m169"><b>testReferenceToWithQueryInFromClause</b>  </a></td><td class="numi">1</td><td>1399446142073</td><td class="numi">532</td></tr><tr class="passedeven"><td><a href="#m170"><b>testReorderOutputsOfGroupByAggregation</b>  </a></td><td class="numi">1</td><td>1399446142605</td><td class="numi">241</td></tr><tr class="passedeven"><td><a href="#m171"><b>testRepeatedAggregations</b>  </a></td><td class="numi">1</td><td>1399446142846</td><td class="numi">138</td></tr><tr class="passedeven"><td><a href="#m172"><b>testRepeatedOutputs</b>  </a></td><td class="numi">1</td><td>1399446142984</td><td class="numi">208</td></tr><tr class="passedeven"><td><a href="#m173"><b>testRightFilteredJoin</b>  </a></td><td class="numi">1</td><td>1399446143192</td><td class="numi">802</td></tr><tr class="passedeven"><td><a href="#m174"><b>testRightJoinAsInnerPredicatePushdown</b>  </a></td><td class="numi">1</td><td>1399446143994</td><td class="numi">409</td></tr><tr class="passedeven"><td><a href="#m175"><b>testRightJoinDoubleClauseWithLeftOverlap</b>  </a></td><td class="numi">1</td><td>1399446144404</td><td class="numi">302</td></tr><tr class="passedeven"><td><a href="#m176"><b>testRightJoinDoubleClauseWithRightOverlap</b>  </a></td><td class="numi">1</td><td>1399446144707</td><td class="numi">215</td></tr><tr class="passedeven"><td><a href="#m177"><b>testRightJoinEqualityInference</b>  </a></td><td class="numi">1</td><td>1399446144922</td><td class="numi">899</td></tr><tr class="passedeven"><td><a href="#m178"><b>testRightJoinNormalizedToInner</b>  </a></td><td class="numi">1</td><td>1399446145822</td><td class="numi">291</td></tr><tr class="passedeven"><td><a href="#m179"><b>testRightJoinPredicateMoveAround</b>  </a></td><td class="numi">1</td><td>1399446146113</td><td class="numi">2162</td></tr><tr class="passedeven"><td><a href="#m180"><b>testRightJoinPredicatePushdownWithSelfEquality</b>  </a></td><td class="numi">1</td><td>1399446148276</td><td class="numi">263</td></tr><tr class="passedeven"><td><a href="#m181"><b>testRightJoinWithLeftConstantEquality</b>  </a></td><td class="numi">1</td><td>1399446148539</td><td class="numi">1147</td></tr><tr class="passedeven"><td><a href="#m182"><b>testRightJoinWithNullValues</b>  </a></td><td class="numi">1</td><td>1399446149686</td><td class="numi">640</td></tr><tr class="passedeven"><td><a href="#m183"><b>testRightJoinWithRightConstantEquality</b>  </a></td><td class="numi">1</td><td>1399446150326</td><td class="numi">203</td></tr><tr class="passedeven"><td><a href="#m184"><b>testSameInputToAggregates</b>  </a></td><td class="numi">1</td><td>1399446150530</td><td class="numi">128</td></tr><tr class="passedeven"><td><a href="#m185"><b>testScalarFunction</b>  </a></td><td class="numi">1</td><td>1399446150658</td><td class="numi">191</td></tr><tr class="passedeven"><td><a href="#m186"><b>testSelectOnlyUnion</b>  </a></td><td class="numi">1</td><td>1399446150850</td><td class="numi">33</td></tr><tr class="passedeven"><td><a href="#m187"><b>testSelectWithComparison</b>  </a></td><td class="numi">1</td><td>1399446150883</td><td class="numi">202</td></tr><tr class="passedeven"><td><a href="#m188"><b>testSelfJoin</b>  </a></td><td class="numi">1</td><td>1399446151086</td><td class="numi">207</td></tr><tr class="passedeven"><td><a href="#m189"><b>testSemiJoin</b>  </a></td><td class="numi">1</td><td>1399446151293</td><td class="numi">1481</td></tr><tr class="passedeven"><td><a href="#m190"><b>testSemiJoinLimitPushDown</b>  </a></td><td class="numi">1</td><td>1399446152774</td><td class="numi">236</td></tr><tr class="passedeven"><td><a href="#m191"><b>testSemiJoinNullHandling</b>  </a></td><td class="numi">1</td><td>1399446153011</td><td class="numi">657</td></tr><tr class="passedeven"><td><a href="#m192"><b>testSemiJoinPredicateMoveAround</b>  </a></td><td class="numi">1</td><td>1399446153669</td><td class="numi">325</td></tr>
+<tr class="passedodd"><td rowspan="1">com.facebook.presto.server.TestServer</td><td><a href="#m193"><b>testServerStarts</b>  </a></td><td class="numi">1</td><td>1399446231012</td><td class="numi">216</td></tr>
+<tr class="passedeven"><td rowspan="59">com.facebook.presto.server.TestDistributedQueries</td><td><a href="#m194"><b>testShowCatalogs</b>  </a></td><td class="numi">1</td><td>1399446204262</td><td class="numi">186</td></tr><tr class="passedeven"><td><a href="#m195"><b>testShowColumns</b>  </a></td><td class="numi">1</td><td>1399446153994</td><td class="numi">232</td></tr><tr class="passedeven"><td><a href="#m196"><b>testShowFunctions</b>  </a></td><td class="numi">1</td><td>1399446154226</td><td class="numi">40</td></tr><tr class="passedeven"><td><a href="#m197"><b>testShowPartitions</b>  </a></td><td class="numi">1</td><td>1399446154267</td><td class="numi">32</td></tr><tr class="passedeven"><td><a href="#m198"><b>testShowSchemas</b>  </a></td><td class="numi">1</td><td>1399446154299</td><td class="numi">73</td></tr><tr class="passedeven"><td><a href="#m199"><b>testShowTables</b>  </a></td><td class="numi">1</td><td>1399446154373</td><td class="numi">90</td></tr><tr class="passedeven"><td><a href="#m200"><b>testShowTablesFrom</b>  </a></td><td class="numi">1</td><td>1399446154464</td><td class="numi">207</td></tr><tr class="passedeven"><td><a href="#m201"><b>testShowTablesLike</b>  </a></td><td class="numi">1</td><td>1399446154671</td><td class="numi">177</td></tr><tr class="passedeven"><td><a href="#m202"><b>testSimpleJoin</b>  </a></td><td class="numi">1</td><td>1399446154848</td><td class="numi">255</td></tr><tr class="passedeven"><td><a href="#m203"><b>testSimpleJoinWithLeftConstantEquality</b>  </a></td><td class="numi">1</td><td>1399446155103</td><td class="numi">167</td></tr><tr class="passedeven"><td><a href="#m204"><b>testSimpleJoinWithRightConstantEquality</b>  </a></td><td class="numi">1</td><td>1399446155270</td><td class="numi">181</td></tr><tr class="passedeven"><td><a href="#m205"><b>testSimpleLeftJoin</b>  </a></td><td class="numi">1</td><td>1399446155451</td><td class="numi">642</td></tr><tr class="passedeven"><td><a href="#m206"><b>testSimpleLeftJoinWithLeftConstantEquality</b>  </a></td><td class="numi">1</td><td>1399446156094</td><td class="numi">307</td></tr><tr class="passedeven"><td><a href="#m207"><b>testSimpleLeftJoinWithRightConstantEquality</b>  </a></td><td class="numi">1</td><td>1399446156401</td><td class="numi">380</td></tr><tr class="passedeven"><td><a href="#m208"><b>testSimpleRightJoin</b>  </a></td><td class="numi">1</td><td>1399446156781</td><td class="numi">329</td></tr><tr class="passedeven"><td><a href="#m209"><b>testSimpleRightJoinWithLeftConstantEquality</b>  </a></td><td class="numi">1</td><td>1399446157110</td><td class="numi">216</td></tr><tr class="passedeven"><td><a href="#m210"><b>testSimpleRightJoinWithRightConstantEquality</b>  </a></td><td class="numi">1</td><td>1399446157327</td><td class="numi">288</td></tr><tr class="passedeven"><td><a href="#m211"><b>testSpecialFloatingPointValues</b>  </a></td><td class="numi">1</td><td>1399446157615</td><td class="numi">27</td></tr><tr class="passedeven"><td><a href="#m212"><b>testStdDev</b>  </a></td><td class="numi">1</td><td>1399446157643</td><td class="numi">1331</td></tr><tr class="passedeven"><td><a href="#m213"><b>testStdDevPop</b>  </a></td><td class="numi">1</td><td>1399446158974</td><td class="numi">999</td></tr><tr class="passedeven"><td><a href="#m214"><b>testSubqueryBody</b>  </a></td><td class="numi">1</td><td>1399446159973</td><td class="numi">139</td></tr><tr class="passedeven"><td><a href="#m215"><b>testSubqueryBodyDoubleOrderby</b>  </a></td><td class="numi">1</td><td>1399446160112</td><td class="numi">194</td></tr><tr class="passedeven"><td><a href="#m216"><b>testSubqueryBodyOrderLimit</b>  </a></td><td class="numi">1</td><td>1399446160307</td><td class="numi">175</td></tr><tr class="passedeven"><td><a href="#m217"><b>testSubqueryBodyProjectedOrderby</b>  </a></td><td class="numi">1</td><td>1399446160483</td><td class="numi">211</td></tr><tr class="passedeven"><td><a href="#m218"><b>testSubqueryUnion</b>  </a></td><td class="numi">1</td><td>1399446160694</td><td class="numi">155</td></tr><tr class="passedeven"><td><a href="#m219"><b>testSumOfNulls</b>  </a></td><td class="numi">1</td><td>1399446160849</td><td class="numi">131</td></tr><tr class="passedeven"><td><a href="#m220"><b>testTableAsSubquery</b>  </a></td><td class="numi">1</td><td>1399446160980</td><td class="numi">533</td></tr><tr class="passedeven"><td><a href="#m221"><b>testTableQuery</b>  </a></td><td class="numi">1</td><td>1399446161513</td><td class="numi">587</td></tr><tr class="passedeven"><td><a href="#m222"><b>testTableQueryInUnion</b>  </a></td><td class="numi">1</td><td>1399446162100</td><td class="numi">558</td></tr><tr class="passedeven"><td><a href="#m223"><b>testTableQueryOrderLimit</b>  </a></td><td class="numi">1</td><td>1399446162658</td><td class="numi">192</td></tr><tr class="passedeven"><td><a href="#m224"><b>testTableSampleBernoulli</b>  </a></td><td class="numi">1</td><td>1399446162850</td><td class="numi">10926</td></tr><tr class="passedeven"><td><a href="#m225"><b>testTableSampleBernoulliBoundaryValues</b>  </a></td><td class="numi">1</td><td>1399446173776</td><td class="numi">21462</td></tr><tr class="passedeven"><td><a href="#m226"><b>testTableSampleSystem</b>  </a></td><td class="numi">1</td><td>1399446204448</td><td class="numi">181</td></tr><tr class="passedeven"><td><a href="#m227"><b>testTableSampleSystemBoundaryValues</b>  </a></td><td class="numi">1</td><td>1399446204630</td><td class="numi">21026</td></tr><tr class="passedeven"><td><a href="#m228"><b>testTopNByMultipleFields</b>  </a></td><td class="numi">1</td><td>1399446195238</td><td class="numi">1227</td></tr><tr class="passedeven"><td><a href="#m229"><b>testTrivialNonDeterministicPredicatePushdown</b>  </a></td><td class="numi">1</td><td>1399446196465</td><td class="numi">107</td></tr><tr class="passedeven"><td><a href="#m230"><b>testTypeMismatch</b>  </a></td><td class="numi">1</td><td>1399446196573</td><td class="numi">6</td></tr><tr class="passedeven"><td><a href="#m231"><b>testUnaliasSymbolReferencesWithUnion</b>  </a></td><td class="numi">1</td><td>1399446196579</td><td class="numi">30</td></tr><tr class="passedeven"><td><a href="#m232"><b>testUnaliasedSubqueries</b>  </a></td><td class="numi">1</td><td>1399446196610</td><td class="numi">83</td></tr><tr class="passedeven"><td><a href="#m233"><b>testUnaliasedSubqueries1</b>  </a></td><td class="numi">1</td><td>1399446196693</td><td class="numi">208</td></tr><tr class="passedeven"><td><a href="#m234"><b>testUnion</b>  </a></td><td class="numi">1</td><td>1399446196901</td><td class="numi">233</td></tr><tr class="passedeven"><td><a href="#m235"><b>testUnionAll</b>  </a></td><td class="numi">1</td><td>1399446197134</td><td class="numi">226</td></tr><tr class="passedeven"><td><a href="#m236"><b>testUnionDistinct</b>  </a></td><td class="numi">1</td><td>1399446197360</td><td class="numi">174</td></tr><tr class="passedeven"><td><a href="#m237"><b>testVariance</b>  </a></td><td class="numi">1</td><td>1399446197534</td><td class="numi">1529</td></tr><tr class="passedeven"><td><a href="#m238"><b>testVariancePop</b>  </a></td><td class="numi">1</td><td>1399446199063</td><td class="numi">1188</td></tr><tr class="passedeven"><td><a href="#m239"><b>testWhereNull</b>  </a></td><td class="numi">1</td><td>1399446200251</td><td class="numi">55</td></tr><tr class="passedeven"><td><a href="#m240"><b>testWildcard</b>  </a></td><td class="numi">1</td><td>1399446200306</td><td class="numi">598</td></tr><tr class="passedeven"><td><a href="#m241"><b>testWildcardFromJoin</b>  </a></td><td class="numi">1</td><td>1399446200904</td><td class="numi">630</td></tr><tr class="passedeven"><td><a href="#m242"><b>testWildcardFromSubquery</b>  </a></td><td class="numi">1</td><td>1399446201534</td><td class="numi">180</td></tr><tr class="passedeven"><td><a href="#m243"><b>testWindowFunctionsExpressions</b>  </a></td><td class="numi">1</td><td>1399446201714</td><td class="numi">90</td></tr><tr class="passedeven"><td><a href="#m244"><b>testWindowFunctionsFromAggregate</b>  </a></td><td class="numi">1</td><td>1399446201804</td><td class="numi">170</td></tr><tr class="passedeven"><td><a href="#m245"><b>testWith</b>  </a></td><td class="numi">1</td><td>1399446201974</td><td class="numi">569</td></tr><tr class="passedeven"><td><a href="#m246"><b>testWithAliased</b>  </a></td><td class="numi">1</td><td>1399446202543</td><td class="numi">491</td></tr><tr class="passedeven"><td><a href="#m247"><b>testWithChaining</b>  </a></td><td class="numi">1</td><td>1399446203034</td><td class="numi">274</td></tr><tr class="passedeven"><td><a href="#m248"><b>testWithHiding</b>  </a></td><td class="numi">1</td><td>1399446203309</td><td class="numi">203</td></tr><tr class="passedeven"><td><a href="#m249"><b>testWithNestedSubqueries</b>  </a></td><td class="numi">1</td><td>1399446203512</td><td class="numi">153</td></tr><tr class="passedeven"><td><a href="#m250"><b>testWithQualifiedPrefix</b>  </a></td><td class="numi">1</td><td>1399446203665</td><td class="numi">198</td></tr><tr class="passedeven"><td><a href="#m251"><b>testWithRecursive</b>  </a></td><td class="numi">1</td><td>1399446203863</td><td class="numi">7</td></tr><tr class="passedeven"><td><a href="#m252"><b>testWithSelfJoin</b>  </a></td><td class="numi">1</td><td>1399446203870</td><td class="numi">197</td></tr>
+</table>
+<h1>Command line test</h1>
+<h2 id="m1">com.facebook.presto.server.TestDistributedQueries:testSubqueryBodyDoubleOrderby</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m2">com.facebook.presto.server.TestDistributedQueries:testJoinWithComplexExpressions3</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m3">com.facebook.presto.server.TestDistributedQueries:testCaseNoElse</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m4">com.facebook.presto.server.TestDistributedQueries:testJoinWithLeftConstantEquality</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m5">com.facebook.presto.server.TestDistributedQueries:testJoinWithAlias</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m6">com.facebook.presto.server.TestDistributedQueries:testShowTablesLike</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m7">com.facebook.presto.server.TestDistributedQueries:testBuildFilteredRightJoin</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m8">com.facebook.presto.server.TestDistributedQueries:testColumnAliases</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m9">com.facebook.presto.server.TestDistributedQueries:testChainedUnionsWithOrder</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m10">com.facebook.presto.server.TestDistributedQueries:testJoinWithMultiFieldGroupBy</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m11">com.facebook.presto.server.TestDistributedQueries:testHaving2</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m12">com.facebook.presto.server.TestDistributedQueries:testShowPartitions</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m13">com.facebook.presto.server.TestDistributedQueries:testSemiJoinNullHandling</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m14">com.facebook.presto.server.TestDistributedQueries:testLeftJoinPredicatePushdownWithSelfEquality</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m15">com.facebook.presto.server.TestServerConfig:testExplicitPropertyMappings</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m16">com.facebook.presto.server.TestDistributedQueries:testUnaliasedSubqueries</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m17">com.facebook.presto.server.TestDistributedQueries:testHaving3</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m18">com.facebook.presto.server.TestDistributedQueries:testRepeatedAggregations</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m19">com.facebook.presto.server.TestDistributedQueries:testStdDev</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m20">com.facebook.presto.server.TestDistributedQueries:testRightJoinDoubleClauseWithRightOverlap</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m21">com.facebook.presto.server.TestDistributedQueries:testAliasedInInlineView</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m22">com.facebook.presto.server.TestDistributedQueries:testWithNestedSubqueries</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m23">com.facebook.presto.server.TestDistributedQueries:testJoinWithFullyPushedDownJoinClause</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m24">com.facebook.presto.server.TestDistributedQueries:testLeftJoinDoubleClauseWithLeftOverlap</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m25">com.facebook.presto.server.TestDistributedQueries:testSpecialFloatingPointValues</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m26">com.facebook.presto.server.TestDistributedQueries:testCountWithInlineView</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m27">com.facebook.presto.server.TestDistributedQueries:testTableSampleSystemBoundaryValues</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m28">com.facebook.presto.server.TestDistributedQueries:testFunctionNotRegistered</h2>
+<div style="padding-left:3em">
+<p>Unexpected parameters (bigint) for function length. Expected: length(varchar)</p>
+com.facebook.presto.metadata.FunctionRegistry.get(FunctionRegistry.java:209)
+<br/>at com.facebook.presto.metadata.MetadataManager.getFunction(MetadataManager.java:81)
+<br/>at com.facebook.presto.sql.analyzer.ExpressionAnalyzer$Visitor.visitFunctionCall(ExpressionAnalyzer.java:480)
+<br/>at com.facebook.presto.sql.analyzer.ExpressionAnalyzer$Visitor.visitFunctionCall(ExpressionAnalyzer.java:126)
+<br/>at com.facebook.presto.sql.tree.FunctionCall.accept(FunctionCall.java:67)
+<br/>at com.facebook.presto.sql.analyzer.ExpressionAnalyzer.analyze(ExpressionAnalyzer.java:123)
+<br/>at com.facebook.presto.sql.analyzer.Analyzer.analyzeExpression(Analyzer.java:73)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.analyzeSelect(TupleAnalyzer.java:661)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitQuerySpecification(TupleAnalyzer.java:261)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitQuerySpecification(TupleAnalyzer.java:96)
+<br/>at com.facebook.presto.sql.tree.QuerySpecification.accept(QuerySpecification.java:99)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.StatementAnalyzer.visitQuery(StatementAnalyzer.java:439)
+<br/>at com.facebook.presto.sql.analyzer.StatementAnalyzer.visitQuery(StatementAnalyzer.java:86)
+<br/>at com.facebook.presto.sql.tree.Query.accept(Query.java:71)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.Analyzer.analyze(Analyzer.java:50)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.doAnalyzeQuery(SqlQueryExecution.java:198)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.analyzeQuery(SqlQueryExecution.java:183)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.start(SqlQueryExecution.java:142)
+<br/>at com.facebook.presto.execution.SqlQueryManager$QueryStarter.run(SqlQueryManager.java:388)
+<br/>at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+<br/>at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+<br/>at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+<br/>at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+<br/>at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+<br/>at java.lang.Thread.run(Thread.java:722)
+<br/>1 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m29">com.facebook.presto.server.TestDistributedQueries:testJoinPredicatePushdown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m30">com.facebook.presto.server.TestDistributedQueries:testCountDistinct</h2>
+<div style="padding-left:3em">
+<p>DISTINCT in aggregation parameters not yet supported</p>
+com.facebook.presto.sql.analyzer.TupleAnalyzer.analyzeAggregations(TupleAnalyzer.java:721)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitQuerySpecification(TupleAnalyzer.java:266)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitQuerySpecification(TupleAnalyzer.java:96)
+<br/>at com.facebook.presto.sql.tree.QuerySpecification.accept(QuerySpecification.java:99)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.StatementAnalyzer.visitQuery(StatementAnalyzer.java:439)
+<br/>at com.facebook.presto.sql.analyzer.StatementAnalyzer.visitQuery(StatementAnalyzer.java:86)
+<br/>at com.facebook.presto.sql.tree.Query.accept(Query.java:71)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.Analyzer.analyze(Analyzer.java:50)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.doAnalyzeQuery(SqlQueryExecution.java:198)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.analyzeQuery(SqlQueryExecution.java:183)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.start(SqlQueryExecution.java:142)
+<br/>at com.facebook.presto.execution.SqlQueryManager$QueryStarter.run(SqlQueryManager.java:388)
+<br/>at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+<br/>at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+<br/>at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+<br/>at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+<br/>at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+<br/>at java.lang.Thread.run(Thread.java:722)
+<br/>1 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m31">com.facebook.presto.server.TestDistributedQueries:testStdDevPop</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m32">com.facebook.presto.server.TestDistributedQueries:testOrderBy2</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m33">com.facebook.presto.server.TestDistributedQueries:testSimpleJoinWithLeftConstantEquality</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m34">com.facebook.presto.server.TestDistributedQueries:testPlainLeftJoinPredicatePushdown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m35">com.facebook.presto.server.TestDistributedQueries:testNestedCount</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m36">com.facebook.presto.server.TestDistributedQueries:testGroupByNullIf</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m37">com.facebook.presto.server.TestDistributedQueries:testCountWithAndPredicate</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m38">com.facebook.presto.server.TestDistributedQueries:testOrderByOrdinalWithWildcard</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m39">com.facebook.presto.server.TestDistributedQueries:testBuildFilteredLeftJoin</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m40">com.facebook.presto.server.TestPluginManagerConfig:testDefaults</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m41">com.facebook.presto.server.TestDistributedQueries:testJoinWithRightConstantEquality</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m42">com.facebook.presto.server.TestDistributedQueries:testJoinWithComplexExpressions</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m43">com.facebook.presto.server.TestDistributedQueries:testGroupByMultipleFields</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m44">com.facebook.presto.server.TestDistributedQueries:testOrderByOrdinal</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m45">com.facebook.presto.server.TestDistributedQueries:testLimitPushDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m46">com.facebook.presto.server.TestDistributedQueries:testRightJoinWithLeftConstantEquality</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m47">com.facebook.presto.server.TestDistributedQueries:testOrderLimitCompaction</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m48">com.facebook.presto.server.TestDistributedQueries:testUnaliasedSubqueries1</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m49">com.facebook.presto.server.TestDistributedQueries:testGroupByRepeatedField2</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m50">com.facebook.presto.server.TestDistributedQueries:testRightJoinWithNullValues</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m51">com.facebook.presto.server.TestDistributedQueries:testShowFunctions</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m52">com.facebook.presto.server.TestDistributedQueries:testLargeQueryFailure</h2>
+<div style="padding-left:3em">
+<p>statement is too large (stack overflow during analysis)</p>
+com.facebook.presto.execution.SqlQueryExecution.analyzeQuery(SqlQueryExecution.java:186)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.start(SqlQueryExecution.java:142)
+<br/>at com.facebook.presto.execution.SqlQueryManager$QueryStarter.run(SqlQueryManager.java:388)
+<br/>at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+<br/>at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+<br/>at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+<br/>at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+<br/>at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+<br/>at java.lang.Thread.run(Thread.java:722)
+<br/>1 lines not shown
+<p>Caused by null</p>
+com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>at com.facebook.presto.sql.tree.LogicalBinaryExpression.hashCode(LogicalBinaryExpression.java:101)
+<br/>924 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m53">com.facebook.presto.server.TestDistributedQueries:testQuotedIdentifiers</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m54">com.facebook.presto.server.TestDistributedQueries:testJoinWithNullValues</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m55">com.facebook.presto.server.TestDistributedQueries:testLeftJoinWithRightConstantEquality</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m56">com.facebook.presto.server.TestDistributedQueries:testWindowFunctionsFromAggregate</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m57">com.facebook.presto.server.TestDistributedQueries:testLeftJoinDoubleClauseWithRightOverlap</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m58">com.facebook.presto.discovery.TestEmbeddedDiscoveryConfig:testDefaults</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m59">com.facebook.presto.server.TestDistributedQueries:testSelectOnlyUnion</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m60">com.facebook.presto.server.TestDistributedQueries:testPredicatePushdownJoinEqualityGroups</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m61">com.facebook.presto.server.TestDistributedQueries:testOrderByLimit</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m62">com.facebook.presto.server.TestDistributedQueries:testRightJoinNormalizedToInner</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m63">com.facebook.presto.server.TestDistributedQueries:testLargeQuerySuccess</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m64">com.facebook.presto.server.TestDistributedQueries:testTableSampleBernoulliBoundaryValues</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m65">com.facebook.presto.server.TestDistributedQueries:testDefaultExplainGraphvizFormat</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m66">com.facebook.presto.server.TestDistributedQueries:testSubqueryBody</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m67">com.facebook.presto.server.TestDistributedQueries:testSimpleRightJoinWithLeftConstantEquality</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m68">com.facebook.presto.server.TestDistributedQueries:testLeftJoinWithLeftConstantEquality</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m69">com.facebook.presto.server.TestDistributedQueries:testSubqueryBodyProjectedOrderby</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m70">com.facebook.presto.server.TestDistributedQueries:testRightJoinPredicatePushdownWithSelfEquality</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m71">com.facebook.presto.server.TestDistributedQueries:testCountWithNullIfPredicate</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m72">com.facebook.presto.server.TestDistributedQueries:testVariancePop</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m73">com.facebook.presto.server.TestDistributedQueries:testJoinWithConstantExpression</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m74">com.facebook.presto.server.TestDistributedQueries:testRightJoinDoubleClauseWithLeftOverlap</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m75">com.facebook.presto.server.TestDistributedQueries:testGroupByWithAlias</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m76">com.facebook.presto.server.TestDistributedQueries:testDistinct</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m77">com.facebook.presto.server.TestDistributedQueries:testIn</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m78">com.facebook.presto.server.TestDistributedQueries:testApproximateCountDistinct</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m79">com.facebook.presto.server.TestDistributedQueries:testNoFrom</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m80">com.facebook.presto.server.TestDistributedQueries:testOrderByAlias</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m81">com.facebook.presto.server.TestDistributedQueries:testDistributedExplainGraphvizFormat</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m82">com.facebook.presto.server.TestDistributedQueries:testTopNByMultipleFields</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m83">com.facebook.presto.server.TestDistributedQueries:testInvalidColumn</h2>
+<div style="padding-left:3em">
+<p>Column &apos;orderkey_1&apos; cannot be resolved</p>
+com.facebook.presto.sql.analyzer.ExpressionAnalyzer$Visitor.visitQualifiedNameReference(ExpressionAnalyzer.java:156)
+<br/>at com.facebook.presto.sql.analyzer.ExpressionAnalyzer$Visitor.visitQualifiedNameReference(ExpressionAnalyzer.java:126)
+<br/>at com.facebook.presto.sql.tree.QualifiedNameReference.accept(QualifiedNameReference.java:41)
+<br/>at com.facebook.presto.sql.analyzer.ExpressionAnalyzer.analyze(ExpressionAnalyzer.java:123)
+<br/>at com.facebook.presto.sql.analyzer.Analyzer.analyzeExpression(Analyzer.java:73)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.analyzeSelect(TupleAnalyzer.java:661)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitQuerySpecification(TupleAnalyzer.java:261)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitQuerySpecification(TupleAnalyzer.java:96)
+<br/>at com.facebook.presto.sql.tree.QuerySpecification.accept(QuerySpecification.java:99)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.StatementAnalyzer.visitQuery(StatementAnalyzer.java:439)
+<br/>at com.facebook.presto.sql.analyzer.StatementAnalyzer.visitQuery(StatementAnalyzer.java:86)
+<br/>at com.facebook.presto.sql.tree.Query.accept(Query.java:71)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitTableSubquery(TupleAnalyzer.java:242)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitTableSubquery(TupleAnalyzer.java:96)
+<br/>at com.facebook.presto.sql.tree.TableSubquery.accept(TableSubquery.java:36)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitAliasedRelation(TupleAnalyzer.java:171)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitAliasedRelation(TupleAnalyzer.java:96)
+<br/>at com.facebook.presto.sql.tree.AliasedRelation.accept(AliasedRelation.java:57)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitJoin(TupleAnalyzer.java:321)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitJoin(TupleAnalyzer.java:96)
+<br/>at com.facebook.presto.sql.tree.Join.accept(Join.java:66)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.analyzeFrom(TupleAnalyzer.java:704)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitQuerySpecification(TupleAnalyzer.java:257)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitQuerySpecification(TupleAnalyzer.java:96)
+<br/>at com.facebook.presto.sql.tree.QuerySpecification.accept(QuerySpecification.java:99)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.StatementAnalyzer.visitQuery(StatementAnalyzer.java:439)
+<br/>at com.facebook.presto.sql.analyzer.StatementAnalyzer.visitQuery(StatementAnalyzer.java:86)
+<br/>at com.facebook.presto.sql.tree.Query.accept(Query.java:71)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.Analyzer.analyze(Analyzer.java:50)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.doAnalyzeQuery(SqlQueryExecution.java:198)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.analyzeQuery(SqlQueryExecution.java:183)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.start(SqlQueryExecution.java:142)
+<br/>at com.facebook.presto.execution.SqlQueryManager$QueryStarter.run(SqlQueryManager.java:388)
+<br/>at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+<br/>at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+<br/>at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+<br/>at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+<br/>at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+<br/>at java.lang.Thread.run(Thread.java:722)
+<br/>1 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m84">com.facebook.presto.server.TestDistributedQueries:testLogicalExplain</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m85">com.facebook.presto.server.TestDistributedQueries:testJoinUsingMultipleFields</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m86">com.facebook.presto.server.TestDistributedQueries:testPlainRightJoinPredicatePushdown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m87">com.facebook.presto.server.TestDistributedQueries:testLogicalExplainTextFormat</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m88">com.facebook.presto.server.TestDistributedQueries:testGroupAggregationOverNestedGroupByAggregation</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m89">com.facebook.presto.server.TestDistributedQueries:testConcatOperator</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m90">com.facebook.presto.server.TestDistributedQueries:testNonDeterministicJoinPredicatePushdown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m91">com.facebook.presto.server.TestDistributedQueries:testDoubleFilteredLeftJoinWithRightConstantEquality</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m92">com.facebook.presto.server.TestDistributedQueries:testQualifiedWildcard</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m93">com.facebook.presto.server.TestDistributedQueries:testRepeatedOutputs</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m94">com.facebook.presto.server.TestDistributedQueries:testWindowFunctionsExpressions</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m95">com.facebook.presto.server.TestDistributedQueries:testJoinWithReversedComparison</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m96">com.facebook.presto.server.TestDistributedQueries:testRightJoinAsInnerPredicatePushdown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m97">com.facebook.presto.server.TestDistributedQueries:testGroupBySum</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m98">com.facebook.presto.server.TestDistributedQueries:testSemiJoin</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m99">com.facebook.presto.server.TestDistributedQueries:testCountAllWithComparison</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m100">com.facebook.presto.server.TestDistributedQueries:testDoubleFilteredRightJoinWithRightConstantEquality</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m101">com.facebook.presto.server.TestDistributedQueries:testWithQualifiedPrefix</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m102">com.facebook.presto.server.TestDistributedQueries:testSemiJoinLimitPushDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m103">com.facebook.presto.server.TestDistributedQueries:testJoinDoubleClauseWithLeftOverlap</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m104">com.facebook.presto.server.TestDistributedQueries:testLeftJoinNormalizedToInner</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m105">com.facebook.presto.server.TestDistributedQueries:testWithAliased</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m106">com.facebook.presto.server.TestDistributedQueries:testMaxMinStringWithNulls</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m107">com.facebook.presto.server.TestDistributedQueries:testGroupByCount</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m108">com.facebook.presto.server.TestDistributedQueries:testTableAsSubquery</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m109">com.facebook.presto.server.TestDistributedQueries:testShowTables</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m110">com.facebook.presto.server.TestDistributedQueries:testRightFilteredJoin</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m111">com.facebook.presto.server.TestDistributedQueries:testShowTablesFrom</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m112">com.facebook.presto.server.TestDistributedQueries:testWildcard</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m113">com.facebook.presto.server.TestDistributedQueries:testMultipleWildcards</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m114">com.facebook.presto.server.TestDistributedQueries:testInlineViewWithProjections</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m115">com.facebook.presto.server.TestDistributedQueries:testDistinctWithOrderByNotInSelect</h2>
+<div style="padding-left:3em">
+<p>For SELECT DISTINCT, ORDER BY expressions must appear in select list</p>
+com.facebook.presto.sql.analyzer.TupleAnalyzer.analyzeOrderBy(TupleAnalyzer.java:564)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitQuerySpecification(TupleAnalyzer.java:263)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitQuerySpecification(TupleAnalyzer.java:96)
+<br/>at com.facebook.presto.sql.tree.QuerySpecification.accept(QuerySpecification.java:99)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.StatementAnalyzer.visitQuery(StatementAnalyzer.java:439)
+<br/>at com.facebook.presto.sql.analyzer.StatementAnalyzer.visitQuery(StatementAnalyzer.java:86)
+<br/>at com.facebook.presto.sql.tree.Query.accept(Query.java:71)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.Analyzer.analyze(Analyzer.java:50)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.doAnalyzeQuery(SqlQueryExecution.java:198)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.analyzeQuery(SqlQueryExecution.java:183)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.start(SqlQueryExecution.java:142)
+<br/>at com.facebook.presto.execution.SqlQueryManager$QueryStarter.run(SqlQueryManager.java:388)
+<br/>at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+<br/>at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+<br/>at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+<br/>at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+<br/>at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+<br/>at java.lang.Thread.run(Thread.java:722)
+<br/>1 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m116">com.facebook.presto.server.TestDistributedQueries:testNonDeterministicAggregationPredicatePushdown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m117">com.facebook.presto.server.TestDistributedQueries:testWithRecursive</h2>
+<div style="padding-left:3em">
+<p>Recursive WITH queries are not supported</p>
+com.facebook.presto.sql.analyzer.StatementAnalyzer.analyzeWith(StatementAnalyzer.java:468)
+<br/>at com.facebook.presto.sql.analyzer.StatementAnalyzer.visitQuery(StatementAnalyzer.java:436)
+<br/>at com.facebook.presto.sql.analyzer.StatementAnalyzer.visitQuery(StatementAnalyzer.java:86)
+<br/>at com.facebook.presto.sql.tree.Query.accept(Query.java:71)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.Analyzer.analyze(Analyzer.java:50)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.doAnalyzeQuery(SqlQueryExecution.java:198)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.analyzeQuery(SqlQueryExecution.java:183)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.start(SqlQueryExecution.java:142)
+<br/>at com.facebook.presto.execution.SqlQueryManager$QueryStarter.run(SqlQueryManager.java:388)
+<br/>at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+<br/>at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+<br/>at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+<br/>at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+<br/>at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+<br/>at java.lang.Thread.run(Thread.java:722)
+<br/>1 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m118">com.facebook.presto.server.TestDistributedQueries:testJoinAggregations</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m119">com.facebook.presto.server.TestDistributedQueries:testGroupByMultipleFieldsWithPredicateOnAggregationArgument</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m120">com.facebook.presto.server.TestDistributedQueries:testLimitInInlineView</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m121">com.facebook.presto.server.TestDistributedQueries:testCountWithIsNotNullPredicate</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m122">com.facebook.presto.server.TestDistributedQueries:testOrderByMultipleFields</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m123">com.facebook.presto.server.TestDistributedQueries:testDistributedExplain</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m124">com.facebook.presto.server.TestDistributedQueries:testOrderByAliasWithSameNameAsUnselectedColumn</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m125">com.facebook.presto.server.TestDistributedQueries:testDistributedExplainTextFormat</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m126">com.facebook.presto.server.TestDistributedQueries:testSelectWithComparison</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m127">com.facebook.presto.server.TestDistributedQueries:testAggregationWithLimit</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m128">com.facebook.presto.server.TestDistributedQueries:testJoinWithComplexExpressions2</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m129">com.facebook.presto.server.TestDistributedQueries:testJoinUnaliasedSubqueries</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m130">com.facebook.presto.server.TestDistributedQueries:testGroupByNoAggregations</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m131">com.facebook.presto.server.TestNodeResource:testGetFailedNodes</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m132">com.facebook.presto.server.TestDistributedQueries:testTableSampleSystem</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m133">com.facebook.presto.server.TestDistributedQueries:testSameInputToAggregates</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m134">com.facebook.presto.server.TestDistributedQueries:testRightJoinWithRightConstantEquality</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m135">com.facebook.presto.server.TestDistributedQueries:testTableQuery</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m136">com.facebook.presto.server.TestDistributedQueries:testTableQueryOrderLimit</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m137">com.facebook.presto.server.TestDistributedQueries:testGroupByCast</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m138">com.facebook.presto.server.TestDistributedQueries:testCaseInsensitiveOutputAliasInOrderBy</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m139">com.facebook.presto.server.TestDistributedQueries:testCountAllWithPredicate</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m140">com.facebook.presto.server.TestDistributedQueries:testOrderByWindowFunction</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m141">com.facebook.presto.server.TestDistributedQueries:testGroupByExtract</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m142">com.facebook.presto.server.TestDistributedQueries:testJoinDoubleClauseWithRightOverlap</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m143">com.facebook.presto.server.TestDistributedQueries:testSubqueryUnion</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m144">com.facebook.presto.server.TestDistributedQueries:testCountAll</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m145">com.facebook.presto.server.TestDistributedQueries:testJoinPredicateMoveAround</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m146">com.facebook.presto.server.TestDistributedQueries:testJoinWithNonJoinExpression</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m147">com.facebook.presto.server.TestDistributedQueries:testVariance</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m148">com.facebook.presto.server.TestDistributedQueries:testComplexQuery</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m149">com.facebook.presto.server.TestServerConfig:testDefaults</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m150">com.facebook.presto.server.TestDistributedQueries:testQualifiedWildcardFromAlias</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m151">com.facebook.presto.server.TestDistributedQueries:testCountWithCoalescePredicate</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m152">com.facebook.presto.server.TestDistributedQueries:testJoinUsing</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m153">com.facebook.presto.server.TestDistributedQueries:testDuplicateFields</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m154">com.facebook.presto.server.TestDistributedQueries:testGroupByRepeatedField</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m155">com.facebook.presto.server.TestDistributedQueries:testSimpleLeftJoin</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m156">com.facebook.presto.server.TestServer:testServerStarts</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m157">com.facebook.presto.server.TestDistributedQueries:testGroupByCase</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m158">com.facebook.presto.server.TestDistributedQueries:testInlineView</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m159">com.facebook.presto.server.TestDistributedQueries:testHistogram</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m160">com.facebook.presto.server.TestDistributedQueries:testGroupByCaseNoElse</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m161">com.facebook.presto.server.TestDistributedQueries:testWhereNull</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m162">com.facebook.presto.server.TestDistributedQueries:testNodeRoster</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m163">com.facebook.presto.server.TestDistributedQueries:testTrivialNonDeterministicPredicatePushdown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m164">com.facebook.presto.server.TestDistributedQueries:testTableSampleBernoulli</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m165">com.facebook.presto.server.TestDistributedQueries:testGroupByOrdinal</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m166">com.facebook.presto.server.TestDistributedQueries:testCountWithNullPredicate</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m167">com.facebook.presto.server.TestDistributedQueries:testGroupBySearchedCaseNoElse</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m168">com.facebook.presto.server.TestDistributedQueries:testDistinctMultipleFields</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m169">com.facebook.presto.server.TestDistributedQueries:testSimpleJoinWithRightConstantEquality</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m170">com.facebook.presto.server.TestDistributedQueries:testArithmeticNegation</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m171">com.facebook.presto.server.TestDistributedQueries:testLeftFilteredJoin</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m172">com.facebook.presto.server.TestDistributedQueries:testCaseInsensitiveAliasedRelation</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m173">com.facebook.presto.server.TestExecuteResource:testExecute</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m174">com.facebook.presto.server.TestDistributedQueries:testIfExpression</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m175">com.facebook.presto.server.TestDistributedQueries:testSubqueryBodyOrderLimit</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m176">com.facebook.presto.server.TestDistributedQueries:testSimpleRightJoin</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m177">com.facebook.presto.server.TestDistributedQueries:testNonDeterministicTableScanPredicatePushdown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m178">com.facebook.presto.server.TestDistributedQueries:testWithHiding</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m179">com.facebook.presto.server.TestDistributedQueries:testWildcardFromJoin</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m180">com.facebook.presto.server.TestDistributedQueries:testApproxPercentile</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m181">com.facebook.presto.server.TestDistributedQueries:testReorderOutputsOfGroupByAggregation</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m182">com.facebook.presto.server.TestDistributedQueries:testGroupByOrderByLimit</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m183">com.facebook.presto.server.TestDistributedQueries:testShowCatalogs</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m184">com.facebook.presto.server.TestDistributedQueries:testLimit</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m185">com.facebook.presto.server.TestDistributedQueries:testUnionAll</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m186">com.facebook.presto.server.TestDistributedQueries:testJoinOnConstantExpression</h2>
+<div style="padding-left:3em">
+<p>Joins on constant expressions (i.e., cross joins) not supported</p>
+com.facebook.presto.sql.analyzer.TupleAnalyzer.visitJoin(TupleAnalyzer.java:368)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitJoin(TupleAnalyzer.java:96)
+<br/>at com.facebook.presto.sql.tree.Join.accept(Join.java:66)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.analyzeFrom(TupleAnalyzer.java:704)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitQuerySpecification(TupleAnalyzer.java:257)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitQuerySpecification(TupleAnalyzer.java:96)
+<br/>at com.facebook.presto.sql.tree.QuerySpecification.accept(QuerySpecification.java:99)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.StatementAnalyzer.visitQuery(StatementAnalyzer.java:439)
+<br/>at com.facebook.presto.sql.analyzer.StatementAnalyzer.visitQuery(StatementAnalyzer.java:86)
+<br/>at com.facebook.presto.sql.tree.Query.accept(Query.java:71)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.Analyzer.analyze(Analyzer.java:50)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.doAnalyzeQuery(SqlQueryExecution.java:198)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.analyzeQuery(SqlQueryExecution.java:183)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.start(SqlQueryExecution.java:142)
+<br/>at com.facebook.presto.execution.SqlQueryManager$QueryStarter.run(SqlQueryManager.java:388)
+<br/>at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+<br/>at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+<br/>at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+<br/>at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+<br/>at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+<br/>at java.lang.Thread.run(Thread.java:722)
+<br/>1 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m187">com.facebook.presto.server.TestDistributedQueries:testSumOfNulls</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m188">com.facebook.presto.server.TestDistributedQueries:testWildcardFromSubquery</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m189">com.facebook.presto.server.TestDistributedQueries:testQualifiedWildcardFromJoin</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m190">com.facebook.presto.server.TestDistributedQueries:testCaseInsensitiveAttribute</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m191">com.facebook.presto.server.TestDistributedQueries:testApproximateCountDistinctGroupBy</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m192">com.facebook.presto.server.TestDistributedQueries:testAverageAll</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m193">com.facebook.presto.server.TestNodeResource:testGetAllNodes</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m194">com.facebook.presto.server.TestDistributedQueries:testSelfJoin</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m195">com.facebook.presto.server.TestDistributedQueries:testUnion</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m196">com.facebook.presto.server.TestDistributedQueries:testCountWithNotPredicate</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m197">com.facebook.presto.server.TestDistributedQueries:testSimpleJoin</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m198">com.facebook.presto.server.TestDistributedQueries:testCast</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m199">com.facebook.presto.server.TestDistributedQueries:testDoubleFilteredLeftJoinWithLeftConstantEquality</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m200">com.facebook.presto.server.TestDistributedQueries:testCountWithIsNullPredicate</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m201">com.facebook.presto.server.TestDistributedQueries:testAntiJoin</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m202">com.facebook.presto.server.TestDistributedQueries:testShowSchemas</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m203">com.facebook.presto.server.TestDistributedQueries:testProbeFilteredLeftJoin</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m204">com.facebook.presto.server.TestDistributedQueries:testGroupByIf</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m205">com.facebook.presto.server.TestDistributedQueries:testQualifiedWildcardFromInlineView</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m206">com.facebook.presto.server.TestDistributedQueries:testGroupByKeyPredicatePushdown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m207">com.facebook.presto.server.TestDistributedQueries:testJoinOnMultipleFields</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m208">com.facebook.presto.server.TestDistributedQueries:testGroupBySearchedCase</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m209">com.facebook.presto.server.TestDistributedQueries:testWith</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m210">com.facebook.presto.server.TestDistributedQueries:testTypeMismatch</h2>
+<div style="padding-left:3em">
+<p>Types are not comparable with &apos;&lt;&gt;&apos;: bigint vs varchar</p>
+com.facebook.presto.sql.analyzer.ExpressionAnalyzer$Visitor.visitComparisonExpression(ExpressionAnalyzer.java:205)
+<br/>at com.facebook.presto.sql.analyzer.ExpressionAnalyzer$Visitor.visitComparisonExpression(ExpressionAnalyzer.java:126)
+<br/>at com.facebook.presto.sql.tree.ComparisonExpression.accept(ComparisonExpression.java:78)
+<br/>at com.facebook.presto.sql.analyzer.ExpressionAnalyzer.analyze(ExpressionAnalyzer.java:123)
+<br/>at com.facebook.presto.sql.analyzer.Analyzer.analyzeExpression(Analyzer.java:73)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.analyzeSelect(TupleAnalyzer.java:661)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitQuerySpecification(TupleAnalyzer.java:261)
+<br/>at com.facebook.presto.sql.analyzer.TupleAnalyzer.visitQuerySpecification(TupleAnalyzer.java:96)
+<br/>at com.facebook.presto.sql.tree.QuerySpecification.accept(QuerySpecification.java:99)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.StatementAnalyzer.visitQuery(StatementAnalyzer.java:439)
+<br/>at com.facebook.presto.sql.analyzer.StatementAnalyzer.visitQuery(StatementAnalyzer.java:86)
+<br/>at com.facebook.presto.sql.tree.Query.accept(Query.java:71)
+<br/>at com.facebook.presto.sql.tree.AstVisitor.process(AstVisitor.java:22)
+<br/>at com.facebook.presto.sql.analyzer.Analyzer.analyze(Analyzer.java:50)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.doAnalyzeQuery(SqlQueryExecution.java:198)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.analyzeQuery(SqlQueryExecution.java:183)
+<br/>at com.facebook.presto.execution.SqlQueryExecution.start(SqlQueryExecution.java:142)
+<br/>at com.facebook.presto.execution.SqlQueryManager$QueryStarter.run(SqlQueryManager.java:388)
+<br/>at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+<br/>at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+<br/>at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+<br/>at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+<br/>at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+<br/>at java.lang.Thread.run(Thread.java:722)
+<br/>1 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m211">com.facebook.presto.server.TestDistributedQueries:testLeftJoinEqualityInference</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m212">com.facebook.presto.server.TestDistributedQueries:testDoubleFilteredRightJoinWithLeftConstantEquality</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m213">com.facebook.presto.server.TestDistributedQueries:testGroupByWithWildcard</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m214">com.facebook.presto.server.TestDistributedQueries:testProbeFilteredRightJoin</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m215">com.facebook.presto.discovery.TestEmbeddedDiscoveryConfig:testExplicitPropertyMappings</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m216">com.facebook.presto.server.TestDistributedQueries:testReferenceToWithQueryInFromClause</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m217">com.facebook.presto.server.TestDistributedQueries:testDefaultExplainTextFormat</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m218">com.facebook.presto.server.TestDistributedQueries:testSimpleLeftJoinWithRightConstantEquality</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m219">com.facebook.presto.server.TestDistributedQueries:testDistinctWithOrderBy</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m220">com.facebook.presto.server.TestDistributedQueries:testGroupByBetween</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m221">com.facebook.presto.server.TestDistributedQueries:testCountColumn</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m222">com.facebook.presto.server.TestDistributedQueries:testRightJoinEqualityInference</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m223">com.facebook.presto.server.TestDistributedQueries:testSimpleRightJoinWithRightConstantEquality</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m224">com.facebook.presto.server.TestDistributedQueries:testUnionDistinct</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m225">com.facebook.presto.server.TestDistributedQueries:testTableQueryInUnion</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m226">com.facebook.presto.server.TestDistributedQueries:testWithChaining</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m227">com.facebook.presto.server.TestDistributedQueries:testLeftJoinWithNullValues</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m228">com.facebook.presto.server.TestDistributedQueries:testGroupByWithoutAggregation</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m229">com.facebook.presto.server.TestDistributedQueries:testScalarFunction</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m230">com.facebook.presto.server.TestDistributedQueries:testAggregationWithProjection2</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m231">com.facebook.presto.server.TestDistributedQueries:testLogicalExplainGraphvizFormat</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m232">com.facebook.presto.server.TestDistributedQueries:testMultiColumnUnionAll</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m233">com.facebook.presto.server.TestDistributedQueries:testHaving</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m234">com.facebook.presto.server.TestDistributedQueries:testShowColumns</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m235">com.facebook.presto.server.TestDistributedQueries:testDual</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m236">com.facebook.presto.server.TestDistributedQueries:testUnaliasSymbolReferencesWithUnion</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m237">com.facebook.presto.server.TestDistributedQueries:testCountWithOrPredicate</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m238">com.facebook.presto.server.TestDistributedQueries:testCountBoolean</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m239">com.facebook.presto.server.TestDistributedQueries:testMixedWildcards</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m240">com.facebook.presto.server.TestDistributedQueries:testGroupByCoalesce</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m241">com.facebook.presto.server.TestDistributedQueries:testSimpleLeftJoinWithLeftConstantEquality</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m242">com.facebook.presto.server.TestDistributedQueries:testSemiJoinPredicateMoveAround</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m243">com.facebook.presto.server.TestDistributedQueries:testLeftJoinAsInnerPredicatePushdown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m244">com.facebook.presto.server.TestDistributedQueries:testOrderByExpressionWithLimit</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m245">com.facebook.presto.server.TestDistributedQueries:testPredicatePushdown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m246">com.facebook.presto.server.TestPluginManagerConfig:testExplicitPropertyMappings</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m247">com.facebook.presto.server.TestDistributedQueries:testRightJoinPredicateMoveAround</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m248">com.facebook.presto.server.TestDistributedQueries:testLeftJoinPredicateMoveAround</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m249">com.facebook.presto.server.TestDistributedQueries:testOrderBy</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m250">com.facebook.presto.server.TestDistributedQueries:testLimitZero</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m251">com.facebook.presto.server.TestDistributedQueries:testAggregationWithProjection</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m252">com.facebook.presto.server.TestDistributedQueries:testWithSelfJoin</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+</body></html>

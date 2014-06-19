@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestSuite" time="156.024" tests="252" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/usr/lib/java/jdk1.7.0_04/jre/lib/amd64"/>
+    <property name="java.vm.version" value="23.0-b21"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/home/deke/presto-0.54"/>
+    <property name="java.runtime.version" value="1.7.0_04-b20"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/java/jdk1.7.0_04/jre/lib/endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/usr/share/apache-maven-3.2.1/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="51.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="2.6.18-194.el5"/>
+    <property name="user.home" value="/home/deke"/>
+    <property name="user.timezone" value="PRC"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="1.7"/>
+    <property name="user.name" value="deke"/>
+    <property name="java.class.path" value="/usr/share/apache-maven-3.2.1/boot/plexus-classworlds-2.5.1.jar"/>
+    <property name="org.slf4j.simpleLogger.defaultLogLevel" value="info"/>
+    <property name="java.vm.specification.version" value="1.7"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/usr/lib/java/jdk1.7.0_04/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.7.0_04"/>
+    <property name="java.ext.dirs" value="/usr/lib/java/jdk1.7.0_04/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="securerandom.source" value="file:/dev/./urandom"/>
+    <property name="sun.boot.class.path" value="/usr/lib/java/jdk1.7.0_04/jre/lib/resources.jar:/usr/lib/java/jdk1.7.0_04/jre/lib/rt.jar:/usr/lib/java/jdk1.7.0_04/jre/lib/sunrsasign.jar:/usr/lib/java/jdk1.7.0_04/jre/lib/jsse.jar:/usr/lib/java/jdk1.7.0_04/jre/lib/jce.jar:/usr/lib/java/jdk1.7.0_04/jre/lib/charsets.jar:/usr/lib/java/jdk1.7.0_04/jre/lib/jfr.jar:/usr/lib/java/jdk1.7.0_04/jre/classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="/usr/share/apache-maven-3.2.1"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase name="testAggregationWithLimit" classname="com.facebook.presto.server.TestDistributedQueries" time="0.691"/>
+  <testcase name="testAggregationWithProjection" classname="com.facebook.presto.server.TestDistributedQueries" time="0.265"/>
+  <testcase name="testAggregationWithProjection2" classname="com.facebook.presto.server.TestDistributedQueries" time="0.328"/>
+  <testcase name="testAliasedInInlineView" classname="com.facebook.presto.server.TestDistributedQueries" time="0.729"/>
+  <testcase name="testAntiJoin" classname="com.facebook.presto.server.TestDistributedQueries" time="1.799"/>
+  <testcase name="testApproxPercentile" classname="com.facebook.presto.server.TestDistributedQueries" time="1.05"/>
+  <testcase name="testApproximateCountDistinct" classname="com.facebook.presto.server.TestDistributedQueries" time="0.241"/>
+  <testcase name="testApproximateCountDistinctGroupBy" classname="com.facebook.presto.server.TestDistributedQueries" time="0.199"/>
+  <testcase name="testArithmeticNegation" classname="com.facebook.presto.server.TestDistributedQueries" time="0.259"/>
+  <testcase name="testAverageAll" classname="com.facebook.presto.server.TestDistributedQueries" time="0.143"/>
+  <testcase name="testBuildFilteredLeftJoin" classname="com.facebook.presto.server.TestDistributedQueries" time="4.895"/>
+  <testcase name="testBuildFilteredRightJoin" classname="com.facebook.presto.server.TestDistributedQueries" time="1.329"/>
+  <testcase name="testCaseInsensitiveAliasedRelation" classname="com.facebook.presto.server.TestDistributedQueries" time="0.569"/>
+  <testcase name="testCaseInsensitiveAttribute" classname="com.facebook.presto.server.TestDistributedQueries" time="0.239"/>
+  <testcase name="testCaseInsensitiveOutputAliasInOrderBy" classname="com.facebook.presto.server.TestDistributedQueries" time="0.357"/>
+  <testcase name="testCaseNoElse" classname="com.facebook.presto.server.TestDistributedQueries" time="0.315"/>
+  <testcase name="testCast" classname="com.facebook.presto.server.TestDistributedQueries" time="1.125"/>
+  <testcase name="testChainedUnionsWithOrder" classname="com.facebook.presto.server.TestDistributedQueries" time="0.828"/>
+  <testcase name="testColumnAliases" classname="com.facebook.presto.server.TestDistributedQueries" time="0.318"/>
+  <testcase name="testComplexQuery" classname="com.facebook.presto.server.TestDistributedQueries" time="0.198"/>
+  <testcase name="testConcatOperator" classname="com.facebook.presto.server.TestDistributedQueries" time="0.2"/>
+  <testcase name="testCountAll" classname="com.facebook.presto.server.TestDistributedQueries" time="0.123"/>
+  <testcase name="testCountAllWithComparison" classname="com.facebook.presto.server.TestDistributedQueries" time="0.282"/>
+  <testcase name="testCountAllWithPredicate" classname="com.facebook.presto.server.TestDistributedQueries" time="0.214"/>
+  <testcase name="testCountBoolean" classname="com.facebook.presto.server.TestDistributedQueries" time="0.203"/>
+  <testcase name="testCountColumn" classname="com.facebook.presto.server.TestDistributedQueries" time="0.994"/>
+  <testcase name="testCountDistinct" classname="com.facebook.presto.server.TestDistributedQueries" time="0.039"/>
+  <testcase name="testCountWithAndPredicate" classname="com.facebook.presto.server.TestDistributedQueries" time="0.26"/>
+  <testcase name="testCountWithCoalescePredicate" classname="com.facebook.presto.server.TestDistributedQueries" time="0.082"/>
+  <testcase name="testCountWithInlineView" classname="com.facebook.presto.server.TestDistributedQueries" time="0.213"/>
+  <testcase name="testCountWithIsNotNullPredicate" classname="com.facebook.presto.server.TestDistributedQueries" time="0.188"/>
+  <testcase name="testCountWithIsNullPredicate" classname="com.facebook.presto.server.TestDistributedQueries" time="0.217"/>
+  <testcase name="testCountWithNotPredicate" classname="com.facebook.presto.server.TestDistributedQueries" time="0.123"/>
+  <testcase name="testCountWithNullIfPredicate" classname="com.facebook.presto.server.TestDistributedQueries" time="0.196"/>
+  <testcase name="testCountWithNullPredicate" classname="com.facebook.presto.server.TestDistributedQueries" time="0.19"/>
+  <testcase name="testCountWithOrPredicate" classname="com.facebook.presto.server.TestDistributedQueries" time="0.267"/>
+  <testcase name="testDefaultExplainGraphvizFormat" classname="com.facebook.presto.server.TestDistributedQueries" time="0.084"/>
+  <testcase name="testDefaultExplainTextFormat" classname="com.facebook.presto.server.TestDistributedQueries" time="0.064"/>
+  <testcase name="testDistinct" classname="com.facebook.presto.server.TestDistributedQueries" time="0.247"/>
+  <testcase name="testDistinctMultipleFields" classname="com.facebook.presto.server.TestDistributedQueries" time="0.181"/>
+  <testcase name="testDistinctWithOrderBy" classname="com.facebook.presto.server.TestDistributedQueries" time="0.152"/>
+  <testcase name="testDistinctWithOrderByNotInSelect" classname="com.facebook.presto.server.TestDistributedQueries" time="0.012"/>
+  <testcase name="testDistributedExplain" classname="com.facebook.presto.server.TestDistributedQueries" time="0.061"/>
+  <testcase name="testDistributedExplainGraphvizFormat" classname="com.facebook.presto.server.TestDistributedQueries" time="0.063"/>
+  <testcase name="testDistributedExplainTextFormat" classname="com.facebook.presto.server.TestDistributedQueries" time="0.051"/>
+  <testcase name="testDoubleFilteredLeftJoinWithLeftConstantEquality" classname="com.facebook.presto.server.TestDistributedQueries" time="0.241"/>
+  <testcase name="testDoubleFilteredLeftJoinWithRightConstantEquality" classname="com.facebook.presto.server.TestDistributedQueries" time="0.193"/>
+  <testcase name="testDoubleFilteredRightJoinWithLeftConstantEquality" classname="com.facebook.presto.server.TestDistributedQueries" time="0.256"/>
+  <testcase name="testDoubleFilteredRightJoinWithRightConstantEquality" classname="com.facebook.presto.server.TestDistributedQueries" time="0.244"/>
+  <testcase name="testDual" classname="com.facebook.presto.server.TestDistributedQueries" time="0.029"/>
+  <testcase name="testDuplicateFields" classname="com.facebook.presto.server.TestDistributedQueries" time="0.16"/>
+  <testcase name="testFunctionNotRegistered" classname="com.facebook.presto.server.TestDistributedQueries" time="0.011"/>
+  <testcase name="testGroupAggregationOverNestedGroupByAggregation" classname="com.facebook.presto.server.TestDistributedQueries" time="0.352"/>
+  <testcase name="testGroupByBetween" classname="com.facebook.presto.server.TestDistributedQueries" time="1.039"/>
+  <testcase name="testGroupByCase" classname="com.facebook.presto.server.TestDistributedQueries" time="0.572"/>
+  <testcase name="testGroupByCaseNoElse" classname="com.facebook.presto.server.TestDistributedQueries" time="0.585"/>
+  <testcase name="testGroupByCast" classname="com.facebook.presto.server.TestDistributedQueries" time="1.008"/>
+  <testcase name="testGroupByCoalesce" classname="com.facebook.presto.server.TestDistributedQueries" time="0.825"/>
+  <testcase name="testGroupByCount" classname="com.facebook.presto.server.TestDistributedQueries" time="0.179"/>
+  <testcase name="testGroupByExtract" classname="com.facebook.presto.server.TestDistributedQueries" time="0.994"/>
+  <testcase name="testGroupByIf" classname="com.facebook.presto.server.TestDistributedQueries" time="0.211"/>
+  <testcase name="testGroupByKeyPredicatePushdown" classname="com.facebook.presto.server.TestDistributedQueries" time="0.554"/>
+  <testcase name="testGroupByMultipleFields" classname="com.facebook.presto.server.TestDistributedQueries" time="0.251"/>
+  <testcase name="testGroupByMultipleFieldsWithPredicateOnAggregationArgument" classname="com.facebook.presto.server.TestDistributedQueries" time="0.089"/>
+  <testcase name="testGroupByNoAggregations" classname="com.facebook.presto.server.TestDistributedQueries" time="0.085"/>
+  <testcase name="testGroupByNullIf" classname="com.facebook.presto.server.TestDistributedQueries" time="1.138"/>
+  <testcase name="testGroupByOrderByLimit" classname="com.facebook.presto.server.TestDistributedQueries" time="0.077"/>
+  <testcase name="testGroupByOrdinal" classname="com.facebook.presto.server.TestDistributedQueries" time="0.196"/>
+  <testcase name="testGroupByRepeatedField" classname="com.facebook.presto.server.TestDistributedQueries" time="0.188"/>
+  <testcase name="testGroupByRepeatedField2" classname="com.facebook.presto.server.TestDistributedQueries" time="0.199"/>
+  <testcase name="testGroupBySearchedCase" classname="com.facebook.presto.server.TestDistributedQueries" time="0.311"/>
+  <testcase name="testGroupBySearchedCaseNoElse" classname="com.facebook.presto.server.TestDistributedQueries" time="0.483"/>
+  <testcase name="testGroupBySum" classname="com.facebook.presto.server.TestDistributedQueries" time="0.124"/>
+  <testcase name="testGroupByWithAlias" classname="com.facebook.presto.server.TestDistributedQueries" time="0.105"/>
+  <testcase name="testGroupByWithWildcard" classname="com.facebook.presto.server.TestDistributedQueries" time="0.25"/>
+  <testcase name="testGroupByWithoutAggregation" classname="com.facebook.presto.server.TestDistributedQueries" time="0.131"/>
+  <testcase name="testHaving" classname="com.facebook.presto.server.TestDistributedQueries" time="0.114"/>
+  <testcase name="testHaving2" classname="com.facebook.presto.server.TestDistributedQueries" time="0.087"/>
+  <testcase name="testHaving3" classname="com.facebook.presto.server.TestDistributedQueries" time="0.129"/>
+  <testcase name="testHistogram" classname="com.facebook.presto.server.TestDistributedQueries" time="0.223"/>
+  <testcase name="testIfExpression" classname="com.facebook.presto.server.TestDistributedQueries" time="0.865"/>
+  <testcase name="testIn" classname="com.facebook.presto.server.TestDistributedQueries" time="0.313"/>
+  <testcase name="testInlineView" classname="com.facebook.presto.server.TestDistributedQueries" time="0.248"/>
+  <testcase name="testInlineViewWithProjections" classname="com.facebook.presto.server.TestDistributedQueries" time="0.308"/>
+  <testcase name="testInvalidColumn" classname="com.facebook.presto.server.TestDistributedQueries" time="0.018"/>
+  <testcase name="testJoinAggregations" classname="com.facebook.presto.server.TestDistributedQueries" time="5.224"/>
+  <testcase name="testJoinDoubleClauseWithLeftOverlap" classname="com.facebook.presto.server.TestDistributedQueries" time="0.257"/>
+  <testcase name="testJoinDoubleClauseWithRightOverlap" classname="com.facebook.presto.server.TestDistributedQueries" time="0.256"/>
+  <testcase name="testJoinOnConstantExpression" classname="com.facebook.presto.server.TestDistributedQueries" time="0.013"/>
+  <testcase name="testJoinOnMultipleFields" classname="com.facebook.presto.server.TestDistributedQueries" time="0.194"/>
+  <testcase name="testJoinPredicateMoveAround" classname="com.facebook.presto.server.TestDistributedQueries" time="1.821"/>
+  <testcase name="testJoinPredicatePushdown" classname="com.facebook.presto.server.TestDistributedQueries" time="0.27"/>
+  <testcase name="testJoinUnaliasedSubqueries" classname="com.facebook.presto.server.TestDistributedQueries" time="0.23"/>
+  <testcase name="testJoinUsing" classname="com.facebook.presto.server.TestDistributedQueries" time="0.206"/>
+  <testcase name="testJoinUsingMultipleFields" classname="com.facebook.presto.server.TestDistributedQueries" time="0.122"/>
+  <testcase name="testJoinWithAlias" classname="com.facebook.presto.server.TestDistributedQueries" time="4.697"/>
+  <testcase name="testJoinWithComplexExpressions" classname="com.facebook.presto.server.TestDistributedQueries" time="0.256"/>
+  <testcase name="testJoinWithComplexExpressions2" classname="com.facebook.presto.server.TestDistributedQueries" time="0.177"/>
+  <testcase name="testJoinWithComplexExpressions3" classname="com.facebook.presto.server.TestDistributedQueries" time="0.231"/>
+  <testcase name="testJoinWithConstantExpression" classname="com.facebook.presto.server.TestDistributedQueries" time="0.181"/>
+  <testcase name="testJoinWithFullyPushedDownJoinClause" classname="com.facebook.presto.server.TestDistributedQueries" time="0.25"/>
+  <testcase name="testJoinWithLeftConstantEquality" classname="com.facebook.presto.server.TestDistributedQueries" time="0.117"/>
+  <testcase name="testJoinWithMultiFieldGroupBy" classname="com.facebook.presto.server.TestDistributedQueries" time="0.42"/>
+  <testcase name="testJoinWithNonJoinExpression" classname="com.facebook.presto.server.TestDistributedQueries" time="0.166"/>
+  <testcase name="testJoinWithNullValues" classname="com.facebook.presto.server.TestDistributedQueries" time="0.718"/>
+  <testcase name="testJoinWithReversedComparison" classname="com.facebook.presto.server.TestDistributedQueries" time="0.235"/>
+  <testcase name="testJoinWithRightConstantEquality" classname="com.facebook.presto.server.TestDistributedQueries" time="0.24"/>
+  <testcase name="testLeftFilteredJoin" classname="com.facebook.presto.server.TestDistributedQueries" time="0.802"/>
+  <testcase name="testLeftJoinAsInnerPredicatePushdown" classname="com.facebook.presto.server.TestDistributedQueries" time="0.397"/>
+  <testcase name="testLeftJoinDoubleClauseWithLeftOverlap" classname="com.facebook.presto.server.TestDistributedQueries" time="0.425"/>
+  <testcase name="testLeftJoinDoubleClauseWithRightOverlap" classname="com.facebook.presto.server.TestDistributedQueries" time="0.293"/>
+  <testcase name="testLeftJoinEqualityInference" classname="com.facebook.presto.server.TestDistributedQueries" time="1.047"/>
+  <testcase name="testLeftJoinNormalizedToInner" classname="com.facebook.presto.server.TestDistributedQueries" time="0.368"/>
+  <testcase name="testLeftJoinPredicateMoveAround" classname="com.facebook.presto.server.TestDistributedQueries" time="2.528"/>
+  <testcase name="testLeftJoinPredicatePushdownWithSelfEquality" classname="com.facebook.presto.server.TestDistributedQueries" time="0.32"/>
+  <testcase name="testLeftJoinWithLeftConstantEquality" classname="com.facebook.presto.server.TestDistributedQueries" time="0.243"/>
+  <testcase name="testLeftJoinWithNullValues" classname="com.facebook.presto.server.TestDistributedQueries" time="0.485"/>
+  <testcase name="testLeftJoinWithRightConstantEquality" classname="com.facebook.presto.server.TestDistributedQueries" time="0.732"/>
+  <testcase name="testLimit" classname="com.facebook.presto.server.TestDistributedQueries" time="0.152"/>
+  <testcase name="testLimitInInlineView" classname="com.facebook.presto.server.TestDistributedQueries" time="0.21"/>
+  <testcase name="testLimitPushDown" classname="com.facebook.presto.server.TestDistributedQueries" time="0.569"/>
+  <testcase name="testLimitZero" classname="com.facebook.presto.server.TestDistributedQueries" time="0.032"/>
+  <testcase name="testLogicalExplain" classname="com.facebook.presto.server.TestDistributedQueries" time="0.042"/>
+  <testcase name="testLogicalExplainGraphvizFormat" classname="com.facebook.presto.server.TestDistributedQueries" time="0.046"/>
+  <testcase name="testLogicalExplainTextFormat" classname="com.facebook.presto.server.TestDistributedQueries" time="0.041"/>
+  <testcase name="testMaxMinStringWithNulls" classname="com.facebook.presto.server.TestDistributedQueries" time="0.199"/>
+  <testcase name="testMixedWildcards" classname="com.facebook.presto.server.TestDistributedQueries" time="0.859"/>
+  <testcase name="testMultiColumnUnionAll" classname="com.facebook.presto.server.TestDistributedQueries" time="0.897"/>
+  <testcase name="testMultipleWildcards" classname="com.facebook.presto.server.TestDistributedQueries" time="0.937"/>
+  <testcase name="testNestedCount" classname="com.facebook.presto.server.TestDistributedQueries" time="0.194"/>
+  <testcase name="testNoFrom" classname="com.facebook.presto.server.TestDistributedQueries" time="0.028"/>
+  <testcase name="testNodeRoster" classname="com.facebook.presto.server.TestDistributedQueries" time="0.037"/>
+  <testcase name="testNonDeterministicAggregationPredicatePushdown" classname="com.facebook.presto.server.TestDistributedQueries" time="0.092"/>
+  <testcase name="testNonDeterministicJoinPredicatePushdown" classname="com.facebook.presto.server.TestDistributedQueries" time="0.401"/>
+  <testcase name="testNonDeterministicTableScanPredicatePushdown" classname="com.facebook.presto.server.TestDistributedQueries" time="0.212"/>
+  <testcase name="testOrderBy" classname="com.facebook.presto.server.TestDistributedQueries" time="0.229"/>
+  <testcase name="testOrderBy2" classname="com.facebook.presto.server.TestDistributedQueries" time="0.195"/>
+  <testcase name="testOrderByAlias" classname="com.facebook.presto.server.TestDistributedQueries" time="0.205"/>
+  <testcase name="testOrderByAliasWithSameNameAsUnselectedColumn" classname="com.facebook.presto.server.TestDistributedQueries" time="0.121"/>
+  <testcase name="testOrderByExpressionWithLimit" classname="com.facebook.presto.server.TestDistributedQueries" time="0.172"/>
+  <testcase name="testOrderByLimit" classname="com.facebook.presto.server.TestDistributedQueries" time="0.083"/>
+  <testcase name="testOrderByMultipleFields" classname="com.facebook.presto.server.TestDistributedQueries" time="0.17"/>
+  <testcase name="testOrderByOrdinal" classname="com.facebook.presto.server.TestDistributedQueries" time="0.235"/>
+  <testcase name="testOrderByOrdinalWithWildcard" classname="com.facebook.presto.server.TestDistributedQueries" time="0.499"/>
+  <testcase name="testOrderByWindowFunction" classname="com.facebook.presto.server.TestDistributedQueries" time="0.072"/>
+  <testcase name="testOrderLimitCompaction" classname="com.facebook.presto.server.TestDistributedQueries" time="0.133"/>
+  <testcase name="testPlainLeftJoinPredicatePushdown" classname="com.facebook.presto.server.TestDistributedQueries" time="0.264"/>
+  <testcase name="testPlainRightJoinPredicatePushdown" classname="com.facebook.presto.server.TestDistributedQueries" time="0.345"/>
+  <testcase name="testPredicatePushdown" classname="com.facebook.presto.server.TestDistributedQueries" time="0.24"/>
+  <testcase name="testPredicatePushdownJoinEqualityGroups" classname="com.facebook.presto.server.TestDistributedQueries" time="0.27"/>
+  <testcase name="testProbeFilteredLeftJoin" classname="com.facebook.presto.server.TestDistributedQueries" time="2.251"/>
+  <testcase name="testProbeFilteredRightJoin" classname="com.facebook.presto.server.TestDistributedQueries" time="0.807"/>
+  <testcase name="testQualifiedWildcard" classname="com.facebook.presto.server.TestDistributedQueries" time="0.589"/>
+  <testcase name="testQualifiedWildcardFromAlias" classname="com.facebook.presto.server.TestDistributedQueries" time="0.51"/>
+  <testcase name="testQualifiedWildcardFromInlineView" classname="com.facebook.presto.server.TestDistributedQueries" time="0.17"/>
+  <testcase name="testQualifiedWildcardFromJoin" classname="com.facebook.presto.server.TestDistributedQueries" time="0.7"/>
+  <testcase name="testQuotedIdentifiers" classname="com.facebook.presto.server.TestDistributedQueries" time="0.145"/>
+  <testcase name="testReferenceToWithQueryInFromClause" classname="com.facebook.presto.server.TestDistributedQueries" time="0.531"/>
+  <testcase name="testReorderOutputsOfGroupByAggregation" classname="com.facebook.presto.server.TestDistributedQueries" time="0.241"/>
+  <testcase name="testRepeatedAggregations" classname="com.facebook.presto.server.TestDistributedQueries" time="0.137"/>
+  <testcase name="testRepeatedOutputs" classname="com.facebook.presto.server.TestDistributedQueries" time="0.207"/>
+  <testcase name="testRightFilteredJoin" classname="com.facebook.presto.server.TestDistributedQueries" time="0.801"/>
+  <testcase name="testRightJoinAsInnerPredicatePushdown" classname="com.facebook.presto.server.TestDistributedQueries" time="0.41"/>
+  <testcase name="testRightJoinDoubleClauseWithLeftOverlap" classname="com.facebook.presto.server.TestDistributedQueries" time="0.302"/>
+  <testcase name="testRightJoinDoubleClauseWithRightOverlap" classname="com.facebook.presto.server.TestDistributedQueries" time="0.215"/>
+  <testcase name="testRightJoinEqualityInference" classname="com.facebook.presto.server.TestDistributedQueries" time="0.899"/>
+  <testcase name="testRightJoinNormalizedToInner" classname="com.facebook.presto.server.TestDistributedQueries" time="0.291"/>
+  <testcase name="testRightJoinPredicateMoveAround" classname="com.facebook.presto.server.TestDistributedQueries" time="2.163"/>
+  <testcase name="testRightJoinPredicatePushdownWithSelfEquality" classname="com.facebook.presto.server.TestDistributedQueries" time="0.263"/>
+  <testcase name="testRightJoinWithLeftConstantEquality" classname="com.facebook.presto.server.TestDistributedQueries" time="1.146"/>
+  <testcase name="testRightJoinWithNullValues" classname="com.facebook.presto.server.TestDistributedQueries" time="0.64"/>
+  <testcase name="testRightJoinWithRightConstantEquality" classname="com.facebook.presto.server.TestDistributedQueries" time="0.204"/>
+  <testcase name="testSameInputToAggregates" classname="com.facebook.presto.server.TestDistributedQueries" time="0.128"/>
+  <testcase name="testScalarFunction" classname="com.facebook.presto.server.TestDistributedQueries" time="0.192"/>
+  <testcase name="testSelectOnlyUnion" classname="com.facebook.presto.server.TestDistributedQueries" time="0.033"/>
+  <testcase name="testSelectWithComparison" classname="com.facebook.presto.server.TestDistributedQueries" time="0.203"/>
+  <testcase name="testSelfJoin" classname="com.facebook.presto.server.TestDistributedQueries" time="0.207"/>
+  <testcase name="testSemiJoin" classname="com.facebook.presto.server.TestDistributedQueries" time="1.481"/>
+  <testcase name="testSemiJoinLimitPushDown" classname="com.facebook.presto.server.TestDistributedQueries" time="0.236"/>
+  <testcase name="testSemiJoinNullHandling" classname="com.facebook.presto.server.TestDistributedQueries" time="0.658"/>
+  <testcase name="testSemiJoinPredicateMoveAround" classname="com.facebook.presto.server.TestDistributedQueries" time="0.325"/>
+  <testcase name="testShowColumns" classname="com.facebook.presto.server.TestDistributedQueries" time="0.231"/>
+  <testcase name="testShowFunctions" classname="com.facebook.presto.server.TestDistributedQueries" time="0.041"/>
+  <testcase name="testShowPartitions" classname="com.facebook.presto.server.TestDistributedQueries" time="0.032"/>
+  <testcase name="testShowSchemas" classname="com.facebook.presto.server.TestDistributedQueries" time="0.072"/>
+  <testcase name="testShowTables" classname="com.facebook.presto.server.TestDistributedQueries" time="0.09"/>
+  <testcase name="testShowTablesFrom" classname="com.facebook.presto.server.TestDistributedQueries" time="0.207"/>
+  <testcase name="testShowTablesLike" classname="com.facebook.presto.server.TestDistributedQueries" time="0.177"/>
+  <testcase name="testSimpleJoin" classname="com.facebook.presto.server.TestDistributedQueries" time="0.254"/>
+  <testcase name="testSimpleJoinWithLeftConstantEquality" classname="com.facebook.presto.server.TestDistributedQueries" time="0.166"/>
+  <testcase name="testSimpleJoinWithRightConstantEquality" classname="com.facebook.presto.server.TestDistributedQueries" time="0.182"/>
+  <testcase name="testSimpleLeftJoin" classname="com.facebook.presto.server.TestDistributedQueries" time="0.642"/>
+  <testcase name="testSimpleLeftJoinWithLeftConstantEquality" classname="com.facebook.presto.server.TestDistributedQueries" time="0.307"/>
+  <testcase name="testSimpleLeftJoinWithRightConstantEquality" classname="com.facebook.presto.server.TestDistributedQueries" time="0.379"/>
+  <testcase name="testSimpleRightJoin" classname="com.facebook.presto.server.TestDistributedQueries" time="0.329"/>
+  <testcase name="testSimpleRightJoinWithLeftConstantEquality" classname="com.facebook.presto.server.TestDistributedQueries" time="0.217"/>
+  <testcase name="testSimpleRightJoinWithRightConstantEquality" classname="com.facebook.presto.server.TestDistributedQueries" time="0.288"/>
+  <testcase name="testSpecialFloatingPointValues" classname="com.facebook.presto.server.TestDistributedQueries" time="0.028"/>
+  <testcase name="testStdDev" classname="com.facebook.presto.server.TestDistributedQueries" time="1.331"/>
+  <testcase name="testStdDevPop" classname="com.facebook.presto.server.TestDistributedQueries" time="0.998"/>
+  <testcase name="testSubqueryBody" classname="com.facebook.presto.server.TestDistributedQueries" time="0.138"/>
+  <testcase name="testSubqueryBodyDoubleOrderby" classname="com.facebook.presto.server.TestDistributedQueries" time="0.195"/>
+  <testcase name="testSubqueryBodyOrderLimit" classname="com.facebook.presto.server.TestDistributedQueries" time="0.176"/>
+  <testcase name="testSubqueryBodyProjectedOrderby" classname="com.facebook.presto.server.TestDistributedQueries" time="0.211"/>
+  <testcase name="testSubqueryUnion" classname="com.facebook.presto.server.TestDistributedQueries" time="0.154"/>
+  <testcase name="testSumOfNulls" classname="com.facebook.presto.server.TestDistributedQueries" time="0.13"/>
+  <testcase name="testTableAsSubquery" classname="com.facebook.presto.server.TestDistributedQueries" time="0.533"/>
+  <testcase name="testTableQuery" classname="com.facebook.presto.server.TestDistributedQueries" time="0.586"/>
+  <testcase name="testTableQueryInUnion" classname="com.facebook.presto.server.TestDistributedQueries" time="0.558"/>
+  <testcase name="testTableQueryOrderLimit" classname="com.facebook.presto.server.TestDistributedQueries" time="0.192"/>
+  <testcase name="testTableSampleBernoulli" classname="com.facebook.presto.server.TestDistributedQueries" time="10.926"/>
+  <testcase name="testTableSampleBernoulliBoundaryValues" classname="com.facebook.presto.server.TestDistributedQueries" time="21.461"/>
+  <testcase name="testTopNByMultipleFields" classname="com.facebook.presto.server.TestDistributedQueries" time="1.227"/>
+  <testcase name="testTrivialNonDeterministicPredicatePushdown" classname="com.facebook.presto.server.TestDistributedQueries" time="0.108"/>
+  <testcase name="testTypeMismatch" classname="com.facebook.presto.server.TestDistributedQueries" time="0.006"/>
+  <testcase name="testUnaliasSymbolReferencesWithUnion" classname="com.facebook.presto.server.TestDistributedQueries" time="0.031"/>
+  <testcase name="testUnaliasedSubqueries" classname="com.facebook.presto.server.TestDistributedQueries" time="0.083"/>
+  <testcase name="testUnaliasedSubqueries1" classname="com.facebook.presto.server.TestDistributedQueries" time="0.207"/>
+  <testcase name="testUnion" classname="com.facebook.presto.server.TestDistributedQueries" time="0.233"/>
+  <testcase name="testUnionAll" classname="com.facebook.presto.server.TestDistributedQueries" time="0.226"/>
+  <testcase name="testUnionDistinct" classname="com.facebook.presto.server.TestDistributedQueries" time="0.174"/>
+  <testcase name="testVariance" classname="com.facebook.presto.server.TestDistributedQueries" time="1.529"/>
+  <testcase name="testVariancePop" classname="com.facebook.presto.server.TestDistributedQueries" time="1.188"/>
+  <testcase name="testWhereNull" classname="com.facebook.presto.server.TestDistributedQueries" time="0.055"/>
+  <testcase name="testWildcard" classname="com.facebook.presto.server.TestDistributedQueries" time="0.598"/>
+  <testcase name="testWildcardFromJoin" classname="com.facebook.presto.server.TestDistributedQueries" time="0.63"/>
+  <testcase name="testWildcardFromSubquery" classname="com.facebook.presto.server.TestDistributedQueries" time="0.18"/>
+  <testcase name="testWindowFunctionsExpressions" classname="com.facebook.presto.server.TestDistributedQueries" time="0.09"/>
+  <testcase name="testWindowFunctionsFromAggregate" classname="com.facebook.presto.server.TestDistributedQueries" time="0.17"/>
+  <testcase name="testWith" classname="com.facebook.presto.server.TestDistributedQueries" time="0.568"/>
+  <testcase name="testWithAliased" classname="com.facebook.presto.server.TestDistributedQueries" time="0.491"/>
+  <testcase name="testWithChaining" classname="com.facebook.presto.server.TestDistributedQueries" time="0.275"/>
+  <testcase name="testWithHiding" classname="com.facebook.presto.server.TestDistributedQueries" time="0.203"/>
+  <testcase name="testWithNestedSubqueries" classname="com.facebook.presto.server.TestDistributedQueries" time="0.152"/>
+  <testcase name="testWithQualifiedPrefix" classname="com.facebook.presto.server.TestDistributedQueries" time="0.198"/>
+  <testcase name="testWithRecursive" classname="com.facebook.presto.server.TestDistributedQueries" time="0.007"/>
+  <testcase name="testWithSelfJoin" classname="com.facebook.presto.server.TestDistributedQueries" time="0.197"/>
+  <testcase name="testLargeQueryFailure" classname="com.facebook.presto.server.TestDistributedQueries" time="0.117"/>
+  <testcase name="testLargeQuerySuccess" classname="com.facebook.presto.server.TestDistributedQueries" time="0.076"/>
+  <testcase name="testShowCatalogs" classname="com.facebook.presto.server.TestDistributedQueries" time="0.186"/>
+  <testcase name="testTableSampleSystem" classname="com.facebook.presto.server.TestDistributedQueries" time="0.181"/>
+  <testcase name="testTableSampleSystemBoundaryValues" classname="com.facebook.presto.server.TestDistributedQueries" time="21.026"/>
+  <testcase name="testDefaults" classname="com.facebook.presto.discovery.TestEmbeddedDiscoveryConfig" time="0.136"/>
+  <testcase name="testExplicitPropertyMappings" classname="com.facebook.presto.discovery.TestEmbeddedDiscoveryConfig" time="0.002"/>
+  <testcase name="testExecute" classname="com.facebook.presto.server.TestExecuteResource" time="0.351"/>
+  <testcase name="testGetAllNodes" classname="com.facebook.presto.server.TestNodeResource" time="0.232"/>
+  <testcase name="testGetFailedNodes" classname="com.facebook.presto.server.TestNodeResource" time="0.222"/>
+  <testcase name="testDefaults" classname="com.facebook.presto.server.TestPluginManagerConfig" time="0.035"/>
+  <testcase name="testExplicitPropertyMappings" classname="com.facebook.presto.server.TestPluginManagerConfig" time="0.005"/>
+  <testcase name="testServerStarts" classname="com.facebook.presto.server.TestServer" time="0.217"/>
+  <testcase name="testDefaults" classname="com.facebook.presto.server.TestServerConfig" time="0.024"/>
+  <testcase name="testExplicitPropertyMappings" classname="com.facebook.presto.server.TestServerConfig" time="0.002"/>
+</testsuite>

@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="36" passed="36">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Command line suite" duration-ms="3514" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:41Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="3514" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:41Z">
+      <class name="com.facebook.presto.hive.TestJsonHiveHandles">
+        <test-method status="PASS" signature="testColumnHandleDeserialize()[pri:0, instance:com.facebook.presto.hive.TestJsonHiveHandles@47c3666a]" name="testColumnHandleDeserialize" duration-ms="6" started-at="2014-05-07T06:41:40Z" finished-at="2014-05-07T06:41:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testColumnHandleDeserialize -->
+        <test-method status="PASS" signature="testColumnHandleSerialize()[pri:0, instance:com.facebook.presto.hive.TestJsonHiveHandles@47c3666a]" name="testColumnHandleSerialize" duration-ms="4" started-at="2014-05-07T06:41:40Z" finished-at="2014-05-07T06:41:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testColumnHandleSerialize -->
+        <test-method status="PASS" signature="testTableHandleDeserialize()[pri:0, instance:com.facebook.presto.hive.TestJsonHiveHandles@47c3666a]" name="testTableHandleDeserialize" duration-ms="1" started-at="2014-05-07T06:41:40Z" finished-at="2014-05-07T06:41:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testTableHandleDeserialize -->
+        <test-method status="PASS" signature="testTableHandleSerialize()[pri:0, instance:com.facebook.presto.hive.TestJsonHiveHandles@47c3666a]" name="testTableHandleSerialize" duration-ms="1" started-at="2014-05-07T06:41:40Z" finished-at="2014-05-07T06:41:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testTableHandleSerialize -->
+      </class> <!-- com.facebook.presto.hive.TestJsonHiveHandles -->
+      <class name="com.facebook.presto.hive.TestHiveBooleanParser">
+        <test-method status="PASS" signature="testParse()[pri:0, instance:com.facebook.presto.hive.TestHiveBooleanParser@efcc796]" name="testParse" duration-ms="1" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testParse -->
+      </class> <!-- com.facebook.presto.hive.TestHiveBooleanParser -->
+      <class name="com.facebook.presto.hive.TestHiveBucketing">
+        <test-method status="PASS" signature="testHashingBooleanLong()[pri:0, instance:com.facebook.presto.hive.TestHiveBucketing@6f1f7bf4]" name="testHashingBooleanLong" duration-ms="41" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testHashingBooleanLong -->
+        <test-method status="PASS" signature="testHashingString()[pri:0, instance:com.facebook.presto.hive.TestHiveBucketing@6f1f7bf4]" name="testHashingString" duration-ms="2" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testHashingString -->
+      </class> <!-- com.facebook.presto.hive.TestHiveBucketing -->
+      <class name="com.facebook.presto.hive.util.TestSuspendingExecutor">
+        <test-method status="PASS" signature="testConcurrency()[pri:0, instance:com.facebook.presto.hive.util.TestSuspendingExecutor@33c86489]" name="testConcurrency" duration-ms="1078" started-at="2014-05-07T06:41:40Z" finished-at="2014-05-07T06:41:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testConcurrency -->
+        <test-method status="PASS" signature="testSanity()[pri:0, instance:com.facebook.presto.hive.util.TestSuspendingExecutor@33c86489]" name="testSanity" duration-ms="1" started-at="2014-05-07T06:41:41Z" finished-at="2014-05-07T06:41:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSanity -->
+        <test-method status="PASS" signature="testSelfReference()[pri:0, instance:com.facebook.presto.hive.util.TestSuspendingExecutor@33c86489]" name="testSelfReference" duration-ms="1" started-at="2014-05-07T06:41:41Z" finished-at="2014-05-07T06:41:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSelfReference -->
+      </class> <!-- com.facebook.presto.hive.util.TestSuspendingExecutor -->
+      <class name="com.facebook.presto.hive.TestHivePluginConfig">
+        <test-method status="PASS" signature="testDefaults()[pri:0, instance:com.facebook.presto.hive.TestHivePluginConfig@6d78ddf4]" name="testDefaults" duration-ms="13" started-at="2014-05-07T06:41:40Z" finished-at="2014-05-07T06:41:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDefaults -->
+        <test-method status="PASS" signature="testExplicitPropertyMappings()[pri:0, instance:com.facebook.presto.hive.TestHivePluginConfig@6d78ddf4]" name="testExplicitPropertyMappings" duration-ms="2" started-at="2014-05-07T06:41:40Z" finished-at="2014-05-07T06:41:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testExplicitPropertyMappings -->
+      </class> <!-- com.facebook.presto.hive.TestHivePluginConfig -->
+      <class name="com.facebook.presto.hive.TestHiveConnectorFactory">
+        <test-method status="PASS" signature="testGetClient()[pri:0, instance:com.facebook.presto.hive.TestHiveConnectorFactory@7cb7d0ec]" name="testGetClient" duration-ms="1514" started-at="2014-05-07T06:41:39Z" finished-at="2014-05-07T06:41:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetClient -->
+      </class> <!-- com.facebook.presto.hive.TestHiveConnectorFactory -->
+      <class name="com.facebook.presto.hive.TestCachingHiveMetastore">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="setUp" is-config="true" duration-ms="48" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testGetAllDatabases()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="testGetAllDatabases" duration-ms="9" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAllDatabases -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="setUp" is-config="true" duration-ms="0" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testGetAllTable()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="testGetAllTable" duration-ms="1" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAllTable -->
+        <test-method status="PASS" signature="testGetPartitionNames()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="testGetPartitionNames" duration-ms="2" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetPartitionNames -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="setUp" is-config="true" duration-ms="0" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="setUp" is-config="true" duration-ms="1" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testGetPartitionNamesByParts()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="testGetPartitionNamesByParts" duration-ms="1" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetPartitionNamesByParts -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="setUp" is-config="true" duration-ms="0" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testGetPartitionsByNames()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="testGetPartitionsByNames" duration-ms="54" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetPartitionsByNames -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="setUp" is-config="true" duration-ms="1" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testGetTable()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="testGetTable" duration-ms="0" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetTable -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="setUp" is-config="true" duration-ms="1" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testInvalidDbGetAllTAbles()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="testInvalidDbGetAllTAbles" duration-ms="2" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <exception class="org.apache.hadoop.hive.metastore.api.NoSuchObjectException">
+            <full-stacktrace>
+              <![CDATA[NoSuchObjectException(message:null)
+	at com.facebook.presto.hive.MockHiveMetastoreClient.get_database(MockHiveMetastoreClient.java:94)
+	at com.facebook.presto.hive.CachingHiveMetastore$8.call(CachingHiveMetastore.java:248)
+	at com.facebook.presto.hive.CachingHiveMetastore$8.call(CachingHiveMetastore.java:239)
+	at com.facebook.presto.hive.RetryDriver.run(RetryDriver.java:85)
+	at com.facebook.presto.hive.CachingHiveMetastore.loadAllTables(CachingHiveMetastore.java:238)
+	at com.facebook.presto.hive.CachingHiveMetastore.access$100(CachingHiveMetastore.java:57)
+	at com.facebook.presto.hive.CachingHiveMetastore$2.load(CachingHiveMetastore.java:107)
+	at com.facebook.presto.hive.CachingHiveMetastore$2.load(CachingHiveMetastore.java:102)
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3522)
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2315)
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2278)
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2193)
+	at com.google.common.cache.LocalCache.get(LocalCache.java:3932)
+	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:3936)
+	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:4806)
+	at com.facebook.presto.hive.CachingHiveMetastore.get(CachingHiveMetastore.java:186)
+	at com.facebook.presto.hive.CachingHiveMetastore.getAllTables(CachingHiveMetastore.java:232)
+	at com.facebook.presto.hive.TestCachingHiveMetastore.testInvalidDbGetAllTAbles(TestCachingHiveMetastore.java:87)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.apache.hadoop.hive.metastore.api.NoSuchObjectException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInvalidDbGetAllTAbles -->
+        <test-method status="PASS" signature="testInvalidDbGetTable()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="testInvalidDbGetTable" duration-ms="1" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <exception class="org.apache.hadoop.hive.metastore.api.NoSuchObjectException">
+            <full-stacktrace>
+              <![CDATA[NoSuchObjectException(message:null)
+	at com.facebook.presto.hive.MockHiveMetastoreClient.get_table(MockHiveMetastoreClient.java:108)
+	at com.facebook.presto.hive.CachingHiveMetastore$9.call(CachingHiveMetastore.java:272)
+	at com.facebook.presto.hive.CachingHiveMetastore$9.call(CachingHiveMetastore.java:266)
+	at com.facebook.presto.hive.RetryDriver.run(RetryDriver.java:85)
+	at com.facebook.presto.hive.CachingHiveMetastore.loadTable(CachingHiveMetastore.java:265)
+	at com.facebook.presto.hive.CachingHiveMetastore.access$200(CachingHiveMetastore.java:57)
+	at com.facebook.presto.hive.CachingHiveMetastore$3.load(CachingHiveMetastore.java:120)
+	at com.facebook.presto.hive.CachingHiveMetastore$3.load(CachingHiveMetastore.java:115)
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3522)
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2315)
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2278)
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2193)
+	at com.google.common.cache.LocalCache.get(LocalCache.java:3932)
+	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:3936)
+	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:4806)
+	at com.facebook.presto.hive.CachingHiveMetastore.get(CachingHiveMetastore.java:186)
+	at com.facebook.presto.hive.CachingHiveMetastore.getTable(CachingHiveMetastore.java:259)
+	at com.facebook.presto.hive.TestCachingHiveMetastore.testInvalidDbGetTable(TestCachingHiveMetastore.java:110)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.apache.hadoop.hive.metastore.api.NoSuchObjectException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInvalidDbGetTable -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="setUp" is-config="true" duration-ms="0" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="setUp" is-config="true" duration-ms="1" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testInvalidGetPartitionNames()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="testInvalidGetPartitionNames" duration-ms="0" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInvalidGetPartitionNames -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="setUp" is-config="true" duration-ms="1" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testInvalidGetPartitionNamesByParts()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="testInvalidGetPartitionNamesByParts" duration-ms="0" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <exception class="org.apache.hadoop.hive.metastore.api.NoSuchObjectException">
+            <full-stacktrace>
+              <![CDATA[NoSuchObjectException(message:null)
+	at com.facebook.presto.hive.MockHiveMetastoreClient.get_partition_names_ps(MockHiveMetastoreClient.java:136)
+	at com.facebook.presto.hive.CachingHiveMetastore$11.call(CachingHiveMetastore.java:320)
+	at com.facebook.presto.hive.CachingHiveMetastore$11.call(CachingHiveMetastore.java:314)
+	at com.facebook.presto.hive.RetryDriver.run(RetryDriver.java:85)
+	at com.facebook.presto.hive.CachingHiveMetastore.loadPartitionNamesByParts(CachingHiveMetastore.java:313)
+	at com.facebook.presto.hive.CachingHiveMetastore.access$400(CachingHiveMetastore.java:57)
+	at com.facebook.presto.hive.CachingHiveMetastore$5.load(CachingHiveMetastore.java:146)
+	at com.facebook.presto.hive.CachingHiveMetastore$5.load(CachingHiveMetastore.java:141)
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3522)
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2315)
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2278)
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2193)
+	at com.google.common.cache.LocalCache.get(LocalCache.java:3932)
+	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:3936)
+	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:4806)
+	at com.facebook.presto.hive.CachingHiveMetastore.get(CachingHiveMetastore.java:186)
+	at com.facebook.presto.hive.CachingHiveMetastore.getPartitionNamesByParts(CachingHiveMetastore.java:307)
+	at com.facebook.presto.hive.TestCachingHiveMetastore.testInvalidGetPartitionNamesByParts(TestCachingHiveMetastore.java:161)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.apache.hadoop.hive.metastore.api.NoSuchObjectException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInvalidGetPartitionNamesByParts -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="setUp" is-config="true" duration-ms="0" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testInvalidGetPartitionsByNames()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="testInvalidGetPartitionsByNames" duration-ms="1" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <exception class="org.apache.hadoop.hive.metastore.api.NoSuchObjectException">
+            <full-stacktrace>
+              <![CDATA[NoSuchObjectException(message:null)
+	at com.facebook.presto.hive.MockHiveMetastoreClient.get_partitions_by_names(MockHiveMetastoreClient.java:164)
+	at com.facebook.presto.hive.CachingHiveMetastore$13.call(CachingHiveMetastore.java:386)
+	at com.facebook.presto.hive.CachingHiveMetastore$13.call(CachingHiveMetastore.java:379)
+	at com.facebook.presto.hive.RetryDriver.run(RetryDriver.java:85)
+	at com.facebook.presto.hive.CachingHiveMetastore.loadPartitionsByNames(CachingHiveMetastore.java:378)
+	at com.facebook.presto.hive.CachingHiveMetastore.access$600(CachingHiveMetastore.java:57)
+	at com.facebook.presto.hive.CachingHiveMetastore$6.loadAll(CachingHiveMetastore.java:166)
+	at com.google.common.cache.LocalCache.loadAll(LocalCache.java:4020)
+	at com.google.common.cache.LocalCache.getAll(LocalCache.java:3983)
+	at com.google.common.cache.LocalCache$LocalLoadingCache.getAll(LocalCache.java:4820)
+	at com.facebook.presto.hive.CachingHiveMetastore.getAll(CachingHiveMetastore.java:199)
+	at com.facebook.presto.hive.CachingHiveMetastore.getPartitionsByNames(CachingHiveMetastore.java:336)
+	at com.facebook.presto.hive.TestCachingHiveMetastore.testInvalidGetPartitionsByNames(TestCachingHiveMetastore.java:198)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:189)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:105)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:158)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.apache.hadoop.hive.metastore.api.NoSuchObjectException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInvalidGetPartitionsByNames -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="setUp" is-config="true" duration-ms="1" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testNoCacheExceptions()[pri:0, instance:com.facebook.presto.hive.TestCachingHiveMetastore@2221f9dd]" name="testNoCacheExceptions" duration-ms="0" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNoCacheExceptions -->
+      </class> <!-- com.facebook.presto.hive.TestCachingHiveMetastore -->
+      <class name="com.facebook.presto.hive.TestHiveTableHandle">
+        <test-method status="PASS" signature="testRoundTrip()[pri:0, instance:com.facebook.presto.hive.TestHiveTableHandle@49708eee]" name="testRoundTrip" duration-ms="2" started-at="2014-05-07T06:41:40Z" finished-at="2014-05-07T06:41:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRoundTrip -->
+      </class> <!-- com.facebook.presto.hive.TestHiveTableHandle -->
+      <class name="com.facebook.presto.hive.TestHiveColumnHandle">
+        <test-method status="PASS" signature="testRoundTrip()[pri:0, instance:com.facebook.presto.hive.TestHiveColumnHandle@75935089]" name="testRoundTrip" duration-ms="87" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRoundTrip -->
+      </class> <!-- com.facebook.presto.hive.TestHiveColumnHandle -->
+      <class name="com.facebook.presto.hive.util.TestAsyncRecursiveWalker">
+        <test-method status="PASS" signature="testDoubleIOException()[pri:0, instance:com.facebook.presto.hive.util.TestAsyncRecursiveWalker@2982db39]" name="testDoubleIOException" duration-ms="74" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDoubleIOException -->
+        <test-method status="PASS" signature="testEmptyPath()[pri:0, instance:com.facebook.presto.hive.util.TestAsyncRecursiveWalker@2982db39]" name="testEmptyPath" duration-ms="2" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEmptyPath -->
+        <test-method status="PASS" signature="testSanity()[pri:0, instance:com.facebook.presto.hive.util.TestAsyncRecursiveWalker@2982db39]" name="testSanity" duration-ms="10" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSanity -->
+      </class> <!-- com.facebook.presto.hive.util.TestAsyncRecursiveWalker -->
+      <class name="com.facebook.presto.hive.TestHiveUtil">
+        <test-method status="PASS" signature="testParseHiveTimestamp()[pri:0, instance:com.facebook.presto.hive.TestHiveUtil@1a33f652]" name="testParseHiveTimestamp" duration-ms="28" started-at="2014-05-07T06:41:40Z" finished-at="2014-05-07T06:41:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testParseHiveTimestamp -->
+      </class> <!-- com.facebook.presto.hive.TestHiveUtil -->
+      <class name="com.facebook.presto.hive.TestHiveClientConfig">
+        <test-method status="PASS" signature="testDefaults()[pri:0, instance:com.facebook.presto.hive.TestHiveClientConfig@7f575ec]" name="testDefaults" duration-ms="260" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDefaults -->
+        <test-method status="PASS" signature="testExplicitPropertyMappings()[pri:0, instance:com.facebook.presto.hive.TestHiveClientConfig@7f575ec]" name="testExplicitPropertyMappings" duration-ms="188" started-at="2014-05-07T06:41:38Z" finished-at="2014-05-07T06:41:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testExplicitPropertyMappings -->
+      </class> <!-- com.facebook.presto.hive.TestHiveClientConfig -->
+      <class name="com.facebook.presto.hive.TestHiveSplit">
+        <test-method status="PASS" signature="testJsonRoundTrip()[pri:0, instance:com.facebook.presto.hive.TestHiveSplit@294078ee]" name="testJsonRoundTrip" duration-ms="37" started-at="2014-05-07T06:41:40Z" finished-at="2014-05-07T06:41:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testJsonRoundTrip -->
+      </class> <!-- com.facebook.presto.hive.TestHiveSplit -->
+      <class name="com.facebook.presto.hive.TestNumberParser">
+        <test-method status="PASS" signature="testDouble()[pri:0, instance:com.facebook.presto.hive.TestNumberParser@410dd09]" name="testDouble" duration-ms="3" started-at="2014-05-07T06:41:40Z" finished-at="2014-05-07T06:41:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDouble -->
+        <test-method status="PASS" signature="testLong()[pri:0, instance:com.facebook.presto.hive.TestNumberParser@410dd09]" name="testLong" duration-ms="0" started-at="2014-05-07T06:41:40Z" finished-at="2014-05-07T06:41:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLong -->
+      </class> <!-- com.facebook.presto.hive.TestNumberParser -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>

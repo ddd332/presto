@@ -1,0 +1,5 @@
+com/facebook/presto/cli/TestVerticalTuplePrinter.class
+com/facebook/presto/cli/TestTsvPrinter.class
+com/facebook/presto/cli/TestAlignedTuplePrinter.class
+com/facebook/presto/cli/TestCsvPrinter.class
+com/facebook/presto/cli/TestClientOptions.class

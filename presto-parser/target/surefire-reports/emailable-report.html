@@ -1,0 +1,642 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TestNG:  Unit Test</title>
+<style type="text/css">
+table caption,table.info_table,table.result,table.passed,table.failed {margin-bottom:10px;border:1px solid #000099;border-collapse:collapse;empty-cells:show;}
+table.info_table td,table.info_table th,table.result td,table.result th,table.passed td,table.passed th,table.failed td,table.failed th {
+border:1px solid #000099;padding:.25em .5em .25em .5em
+}
+table.result th {vertical-align:bottom}
+tr.param th {padding-left:1em;padding-right:1em}
+tr.param td {padding-left:.5em;padding-right:2em}
+td.numi,th.numi,td.numi_attn {
+text-align:right
+}
+tr.total td {font-weight:bold}
+table caption {
+text-align:center;font-weight:bold;
+}
+table.passed tr.stripe td,table tr.passedodd td {background-color: #00AA00;}
+table.passed td,table tr.passedeven td {background-color: #33FF33;}
+table.passed tr.stripe td,table tr.skippedodd td {background-color: #cccccc;}
+table.passed td,table tr.skippedodd td {background-color: #dddddd;}
+table.failed tr.stripe td,table tr.failedodd td,table.result td.numi_attn {background-color: #FF3333;}
+table.failed td,table tr.failedeven td,table.result tr.stripe td.numi_attn {background-color: #DD0000;}
+tr.stripe td,tr.stripe th {background-color: #E6EBF9;}
+p.totop {font-size:85%;text-align:center;border-bottom:2px black solid}
+div.shootout {padding:2em;border:3px #4854A8 solid}
+</style>
+</head>
+<body>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
+<tr><td style="text-align:left;padding-right:2em">Command line test</td><td class="numi">48</td><td class="numi">48</td><td class="numi">0</td><td class="numi">0</td><td class="numi">1.7 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+</table>
+<table cellspacing="0" cellpadding="0" class="passed" id="summary">
+<tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Start</th><th>Time<br/>(ms)</th></tr>
+<tr><th colspan="4">Command line test &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="26">com.facebook.presto.sql.parser.TestSqlParser</td><td><a href="#m1"><b>testCurrentTimestamp</b>  </a></td><td class="numi">1</td><td>1399444929285</td><td class="numi">146</td></tr><tr class="passedodd"><td><a href="#m2"><b>testDate</b>  </a></td><td class="numi">1</td><td>1399444929431</td><td class="numi">68</td></tr><tr class="passedodd"><td><a href="#m3"><b>testDouble</b>  </a></td><td class="numi">1</td><td>1399444929499</td><td class="numi">5</td></tr><tr class="passedodd"><td><a href="#m4"><b>testDoubleInQuery</b>  </a></td><td class="numi">1</td><td>1399444929505</td><td class="numi">40</td></tr><tr class="passedodd"><td><a href="#m5"><b>testEmptyExpression</b>  </a></td><td class="numi">1</td><td>1399444929546</td><td class="numi">3</td></tr><tr class="passedodd"><td><a href="#m6"><b>testEmptyStatement</b>  </a></td><td class="numi">1</td><td>1399444929549</td><td class="numi">1</td></tr><tr class="passedodd"><td><a href="#m7"><b>testExpressionWithTrailingJunk</b>  </a></td><td class="numi">1</td><td>1399444929550</td><td class="numi">1</td></tr><tr class="passedodd"><td><a href="#m8"><b>testIdentifierWithColon</b>  </a></td><td class="numi">1</td><td>1399444929552</td><td class="numi">1</td></tr><tr class="passedodd"><td><a href="#m9"><b>testInterval</b>  </a></td><td class="numi">1</td><td>1399444929553</td><td class="numi">6</td></tr><tr class="passedodd"><td><a href="#m10"><b>testParseErrorBackquotes</b>  </a></td><td class="numi">1</td><td>1399444929559</td><td class="numi">1</td></tr><tr class="passedodd"><td><a href="#m11"><b>testParseErrorBackquotesEndOfInput</b>  </a></td><td class="numi">1</td><td>1399444929560</td><td class="numi">1</td></tr><tr class="passedodd"><td><a href="#m12"><b>testParseErrorDigitIdentifiers</b>  </a></td><td class="numi">1</td><td>1399444929562</td><td class="numi">1</td></tr><tr class="passedodd"><td><a href="#m13"><b>testParseErrorDualOrderBy</b>  </a></td><td class="numi">1</td><td>1399444929564</td><td class="numi">3</td></tr><tr class="passedodd"><td><a href="#m14"><b>testParseErrorEndOfInput</b>  </a></td><td class="numi">1</td><td>1399444929567</td><td class="numi">1</td></tr><tr class="passedodd"><td><a href="#m15"><b>testParseErrorEndOfInputWhitespace</b>  </a></td><td class="numi">1</td><td>1399444929569</td><td class="numi">1</td></tr><tr class="passedodd"><td><a href="#m16"><b>testParseErrorMiddleOfLine</b>  </a></td><td class="numi">1</td><td>1399444929570</td><td class="numi">2</td></tr><tr class="passedodd"><td><a href="#m17"><b>testParseErrorReverseOrderByLimit</b>  </a></td><td class="numi">1</td><td>1399444929572</td><td class="numi">2</td></tr><tr class="passedodd"><td><a href="#m18"><b>testParseErrorStartOfLine</b>  </a></td><td class="numi">1</td><td>1399444929575</td><td class="numi">1</td></tr><tr class="passedodd"><td><a href="#m19"><b>testParsingExceptionPositionInfo</b>  </a></td><td class="numi">1</td><td>1399444929577</td><td class="numi">2</td></tr><tr class="passedodd"><td><a href="#m20"><b>testPossibleExponentialBacktracking</b>  </a></td><td class="numi">1</td><td>1399444929579</td><td class="numi">7</td></tr><tr class="passedodd"><td><a href="#m21"><b>testStackOverflowExpression</b>  </a></td><td class="numi">1</td><td>1399444929586</td><td class="numi">240</td></tr><tr class="passedodd"><td><a href="#m22"><b>testStackOverflowStatement</b>  </a></td><td class="numi">1</td><td>1399444929827</td><td class="numi">222</td></tr><tr class="passedodd"><td><a href="#m23"><b>testTime</b>  </a></td><td class="numi">1</td><td>1399444930049</td><td class="numi">5</td></tr><tr class="passedodd"><td><a href="#m24"><b>testTokenizeErrorIncompleteToken</b>  </a></td><td class="numi">1</td><td>1399444930054</td><td class="numi">1</td></tr><tr class="passedodd"><td><a href="#m25"><b>testTokenizeErrorMiddleOfLine</b>  </a></td><td class="numi">1</td><td>1399444930055</td><td class="numi">1</td></tr><tr class="passedodd"><td><a href="#m26"><b>testTokenizeErrorStartOfLine</b>  </a></td><td class="numi">1</td><td>1399444930057</td><td class="numi">0</td></tr>
+<tr class="passedeven"><td rowspan="2">com.facebook.presto.sql.parser.TestStatementBuilder</td><td><a href="#m27"><b>testStatementBuilder</b>  </a></td><td class="numi">1</td><td>1399444930058</td><td class="numi">134</td></tr><tr class="passedeven"><td><a href="#m28"><b>testStatementBuilderTpch</b>  </a></td><td class="numi">1</td><td>1399444930193</td><td class="numi">717</td></tr>
+<tr class="passedodd"><td rowspan="20">com.facebook.presto.sql.parser.TestStatementSplitter</td><td><a href="#m29"><b>testSplitterCustomDelimiters</b>  </a></td><td class="numi">1</td><td>1399444930911</td><td class="numi">6</td></tr><tr class="passedodd"><td><a href="#m30"><b>testSplitterEmptyInput</b>  </a></td><td class="numi">1</td><td>1399444930917</td><td class="numi">1</td></tr><tr class="passedodd"><td><a href="#m31"><b>testSplitterEmptyStatements</b>  </a></td><td class="numi">1</td><td>1399444930918</td><td class="numi">0</td></tr><tr class="passedodd"><td><a href="#m32"><b>testSplitterErrorAfterComplete</b>  </a></td><td class="numi">1</td><td>1399444930918</td><td class="numi">1</td></tr><tr class="passedodd"><td><a href="#m33"><b>testSplitterErrorBeforeComplete</b>  </a></td><td class="numi">1</td><td>1399444930919</td><td class="numi">0</td></tr><tr class="passedodd"><td><a href="#m34"><b>testSplitterIncomplete</b>  </a></td><td class="numi">1</td><td>1399444930919</td><td class="numi">1</td></tr><tr class="passedodd"><td><a href="#m35"><b>testSplitterMultiple</b>  </a></td><td class="numi">1</td><td>1399444930920</td><td class="numi">0</td></tr><tr class="passedodd"><td><a href="#m36"><b>testSplitterMultipleWithEmpty</b>  </a></td><td class="numi">1</td><td>1399444930921</td><td class="numi">0</td></tr><tr class="passedodd"><td><a href="#m37"><b>testSplitterSingle</b>  </a></td><td class="numi">1</td><td>1399444930921</td><td class="numi">0</td></tr><tr class="passedodd"><td><a href="#m38"><b>testSplitterWithBackquote</b>  </a></td><td class="numi">1</td><td>1399444930922</td><td class="numi">0</td></tr><tr class="passedodd"><td><a href="#m39"><b>testSplitterWithDigitIdentifier</b>  </a></td><td class="numi">1</td><td>1399444930922</td><td class="numi">0</td></tr><tr class="passedodd"><td><a href="#m40"><b>testSplitterWithEscapedSingleQuote</b>  </a></td><td class="numi">1</td><td>1399444930923</td><td class="numi">0</td></tr><tr class="passedodd"><td><a href="#m41"><b>testSplitterWithIncompleteQuotedString</b>  </a></td><td class="numi">1</td><td>1399444930923</td><td class="numi">0</td></tr><tr class="passedodd"><td><a href="#m42"><b>testSplitterWithQuotedIdentifier</b>  </a></td><td class="numi">1</td><td>1399444930924</td><td class="numi">0</td></tr><tr class="passedodd"><td><a href="#m43"><b>testSplitterWithQuotedString</b>  </a></td><td class="numi">1</td><td>1399444930924</td><td class="numi">0</td></tr><tr class="passedodd"><td><a href="#m44"><b>testSqueezeStatement</b>  </a></td><td class="numi">1</td><td>1399444930925</td><td class="numi">0</td></tr><tr class="passedodd"><td><a href="#m45"><b>testSqueezeStatementAlternateDelimiter</b>  </a></td><td class="numi">1</td><td>1399444930925</td><td class="numi">1</td></tr><tr class="passedodd"><td><a href="#m46"><b>testSqueezeStatementError</b>  </a></td><td class="numi">1</td><td>1399444930926</td><td class="numi">0</td></tr><tr class="passedodd"><td><a href="#m47"><b>testSqueezeStatementWithBackquote</b>  </a></td><td class="numi">1</td><td>1399444930926</td><td class="numi">1</td></tr><tr class="passedodd"><td><a href="#m48"><b>testSqueezeStatementWithIncompleteQuotedString</b>  </a></td><td class="numi">1</td><td>1399444930927</td><td class="numi">0</td></tr>
+</table>
+<h1>Command line test</h1>
+<h2 id="m1">com.facebook.presto.sql.parser.TestSqlParser:testParsingExceptionPositionInfo</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m2">com.facebook.presto.sql.parser.TestSqlParser:testStackOverflowExpression</h2>
+<div style="padding-left:3em">
+<p>line 1:1: expression is too large (stack overflow while parsing)</p>
+com.facebook.presto.sql.parser.SqlParser.createExpression(SqlParser.java:48)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testStackOverflowExpression(TestSqlParser.java:244)
+<br/>35 lines not shown
+<p>Caused by null</p>
+com.facebook.presto.sql.parser.ParsingException.&lt;init&gt;(ParsingException.java:31)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createExpression(SqlParser.java:48)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testStackOverflowExpression(TestSqlParser.java:244)
+<br/>35 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m3">com.facebook.presto.sql.parser.TestSqlParser:testParseErrorEndOfInput</h2>
+<div style="padding-left:3em">
+<p>line 1:14: no viable alternative at input &apos;&lt;EOF&gt;&apos;</p>
+com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5509)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tablePrimary(StatementParser.java:5103)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tableFactor(StatementParser.java:4889)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tableRef(StatementParser.java:4315)
+<br/>at com.facebook.presto.sql.parser.StatementParser.fromClause(StatementParser.java:2651)
+<br/>at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2189)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+<br/>at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+<br/>at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorEndOfInput(TestSqlParser.java:145)
+<br/>35 lines not shown
+<p>Caused by null</p>
+com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5443)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tablePrimary(StatementParser.java:5103)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tableFactor(StatementParser.java:4889)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tableRef(StatementParser.java:4315)
+<br/>at com.facebook.presto.sql.parser.StatementParser.fromClause(StatementParser.java:2651)
+<br/>at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2189)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+<br/>at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+<br/>at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorEndOfInput(TestSqlParser.java:145)
+<br/>35 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m4">com.facebook.presto.sql.parser.TestStatementSplitter:testSplitterSingle</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m5">com.facebook.presto.sql.parser.TestSqlParser:testTime</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m6">com.facebook.presto.sql.parser.TestStatementSplitter:testSplitterWithQuotedString</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m7">com.facebook.presto.sql.parser.TestSqlParser:testTokenizeErrorMiddleOfLine</h2>
+<div style="padding-left:3em">
+<p>line 1:25: no viable alternative at character &apos;@&apos;</p>
+com.facebook.presto.sql.parser.StatementLexer.reportError(StatementLexer.java:223)
+<br/>at org.antlr.runtime.Lexer.nextToken(Lexer.java:107)
+<br/>at org.antlr.runtime.BufferedTokenStream.fetch(BufferedTokenStream.java:133)
+<br/>at org.antlr.runtime.BufferedTokenStream.sync(BufferedTokenStream.java:127)
+<br/>at org.antlr.runtime.CommonTokenStream.consume(CommonTokenStream.java:70)
+<br/>at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:106)
+<br/>at com.facebook.presto.sql.parser.StatementParser.whereClause(StatementParser.java:2789)
+<br/>at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2216)
+<br/>at com.facebook.presto.sql.parser.StatementParser.orderOrLimitQuerySpec(StatementParser.java:1224)
+<br/>at com.facebook.presto.sql.parser.StatementParser.synpred1_Statement_fragment(StatementParser.java:20031)
+<br/>at com.facebook.presto.sql.parser.StatementParser.synpred1_Statement(StatementParser.java:20105)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1049)
+<br/>at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+<br/>at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testTokenizeErrorMiddleOfLine(TestSqlParser.java:121)
+<br/>35 lines not shown
+<p>Caused by null</p>
+org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+<br/>at org.antlr.runtime.DFA.predict(DFA.java:116)
+<br/>at com.facebook.presto.sql.parser.StatementLexer.mTokens(StatementLexer.java:4757)
+<br/>at org.antlr.runtime.Lexer.nextToken(Lexer.java:89)
+<br/>at org.antlr.runtime.BufferedTokenStream.fetch(BufferedTokenStream.java:133)
+<br/>at org.antlr.runtime.BufferedTokenStream.sync(BufferedTokenStream.java:127)
+<br/>at org.antlr.runtime.CommonTokenStream.consume(CommonTokenStream.java:70)
+<br/>at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:106)
+<br/>at com.facebook.presto.sql.parser.StatementParser.whereClause(StatementParser.java:2789)
+<br/>at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2216)
+<br/>at com.facebook.presto.sql.parser.StatementParser.orderOrLimitQuerySpec(StatementParser.java:1224)
+<br/>at com.facebook.presto.sql.parser.StatementParser.synpred1_Statement_fragment(StatementParser.java:20031)
+<br/>at com.facebook.presto.sql.parser.StatementParser.synpred1_Statement(StatementParser.java:20105)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1049)
+<br/>at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+<br/>at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testTokenizeErrorMiddleOfLine(TestSqlParser.java:121)
+<br/>35 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m8">com.facebook.presto.sql.parser.TestStatementSplitter:testSplitterWithEscapedSingleQuote</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m9">com.facebook.presto.sql.parser.TestStatementSplitter:testSplitterWithBackquote</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m10">com.facebook.presto.sql.parser.TestSqlParser:testParseErrorEndOfInputWhitespace</h2>
+<div style="padding-left:3em">
+<p>line 1:16: no viable alternative at input &apos;&lt;EOF&gt;&apos;</p>
+com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5509)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tablePrimary(StatementParser.java:5103)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tableFactor(StatementParser.java:4889)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tableRef(StatementParser.java:4315)
+<br/>at com.facebook.presto.sql.parser.StatementParser.fromClause(StatementParser.java:2651)
+<br/>at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2189)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+<br/>at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+<br/>at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorEndOfInputWhitespace(TestSqlParser.java:151)
+<br/>35 lines not shown
+<p>Caused by null</p>
+com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5443)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tablePrimary(StatementParser.java:5103)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tableFactor(StatementParser.java:4889)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tableRef(StatementParser.java:4315)
+<br/>at com.facebook.presto.sql.parser.StatementParser.fromClause(StatementParser.java:2651)
+<br/>at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2189)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+<br/>at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+<br/>at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorEndOfInputWhitespace(TestSqlParser.java:151)
+<br/>35 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m11">com.facebook.presto.sql.parser.TestSqlParser:testDoubleInQuery</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m12">com.facebook.presto.sql.parser.TestStatementSplitter:testSqueezeStatement</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m13">com.facebook.presto.sql.parser.TestSqlParser:testParseErrorReverseOrderByLimit</h2>
+<div style="padding-left:3em">
+<p>line 1:31: mismatched input &apos;order&apos; expecting EOF</p>
+com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:365)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorReverseOrderByLimit(TestSqlParser.java:187)
+<br/>35 lines not shown
+<p>Caused by null</p>
+com.facebook.presto.sql.parser.StatementParser.recoverFromMismatchedToken(StatementParser.java:263)
+<br/>at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:115)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:325)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorReverseOrderByLimit(TestSqlParser.java:187)
+<br/>35 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m14">com.facebook.presto.sql.parser.TestStatementSplitter:testSqueezeStatementError</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m15">com.facebook.presto.sql.parser.TestStatementSplitter:testSplitterIncomplete</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m16">com.facebook.presto.sql.parser.TestStatementSplitter:testSplitterErrorAfterComplete</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m17">com.facebook.presto.sql.parser.TestStatementSplitter:testSplitterErrorBeforeComplete</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m18">com.facebook.presto.sql.parser.TestSqlParser:testParseErrorBackquotesEndOfInput</h2>
+<div style="padding-left:3em">
+<p>line 1:19: backquoted identifiers are not supported; use double quotes to quote identifiers</p>
+com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:365)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorBackquotesEndOfInput(TestSqlParser.java:163)
+<br/>35 lines not shown
+<p>Caused by null</p>
+com.facebook.presto.sql.parser.StatementParser.recoverFromMismatchedToken(StatementParser.java:263)
+<br/>at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:115)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:325)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorBackquotesEndOfInput(TestSqlParser.java:163)
+<br/>35 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m19">com.facebook.presto.sql.parser.TestStatementSplitter:testSqueezeStatementWithBackquote</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m20">com.facebook.presto.sql.parser.TestStatementSplitter:testSqueezeStatementAlternateDelimiter</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m21">com.facebook.presto.sql.parser.TestStatementSplitter:testSplitterMultipleWithEmpty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m22">com.facebook.presto.sql.parser.TestStatementSplitter:testSplitterMultiple</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m23">com.facebook.presto.sql.parser.TestSqlParser:testPossibleExponentialBacktracking</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m24">com.facebook.presto.sql.parser.TestStatementSplitter:testSplitterWithDigitIdentifier</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m25">com.facebook.presto.sql.parser.TestSqlParser:testDouble</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m26">com.facebook.presto.sql.parser.TestStatementSplitter:testSplitterCustomDelimiters</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m27">com.facebook.presto.sql.parser.TestStatementBuilder:testStatementBuilderTpch</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m28">com.facebook.presto.sql.parser.TestSqlParser:testParseErrorMiddleOfLine</h2>
+<div style="padding-left:3em">
+<p>line 3:7: no viable alternative at input &apos;from&apos;</p>
+com.facebook.presto.sql.parser.StatementParser.booleanPrimary(StatementParser.java:7174)
+<br/>at com.facebook.presto.sql.parser.StatementParser.booleanTest(StatementParser.java:6955)
+<br/>at com.facebook.presto.sql.parser.StatementParser.notExpression(StatementParser.java:6893)
+<br/>at com.facebook.presto.sql.parser.StatementParser.andExpression(StatementParser.java:6754)
+<br/>at com.facebook.presto.sql.parser.StatementParser.orExpression(StatementParser.java:6647)
+<br/>at com.facebook.presto.sql.parser.StatementParser.expr(StatementParser.java:6581)
+<br/>at com.facebook.presto.sql.parser.StatementParser.whereClause(StatementParser.java:2794)
+<br/>at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2216)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+<br/>at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+<br/>at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorMiddleOfLine(TestSqlParser.java:139)
+<br/>35 lines not shown
+<p>Caused by null</p>
+com.facebook.presto.sql.parser.StatementParser.booleanPrimary(StatementParser.java:7089)
+<br/>at com.facebook.presto.sql.parser.StatementParser.booleanTest(StatementParser.java:6955)
+<br/>at com.facebook.presto.sql.parser.StatementParser.notExpression(StatementParser.java:6893)
+<br/>at com.facebook.presto.sql.parser.StatementParser.andExpression(StatementParser.java:6754)
+<br/>at com.facebook.presto.sql.parser.StatementParser.orExpression(StatementParser.java:6647)
+<br/>at com.facebook.presto.sql.parser.StatementParser.expr(StatementParser.java:6581)
+<br/>at com.facebook.presto.sql.parser.StatementParser.whereClause(StatementParser.java:2794)
+<br/>at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2216)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+<br/>at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+<br/>at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorMiddleOfLine(TestSqlParser.java:139)
+<br/>35 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m29">com.facebook.presto.sql.parser.TestStatementSplitter:testSplitterEmptyInput</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m30">com.facebook.presto.sql.parser.TestSqlParser:testEmptyStatement</h2>
+<div style="padding-left:3em">
+<p>line 1:1: no viable alternative at input &apos;&lt;EOF&gt;&apos;</p>
+com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:873)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testEmptyStatement(TestSqlParser.java:103)
+<br/>35 lines not shown
+<p>Caused by null</p>
+com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:642)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testEmptyStatement(TestSqlParser.java:103)
+<br/>35 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m31">com.facebook.presto.sql.parser.TestSqlParser:testParseErrorDigitIdentifiers</h2>
+<div style="padding-left:3em">
+<p>line 1:8: identifiers must not start with a digit; surround the identifier with double quotes</p>
+com.facebook.presto.sql.parser.StatementParser.selectSublist(StatementParser.java:4245)
+<br/>at com.facebook.presto.sql.parser.StatementParser.selectList(StatementParser.java:3852)
+<br/>at com.facebook.presto.sql.parser.StatementParser.selectExpr(StatementParser.java:3716)
+<br/>at com.facebook.presto.sql.parser.StatementParser.selectClause(StatementParser.java:2547)
+<br/>at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2168)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+<br/>at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+<br/>at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorDigitIdentifiers(TestSqlParser.java:169)
+<br/>35 lines not shown
+<p>Caused by null</p>
+org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+<br/>at org.antlr.runtime.DFA.predict(DFA.java:116)
+<br/>at com.facebook.presto.sql.parser.StatementParser.selectSublist(StatementParser.java:4003)
+<br/>at com.facebook.presto.sql.parser.StatementParser.selectList(StatementParser.java:3852)
+<br/>at com.facebook.presto.sql.parser.StatementParser.selectExpr(StatementParser.java:3716)
+<br/>at com.facebook.presto.sql.parser.StatementParser.selectClause(StatementParser.java:2547)
+<br/>at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2168)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+<br/>at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+<br/>at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorDigitIdentifiers(TestSqlParser.java:169)
+<br/>35 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m32">com.facebook.presto.sql.parser.TestSqlParser:testParseErrorStartOfLine</h2>
+<div style="padding-left:3em">
+<p>line 3:1: mismatched input &apos;from&apos; expecting EOF</p>
+com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:365)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorStartOfLine(TestSqlParser.java:133)
+<br/>35 lines not shown
+<p>Caused by null</p>
+com.facebook.presto.sql.parser.StatementParser.recoverFromMismatchedToken(StatementParser.java:263)
+<br/>at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:115)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:325)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorStartOfLine(TestSqlParser.java:133)
+<br/>35 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m33">com.facebook.presto.sql.parser.TestSqlParser:testIdentifierWithColon</h2>
+<div style="padding-left:3em">
+<p>line 1:15: identifiers must not contain a colon; use &apos;@&apos; instead of &apos;:&apos; for table links</p>
+com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5509)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tablePrimary(StatementParser.java:5103)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tableFactor(StatementParser.java:4889)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tableRef(StatementParser.java:4315)
+<br/>at com.facebook.presto.sql.parser.StatementParser.fromClause(StatementParser.java:2651)
+<br/>at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2189)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+<br/>at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+<br/>at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testIdentifierWithColon(TestSqlParser.java:175)
+<br/>35 lines not shown
+<p>Caused by null</p>
+com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5443)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tablePrimary(StatementParser.java:5103)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tableFactor(StatementParser.java:4889)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tableRef(StatementParser.java:4315)
+<br/>at com.facebook.presto.sql.parser.StatementParser.fromClause(StatementParser.java:2651)
+<br/>at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2189)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+<br/>at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+<br/>at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testIdentifierWithColon(TestSqlParser.java:175)
+<br/>35 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m34">com.facebook.presto.sql.parser.TestStatementSplitter:testSqueezeStatementWithIncompleteQuotedString</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m35">com.facebook.presto.sql.parser.TestStatementSplitter:testSplitterEmptyStatements</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m36">com.facebook.presto.sql.parser.TestSqlParser:testParseErrorBackquotes</h2>
+<div style="padding-left:3em">
+<p>line 1:15: backquoted identifiers are not supported; use double quotes to quote identifiers</p>
+com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5509)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tablePrimary(StatementParser.java:5103)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tableFactor(StatementParser.java:4889)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tableRef(StatementParser.java:4315)
+<br/>at com.facebook.presto.sql.parser.StatementParser.fromClause(StatementParser.java:2651)
+<br/>at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2189)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+<br/>at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+<br/>at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorBackquotes(TestSqlParser.java:157)
+<br/>35 lines not shown
+<p>Caused by null</p>
+com.facebook.presto.sql.parser.StatementParser.relation(StatementParser.java:5443)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tablePrimary(StatementParser.java:5103)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tableFactor(StatementParser.java:4889)
+<br/>at com.facebook.presto.sql.parser.StatementParser.tableRef(StatementParser.java:4315)
+<br/>at com.facebook.presto.sql.parser.StatementParser.fromClause(StatementParser.java:2651)
+<br/>at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2189)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryPrimary(StatementParser.java:1944)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryTerm(StatementParser.java:1720)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExprBody(StatementParser.java:1426)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1097)
+<br/>at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+<br/>at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorBackquotes(TestSqlParser.java:157)
+<br/>35 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m37">com.facebook.presto.sql.parser.TestSqlParser:testExpressionWithTrailingJunk</h2>
+<div style="padding-left:3em">
+<p>line 1:7: mismatched input &apos;x&apos; expecting EOF</p>
+com.facebook.presto.sql.parser.StatementParser.singleExpression(StatementParser.java:454)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseExpression(SqlParser.java:91)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createExpression(SqlParser.java:45)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testExpressionWithTrailingJunk(TestSqlParser.java:109)
+<br/>35 lines not shown
+<p>Caused by null</p>
+com.facebook.presto.sql.parser.StatementParser.recoverFromMismatchedToken(StatementParser.java:263)
+<br/>at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:115)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleExpression(StatementParser.java:414)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseExpression(SqlParser.java:91)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createExpression(SqlParser.java:45)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testExpressionWithTrailingJunk(TestSqlParser.java:109)
+<br/>35 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m38">com.facebook.presto.sql.parser.TestSqlParser:testTokenizeErrorIncompleteToken</h2>
+<div style="padding-left:3em">
+<p>line 1:20: mismatched character &apos;&lt;EOF&gt;&apos; expecting &apos;&apos;&apos;</p>
+com.facebook.presto.sql.parser.StatementLexer.reportError(StatementLexer.java:223)
+<br/>at org.antlr.runtime.Lexer.nextToken(Lexer.java:103)
+<br/>at org.antlr.runtime.BufferedTokenStream.fetch(BufferedTokenStream.java:133)
+<br/>at org.antlr.runtime.BufferedTokenStream.sync(BufferedTokenStream.java:127)
+<br/>at org.antlr.runtime.CommonTokenStream.consume(CommonTokenStream.java:70)
+<br/>at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:106)
+<br/>at com.facebook.presto.sql.parser.StatementParser.fromClause(StatementParser.java:2646)
+<br/>at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2189)
+<br/>at com.facebook.presto.sql.parser.StatementParser.orderOrLimitQuerySpec(StatementParser.java:1224)
+<br/>at com.facebook.presto.sql.parser.StatementParser.synpred1_Statement_fragment(StatementParser.java:20031)
+<br/>at com.facebook.presto.sql.parser.StatementParser.synpred1_Statement(StatementParser.java:20105)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1049)
+<br/>at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+<br/>at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testTokenizeErrorIncompleteToken(TestSqlParser.java:127)
+<br/>35 lines not shown
+<p>Caused by null</p>
+org.antlr.runtime.Lexer.match(Lexer.java:197)
+<br/>at com.facebook.presto.sql.parser.StatementLexer.mSTRING(StatementLexer.java:3374)
+<br/>at com.facebook.presto.sql.parser.StatementLexer.mTokens(StatementLexer.java:5826)
+<br/>at org.antlr.runtime.Lexer.nextToken(Lexer.java:89)
+<br/>at org.antlr.runtime.BufferedTokenStream.fetch(BufferedTokenStream.java:133)
+<br/>at org.antlr.runtime.BufferedTokenStream.sync(BufferedTokenStream.java:127)
+<br/>at org.antlr.runtime.CommonTokenStream.consume(CommonTokenStream.java:70)
+<br/>at org.antlr.runtime.BaseRecognizer.match(BaseRecognizer.java:106)
+<br/>at com.facebook.presto.sql.parser.StatementParser.fromClause(StatementParser.java:2646)
+<br/>at com.facebook.presto.sql.parser.StatementParser.simpleQuery(StatementParser.java:2189)
+<br/>at com.facebook.presto.sql.parser.StatementParser.orderOrLimitQuerySpec(StatementParser.java:1224)
+<br/>at com.facebook.presto.sql.parser.StatementParser.synpred1_Statement_fragment(StatementParser.java:20031)
+<br/>at com.facebook.presto.sql.parser.StatementParser.synpred1_Statement(StatementParser.java:20105)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1049)
+<br/>at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+<br/>at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testTokenizeErrorIncompleteToken(TestSqlParser.java:127)
+<br/>35 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m39">com.facebook.presto.sql.parser.TestStatementBuilder:testStatementBuilder</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m40">com.facebook.presto.sql.parser.TestSqlParser:testTokenizeErrorStartOfLine</h2>
+<div style="padding-left:3em">
+<p>line 1:1: no viable alternative at character &apos;@&apos;</p>
+com.facebook.presto.sql.parser.StatementLexer.reportError(StatementLexer.java:223)
+<br/>at org.antlr.runtime.Lexer.nextToken(Lexer.java:107)
+<br/>at org.antlr.runtime.BufferedTokenStream.fetch(BufferedTokenStream.java:133)
+<br/>at org.antlr.runtime.BufferedTokenStream.sync(BufferedTokenStream.java:127)
+<br/>at org.antlr.runtime.CommonTokenStream.setup(CommonTokenStream.java:132)
+<br/>at org.antlr.runtime.CommonTokenStream.LT(CommonTokenStream.java:91)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:299)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testTokenizeErrorStartOfLine(TestSqlParser.java:115)
+<br/>35 lines not shown
+<p>Caused by null</p>
+org.antlr.runtime.DFA.noViableAlt(DFA.java:158)
+<br/>at org.antlr.runtime.DFA.predict(DFA.java:116)
+<br/>at com.facebook.presto.sql.parser.StatementLexer.mTokens(StatementLexer.java:4757)
+<br/>at org.antlr.runtime.Lexer.nextToken(Lexer.java:89)
+<br/>at org.antlr.runtime.BufferedTokenStream.fetch(BufferedTokenStream.java:133)
+<br/>at org.antlr.runtime.BufferedTokenStream.sync(BufferedTokenStream.java:127)
+<br/>at org.antlr.runtime.CommonTokenStream.setup(CommonTokenStream.java:132)
+<br/>at org.antlr.runtime.CommonTokenStream.LT(CommonTokenStream.java:91)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:299)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testTokenizeErrorStartOfLine(TestSqlParser.java:115)
+<br/>35 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m41">com.facebook.presto.sql.parser.TestSqlParser:testEmptyExpression</h2>
+<div style="padding-left:3em">
+<p>line 1:1: no viable alternative at input &apos;&lt;EOF&gt;&apos;</p>
+com.facebook.presto.sql.parser.StatementParser.booleanPrimary(StatementParser.java:7174)
+<br/>at com.facebook.presto.sql.parser.StatementParser.booleanTest(StatementParser.java:6955)
+<br/>at com.facebook.presto.sql.parser.StatementParser.notExpression(StatementParser.java:6893)
+<br/>at com.facebook.presto.sql.parser.StatementParser.andExpression(StatementParser.java:6754)
+<br/>at com.facebook.presto.sql.parser.StatementParser.orExpression(StatementParser.java:6647)
+<br/>at com.facebook.presto.sql.parser.StatementParser.expr(StatementParser.java:6581)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleExpression(StatementParser.java:408)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseExpression(SqlParser.java:91)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createExpression(SqlParser.java:45)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testEmptyExpression(TestSqlParser.java:97)
+<br/>35 lines not shown
+<p>Caused by null</p>
+com.facebook.presto.sql.parser.StatementParser.booleanPrimary(StatementParser.java:7089)
+<br/>at com.facebook.presto.sql.parser.StatementParser.booleanTest(StatementParser.java:6955)
+<br/>at com.facebook.presto.sql.parser.StatementParser.notExpression(StatementParser.java:6893)
+<br/>at com.facebook.presto.sql.parser.StatementParser.andExpression(StatementParser.java:6754)
+<br/>at com.facebook.presto.sql.parser.StatementParser.orExpression(StatementParser.java:6647)
+<br/>at com.facebook.presto.sql.parser.StatementParser.expr(StatementParser.java:6581)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleExpression(StatementParser.java:408)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseExpression(SqlParser.java:91)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createExpression(SqlParser.java:45)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testEmptyExpression(TestSqlParser.java:97)
+<br/>35 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m42">com.facebook.presto.sql.parser.TestSqlParser:testCurrentTimestamp</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m43">com.facebook.presto.sql.parser.TestStatementSplitter:testSplitterWithIncompleteQuotedString</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m44">com.facebook.presto.sql.parser.TestStatementSplitter:testSplitterWithQuotedIdentifier</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m45">com.facebook.presto.sql.parser.TestSqlParser:testDate</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m46">com.facebook.presto.sql.parser.TestSqlParser:testInterval</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m47">com.facebook.presto.sql.parser.TestSqlParser:testStackOverflowStatement</h2>
+<div style="padding-left:3em">
+<p>line 1:1: statement is too large (stack overflow while parsing)</p>
+com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:38)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testStackOverflowStatement(TestSqlParser.java:250)
+<br/>35 lines not shown
+<p>Caused by null</p>
+com.facebook.presto.sql.parser.ParsingException.&lt;init&gt;(ParsingException.java:31)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:38)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testStackOverflowStatement(TestSqlParser.java:250)
+<br/>35 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m48">com.facebook.presto.sql.parser.TestSqlParser:testParseErrorDualOrderBy</h2>
+<div style="padding-left:3em">
+<p>line 1:35: no viable alternative at input &apos;order&apos;</p>
+com.facebook.presto.sql.parser.StatementParser.ordering(StatementParser.java:10313)
+<br/>at com.facebook.presto.sql.parser.StatementParser.sortItem(StatementParser.java:10078)
+<br/>at com.facebook.presto.sql.parser.StatementParser.orderClause(StatementParser.java:3159)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1118)
+<br/>at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+<br/>at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorDualOrderBy(TestSqlParser.java:181)
+<br/>35 lines not shown
+<p>Caused by null</p>
+com.facebook.presto.sql.parser.StatementParser.ordering(StatementParser.java:10230)
+<br/>at com.facebook.presto.sql.parser.StatementParser.sortItem(StatementParser.java:10078)
+<br/>at com.facebook.presto.sql.parser.StatementParser.orderClause(StatementParser.java:3159)
+<br/>at com.facebook.presto.sql.parser.StatementParser.queryExpr(StatementParser.java:1118)
+<br/>at com.facebook.presto.sql.parser.StatementParser.query(StatementParser.java:913)
+<br/>at com.facebook.presto.sql.parser.StatementParser.statement(StatementParser.java:657)
+<br/>at com.facebook.presto.sql.parser.StatementParser.singleStatement(StatementParser.java:319)
+<br/>at com.facebook.presto.sql.parser.SqlParser.parseStatement(SqlParser.java:81)
+<br/>at com.facebook.presto.sql.parser.SqlParser.createStatement(SqlParser.java:35)
+<br/>at com.facebook.presto.sql.parser.TestSqlParser.testParseErrorDualOrderBy(TestSqlParser.java:181)
+<br/>35 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+</body></html>

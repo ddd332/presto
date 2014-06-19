@@ -1,0 +1,13 @@
+com/facebook/presto/jdbc/PrestoDatabaseMetaData.class
+com/facebook/presto/jdbc/PrestoResultSet$ResultsPageIterator.class
+com/facebook/presto/jdbc/PrestoResultSet.class
+com/facebook/presto/jdbc/ColumnInfo$Builder.class
+com/facebook/presto/jdbc/PrestoResultSetMetaData.class
+com/facebook/presto/jdbc/QueryExecutor.class
+com/facebook/presto/jdbc/UserAgentRequestFilter.class
+com/facebook/presto/jdbc/PrestoConnection.class
+com/facebook/presto/jdbc/PrestoDriver.class
+com/facebook/presto/jdbc/PrestoPreparedStatement.class
+com/facebook/presto/jdbc/PrestoResultSet$1.class
+com/facebook/presto/jdbc/PrestoStatement.class
+com/facebook/presto/jdbc/ColumnInfo.class

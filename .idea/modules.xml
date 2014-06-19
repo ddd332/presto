@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/presto-cli/presto-cli.iml" filepath="$PROJECT_DIR$/presto-cli/presto-cli.iml" />
+      <module fileurl="file://$PROJECT_DIR$/presto-client/presto-client.iml" filepath="$PROJECT_DIR$/presto-client/presto-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/presto-docs/presto-docs.iml" filepath="$PROJECT_DIR$/presto-docs/presto-docs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/presto-example-http/presto-example-http.iml" filepath="$PROJECT_DIR$/presto-example-http/presto-example-http.iml" />
+      <module fileurl="file://$PROJECT_DIR$/presto-hive/presto-hive.iml" filepath="$PROJECT_DIR$/presto-hive/presto-hive.iml" />
+      <module fileurl="file://$PROJECT_DIR$/presto-hive-cdh4/presto-hive-cdh4.iml" filepath="$PROJECT_DIR$/presto-hive-cdh4/presto-hive-cdh4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/presto-hive-hadoop1/presto-hive-hadoop1.iml" filepath="$PROJECT_DIR$/presto-hive-hadoop1/presto-hive-hadoop1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/presto-jdbc/presto-jdbc.iml" filepath="$PROJECT_DIR$/presto-jdbc/presto-jdbc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/presto-main/presto-main.iml" filepath="$PROJECT_DIR$/presto-main/presto-main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/presto-parser/presto-parser.iml" filepath="$PROJECT_DIR$/presto-parser/presto-parser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/presto-root.iml" filepath="$PROJECT_DIR$/presto-root.iml" />
+      <module fileurl="file://$PROJECT_DIR$/presto-server/presto-server.iml" filepath="$PROJECT_DIR$/presto-server/presto-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/presto-spi/presto-spi.iml" filepath="$PROJECT_DIR$/presto-spi/presto-spi.iml" />
+    </modules>
+  </component>
+</project>
+

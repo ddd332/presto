@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="DEFAULT_COMPILER" value="Javac" />
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="presto-cli" />
+        <module name="presto-client" />
+        <module name="presto-example-http" />
+        <module name="presto-hive" />
+        <module name="presto-hive-cdh4" />
+        <module name="presto-hive-hadoop1" />
+        <module name="presto-jdbc" />
+        <module name="presto-main" />
+        <module name="presto-parser" />
+        <module name="presto-server" />
+        <module name="presto-spi" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="presto-cli" target="1.7" />
+      <module name="presto-client" target="1.7" />
+      <module name="presto-docs" target="1.7" />
+      <module name="presto-example-http" target="1.7" />
+      <module name="presto-hive" target="1.7" />
+      <module name="presto-hive-cdh4" target="1.7" />
+      <module name="presto-hive-hadoop1" target="1.7" />
+      <module name="presto-jdbc" target="1.7" />
+      <module name="presto-main" target="1.7" />
+      <module name="presto-parser" target="1.7" />
+      <module name="presto-root" target="1.7" />
+      <module name="presto-server" target="1.7" />
+      <module name="presto-spi" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
+
