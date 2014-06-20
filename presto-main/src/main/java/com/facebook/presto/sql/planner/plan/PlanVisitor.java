@@ -55,22 +55,12 @@ public class PlanVisitor<C, R>
         return visitPlan(node, context);
     }
 
-    public R visitDistinctLimit(DistinctLimitNode node, C context)
-    {
-        return visitPlan(node, context);
-    }
-
     public R visitSample(SampleNode node, C context)
     {
         return visitPlan(node, context);
     }
 
     public R visitTableScan(TableScanNode node, C context)
-    {
-        return visitPlan(node, context);
-    }
-
-    public R visitValues(ValuesNode node, C context)
     {
         return visitPlan(node, context);
     }
@@ -105,22 +95,7 @@ public class PlanVisitor<C, R>
         return visitPlan(node, context);
     }
 
-    public R visitTableCommit(TableCommitNode node, C context)
-    {
-        return visitPlan(node, context);
-    }
-
     public R visitUnion(UnionNode node, C context)
-    {
-        return visitPlan(node, context);
-    }
-
-    public R visitMarkDistinct(MarkDistinctNode node, C context)
-    {
-        return visitPlan(node, context);
-    }
-
-    public R visitMaterializeSample(MaterializeSampleNode node, C context)
     {
         return visitPlan(node, context);
     }

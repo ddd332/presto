@@ -64,13 +64,6 @@ public class ImplementSampleAsFilter
                         new DoubleLiteral(Double.toString(node.getSampleRatio())));
                 return new FilterNode(node.getId(), rewrittenSource, expression);
             }
-            /**
-             *  do not support POISSONIZED and SYSTEM sample optimization
-             *  call rewriteNode will return null b/c this writer doesn't implement rewriteNode and will directly call base class's method
-             */
-            else if (node.getSampleType() == SampleNode.Type.POISSONIZED) {
-                return rewriteNode(node, context, planRewriter);
-            }
             else if (node.getSampleType() == SampleNode.Type.SYSTEM) {
                 return rewriteNode(node, context, planRewriter);
             }

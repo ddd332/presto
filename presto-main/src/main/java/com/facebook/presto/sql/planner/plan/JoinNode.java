@@ -23,7 +23,6 @@ import com.google.common.collect.ImmutableList;
 
 import javax.annotation.concurrent.Immutable;
 
-import java.util.Iterator;
 import java.util.List;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -61,8 +60,7 @@ public class JoinNode
     {
         INNER("InnerJoin"),
         LEFT("LeftJoin"),
-        RIGHT("RightJoin"),
-        CROSS("CrossJoin");
+        RIGHT("RightJoin");
 
         private final String joinLabel;
 
@@ -86,8 +84,6 @@ public class JoinNode
                     return Type.LEFT;
                 case RIGHT:
                     return Type.RIGHT;
-                case CROSS:
-                    return Type.CROSS;
                 default:
                     throw new UnsupportedOperationException("Unsupported join type: " + joinType);
             }
@@ -188,5 +184,4 @@ public class JoinNode
             };
         }
     }
-
 }

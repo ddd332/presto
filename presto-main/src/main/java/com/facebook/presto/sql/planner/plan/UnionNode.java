@@ -27,7 +27,6 @@ import com.google.common.collect.ListMultimap;
 import javax.annotation.concurrent.Immutable;
 
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -134,23 +133,5 @@ public class UnionNode
     public <C, R> R accept(PlanVisitor<C, R> visitor, C context)
     {
         return visitor.visitUnion(this, context);
-    }
-
-    public void print(int level)
-    {
-        String prefix = new String();
-        for(int i = 0 ; i <= level ; i ++)
-            prefix += " ";
-        System.out.println(prefix + "--" + this.getClass().getName() + "(" + getId() + "): ");
-        for(int i = 0 ; i < sources.size() ; i ++)
-            sources.get(i).print(level+1);
-
-        prefix += " --";
-        String str = prefix + "output symbol: ";
-        for(int i = 0 ; i < getOutputSymbols().size() ; i ++)
-        {
-            str += getOutputSymbols().get(i) + "; ";
-        }
-        System.out.println(str);
     }
 }

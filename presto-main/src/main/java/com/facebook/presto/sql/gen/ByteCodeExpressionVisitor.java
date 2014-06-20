@@ -215,10 +215,12 @@ public class ByteCodeExpressionVisitor
             }
         }
         else {
+            int field = input.getField();
             Block isNullCheck = new Block(context)
-                    .setDescription(format("channel_%d.get%s()", channel, type))
+                    .setDescription(format("channel_%d.get%s(%d)", channel, type, field))
                     .getVariable("channel_" + channel)
-                    .invokeInterface(TupleReadable.class, "isNull", boolean.class);
+                    .push(field)
+                    .invokeInterface(TupleReadable.class, "isNull", boolean.class, int.class);
 
             switch (type) {
                 case BOOLEAN: {
@@ -228,7 +230,8 @@ public class ByteCodeExpressionVisitor
 
                     Block isNotNull = new Block(context)
                             .getVariable("channel_" + channel)
-                            .invokeInterface(TupleReadable.class, "getBoolean", boolean.class);
+                            .push(field)
+                            .invokeInterface(TupleReadable.class, "getBoolean", boolean.class, int.class);
 
                     return typedByteCodeNode(new IfStatement(context, isNullCheck, isNull, isNotNull), boolean.class);
                 }
@@ -239,7 +242,8 @@ public class ByteCodeExpressionVisitor
 
                     Block isNotNull = new Block(context)
                             .getVariable("channel_" + channel)
-                            .invokeInterface(TupleReadable.class, "getLong", long.class);
+                            .push(field)
+                            .invokeInterface(TupleReadable.class, "getLong", long.class, int.class);
 
                     return typedByteCodeNode(new IfStatement(context, isNullCheck, isNull, isNotNull), long.class);
                 }
@@ -250,7 +254,8 @@ public class ByteCodeExpressionVisitor
 
                     Block isNotNull = new Block(context)
                             .getVariable("channel_" + channel)
-                            .invokeInterface(TupleReadable.class, "getDouble", double.class);
+                            .push(field)
+                            .invokeInterface(TupleReadable.class, "getDouble", double.class, int.class);
 
                     return typedByteCodeNode(new IfStatement(context, isNullCheck, isNull, isNotNull), double.class);
                 }
@@ -261,7 +266,8 @@ public class ByteCodeExpressionVisitor
 
                     Block isNotNull = new Block(context)
                             .getVariable("channel_" + channel)
-                            .invokeInterface(TupleReadable.class, "getSlice", Slice.class);
+                            .push(field)
+                            .invokeInterface(TupleReadable.class, "getSlice", Slice.class, int.class);
 
                     return typedByteCodeNode(new IfStatement(context, isNullCheck, isNull, isNotNull), Slice.class);
                 }

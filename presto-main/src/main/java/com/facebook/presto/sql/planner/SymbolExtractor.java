@@ -14,13 +14,10 @@
 package com.facebook.presto.sql.planner;
 
 import com.facebook.presto.sql.planner.plan.AggregationNode;
-import com.facebook.presto.sql.planner.plan.DistinctLimitNode;
-import com.facebook.presto.sql.planner.plan.MaterializeSampleNode;
 import com.facebook.presto.sql.planner.plan.ExchangeNode;
 import com.facebook.presto.sql.planner.plan.FilterNode;
 import com.facebook.presto.sql.planner.plan.JoinNode;
 import com.facebook.presto.sql.planner.plan.LimitNode;
-import com.facebook.presto.sql.planner.plan.MarkDistinctNode;
 import com.facebook.presto.sql.planner.plan.OutputNode;
 import com.facebook.presto.sql.planner.plan.PlanNode;
 import com.facebook.presto.sql.planner.plan.PlanVisitor;
@@ -29,12 +26,10 @@ import com.facebook.presto.sql.planner.plan.SampleNode;
 import com.facebook.presto.sql.planner.plan.SemiJoinNode;
 import com.facebook.presto.sql.planner.plan.SinkNode;
 import com.facebook.presto.sql.planner.plan.SortNode;
-import com.facebook.presto.sql.planner.plan.TableCommitNode;
 import com.facebook.presto.sql.planner.plan.TableScanNode;
 import com.facebook.presto.sql.planner.plan.TableWriterNode;
 import com.facebook.presto.sql.planner.plan.TopNNode;
 import com.facebook.presto.sql.planner.plan.UnionNode;
-import com.facebook.presto.sql.planner.plan.ValuesNode;
 import com.facebook.presto.sql.planner.plan.WindowNode;
 import com.google.common.collect.ImmutableSet;
 
@@ -43,10 +38,8 @@ import java.util.Set;
 /**
  * Computes all symbols declared by a logical plan
  */
-public final class SymbolExtractor
+public class SymbolExtractor
 {
-    private SymbolExtractor() {}
-
     public static Set<Symbol> extract(PlanNode node)
     {
         ImmutableSet.Builder<Symbol> builder = ImmutableSet.builder();
@@ -81,26 +74,6 @@ public final class SymbolExtractor
             node.getSource().accept(this, context);
 
             builder.addAll(node.getAggregations().keySet());
-
-            return null;
-        }
-
-        @Override
-        public Void visitMaterializeSample(MaterializeSampleNode node, Void context)
-        {
-            node.getSource().accept(this, context);
-
-            builder.add(node.getSampleWeightSymbol());
-
-            return null;
-        }
-
-        @Override
-        public Void visitMarkDistinct(MarkDistinctNode node, Void context)
-        {
-            node.getSource().accept(this, context);
-
-            builder.add(node.getMarkerSymbol());
 
             return null;
         }
@@ -156,20 +129,12 @@ public final class SymbolExtractor
         public Void visitOutput(OutputNode node, Void context)
         {
             node.getSource().accept(this, context);
-            builder.addAll(node.getOutputSymbols());
+
             return null;
         }
 
         @Override
         public Void visitLimit(LimitNode node, Void context)
-        {
-            node.getSource().accept(this, context);
-
-            return null;
-        }
-
-        @Override
-        public Void visitDistinctLimit(DistinctLimitNode node, Void context)
         {
             node.getSource().accept(this, context);
 
@@ -193,25 +158,7 @@ public final class SymbolExtractor
         }
 
         @Override
-        public Void visitValues(ValuesNode node, Void context)
-        {
-            builder.addAll(node.getOutputSymbols());
-
-            return null;
-        }
-
-        @Override
         public Void visitTableWriter(TableWriterNode node, Void context)
-        {
-            node.getSource().accept(this, context);
-
-            builder.addAll(node.getOutputSymbols());
-
-            return null;
-        }
-
-        @Override
-        public Void visitTableCommit(TableCommitNode node, Void context)
         {
             node.getSource().accept(this, context);
 
@@ -261,7 +208,7 @@ public final class SymbolExtractor
         @Override
         protected Void visitPlan(PlanNode node, Void context)
         {
-            throw new UnsupportedOperationException("not yet implemented: " + node.getClass().getName());
+            throw new UnsupportedOperationException("not yet implemented");
         }
     }
 }

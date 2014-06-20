@@ -37,11 +37,6 @@ public final class PlanRewriter<C>
         this.visitor = new RewritingVisitor();
     }
 
-    /**
-     * Tao Yang has a question
-     * 2014/3/25
-     * defaultRewrite has the same code with rewrite, so what's the point? Attention to the Context, defaultRewrite is true, thus acts as a sentinel to end optimize.
-     */
     public <T extends PlanNode> T rewrite(T node, C context)
     {
         return (T) node.accept(visitor, new Context<>(context, false));
@@ -109,45 +104,7 @@ public final class PlanRewriter<C>
             PlanNode source = rewrite(node.getSource(), context.get());
 
             if (source != node.getSource()) {
-                return new AggregationNode(node.getId(), source, node.getGroupBy(), node.getAggregations(), node.getFunctions(), node.getMasks(), node.getStep(), node.getSampleWeight(), node.getConfidence());
-            }
-
-            return node;
-        }
-
-        @Override
-        public PlanNode visitMaterializeSample(MaterializeSampleNode node, Context<C> context)
-        {
-            if (!context.isDefaultRewrite()) {
-                PlanNode result = nodeRewriter.rewriteMaterializeSample(node, context.get(), PlanRewriter.this);
-                if (result != null) {
-                    return result;
-                }
-            }
-
-            PlanNode source = rewrite(node.getSource(), context.get());
-
-            if (source != node.getSource()) {
-                return new MaterializeSampleNode(node.getId(), source, node.getSampleWeightSymbol());
-            }
-
-            return node;
-        }
-
-        @Override
-        public PlanNode visitMarkDistinct(MarkDistinctNode node, Context<C> context)
-        {
-            if (!context.isDefaultRewrite()) {
-                PlanNode result = nodeRewriter.rewriteMarkDistinct(node, context.get(), PlanRewriter.this);
-                if (result != null) {
-                    return result;
-                }
-            }
-
-            PlanNode source = rewrite(node.getSource(), context.get());
-
-            if (source != node.getSource()) {
-                return new MarkDistinctNode(node.getId(), source, node.getMarkerSymbol(), node.getDistinctSymbols(), node.getSampleWeightSymbol());
+                return new AggregationNode(node.getId(), source, node.getGroupBy(), node.getAggregations(), node.getFunctions(), node.getStep());
             }
 
             return node;
@@ -166,7 +123,7 @@ public final class PlanRewriter<C>
             PlanNode source = rewrite(node.getSource(), context.get());
 
             if (source != node.getSource()) {
-                return new WindowNode(node.getId(), source, node.getPartitionBy(), node.getOrderBy(), node.getOrderings(), node.getWindowFunctions(), node.getSignatures());
+                return new WindowNode(node.getId(), source, node.getPartitionBy(), node.getOrderBy(), node.getOrderings(), node.getWindowFunctions(), node.getFunctionHandles());
             }
 
             return node;
@@ -204,7 +161,7 @@ public final class PlanRewriter<C>
             PlanNode source = rewrite(node.getSource(), context.get());
 
             if (source != node.getSource()) {
-                return new SampleNode(node.getId(), source, node.getSampleRatio(), node.getSampleType(), node.isRescaled(), node.getSampleWeightSymbol());
+                return new SampleNode(node.getId(), source, node.getSampleRatio(), node.getSampleType());
             }
 
             return node;
@@ -220,7 +177,6 @@ public final class PlanRewriter<C>
                 }
             }
 
-            // recursively call rewrite method to rewrite the node.getSource like peel an onion
             PlanNode source = rewrite(node.getSource(), context.get());
 
             if (source != node.getSource()) {
@@ -243,7 +199,7 @@ public final class PlanRewriter<C>
             PlanNode source = rewrite(node.getSource(), context.get());
 
             if (source != node.getSource()) {
-                return new TopNNode(node.getId(), source, node.getCount(), node.getOrderBy(), node.getOrderings(), node.isPartial(), node.getSampleWeight());
+                return new TopNNode(node.getId(), source, node.getCount(), node.getOrderBy(), node.getOrderings(), node.isPartial());
             }
 
             return node;
@@ -258,9 +214,9 @@ public final class PlanRewriter<C>
                     return result;
                 }
             }
-            // do nothing in rewriting the current node, get to it's source
+
             PlanNode source = rewrite(node.getSource(), context.get());
-            // if source has been changed, update current node, return the new one
+
             if (source != node.getSource()) {
                 return new OutputNode(node.getId(), source, node.getColumnNames(), node.getOutputSymbols());
             }
@@ -281,26 +237,7 @@ public final class PlanRewriter<C>
             PlanNode source = rewrite(node.getSource(), context.get());
 
             if (source != node.getSource()) {
-                return new LimitNode(node.getId(), source, node.getCount(), node.getSampleWeight());
-            }
-
-            return node;
-        }
-
-        @Override
-        public PlanNode visitDistinctLimit(DistinctLimitNode node, Context<C> context)
-        {
-            if (!context.isDefaultRewrite()) {
-                PlanNode result = nodeRewriter.rewriteDistinctLimit(node, context.get(), PlanRewriter.this);
-                if (result != null) {
-                    return result;
-                }
-            }
-
-            PlanNode source = rewrite(node.getSource(), context.get());
-
-            if (source != node.getSource()) {
-                return new DistinctLimitNode(node.getId(), source, node.getLimit());
+                return new LimitNode(node.getId(), source, node.getCount());
             }
 
             return node;
@@ -311,19 +248,6 @@ public final class PlanRewriter<C>
         {
             if (!context.isDefaultRewrite()) {
                 PlanNode result = nodeRewriter.rewriteTableScan(node, context.get(), PlanRewriter.this);
-                if (result != null) {
-                    return result;
-                }
-            }
-
-            return node;
-        }
-
-        @Override
-        public PlanNode visitValues(ValuesNode node, Context<C> context)
-        {
-            if (!context.isDefaultRewrite()) {
-                PlanNode result = nodeRewriter.rewriteValues(node, context.get(), PlanRewriter.this);
                 if (result != null) {
                     return result;
                 }
@@ -345,26 +269,11 @@ public final class PlanRewriter<C>
             PlanNode source = rewrite(node.getSource(), context.get());
 
             if (source != node.getSource()) {
-                return new TableWriterNode(node.getId(), source, node.getTarget(), node.getColumns(), node.getColumnNames(), node.getOutputSymbols(), node.getSampleWeightSymbol(), node.getCatalog(), node.getTableMetadata(), node.isSampleWeightSupported());
-            }
-
-            return node;
-        }
-
-        @Override
-        public PlanNode visitTableCommit(TableCommitNode node, Context<C> context)
-        {
-            if (!context.isDefaultRewrite()) {
-                PlanNode result = nodeRewriter.rewriteTableCommit(node, context.get(), PlanRewriter.this);
-                if (result != null) {
-                    return result;
-                }
-            }
-
-            PlanNode source = rewrite(node.getSource(), context.get());
-
-            if (source != node.getSource()) {
-                return new TableCommitNode(node.getId(), source, node.getTarget(), node.getOutputSymbols());
+                return new TableWriterNode(node.getId(),
+                        source,
+                        node.getTable(),
+                        node.getColumns(),
+                        node.getOutput());
             }
 
             return node;

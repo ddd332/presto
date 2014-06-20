@@ -25,10 +25,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /**
  * Determines whether a given Expression is deterministic
  */
-public final class DeterminismEvaluator
+public class DeterminismEvaluator
 {
-    private DeterminismEvaluator() {}
-
     public static boolean isDeterministic(Expression expression)
     {
         Preconditions.checkNotNull(expression, "expression is null");

@@ -30,14 +30,10 @@ import static com.google.common.base.Preconditions.checkNotNull;
         @JsonSubTypes.Type(value = OutputNode.class, name = "output"),
         @JsonSubTypes.Type(value = ProjectNode.class, name = "project"),
         @JsonSubTypes.Type(value = TableScanNode.class, name = "tablescan"),
-        @JsonSubTypes.Type(value = ValuesNode.class, name = "values"),
         @JsonSubTypes.Type(value = AggregationNode.class, name = "aggregation"),
-        @JsonSubTypes.Type(value = MarkDistinctNode.class, name = "markDistinct"),
-        @JsonSubTypes.Type(value = MaterializeSampleNode.class, name = "materializeSample"),
         @JsonSubTypes.Type(value = FilterNode.class, name = "filter"),
         @JsonSubTypes.Type(value = WindowNode.class, name = "window"),
         @JsonSubTypes.Type(value = LimitNode.class, name = "limit"),
-        @JsonSubTypes.Type(value = DistinctLimitNode.class, name = "distinctlimit"),
         @JsonSubTypes.Type(value = TopNNode.class, name = "topn"),
         @JsonSubTypes.Type(value = SampleNode.class, name = "sample"),
         @JsonSubTypes.Type(value = SortNode.class, name = "sort"),
@@ -45,9 +41,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
         @JsonSubTypes.Type(value = SinkNode.class, name = "sink"),
         @JsonSubTypes.Type(value = JoinNode.class, name = "join"),
         @JsonSubTypes.Type(value = SemiJoinNode.class, name = "semijoin"),
-        @JsonSubTypes.Type(value = TableWriterNode.class, name = "tablewriter"),
-        @JsonSubTypes.Type(value = TableCommitNode.class, name = "tablecommit"),
-})
+        @JsonSubTypes.Type(value = TableWriterNode.class, name = "tablewriter")})
 public abstract class PlanNode
 {
     private final PlanNodeId id;
@@ -71,14 +65,5 @@ public abstract class PlanNode
     public <C, R> R accept(PlanVisitor<C, R> visitor, C context)
     {
         return visitor.visitPlan(this, context);
-    }
-
-    public void print(int level)
-    {
-        String prefix = new String();
-        for(int i = 0 ; i <= level ; i ++)
-            prefix += " ";
-
-        System.out.println(prefix + "--" + this.getClass().getName() + "(" + getId() + ")");
     }
 }

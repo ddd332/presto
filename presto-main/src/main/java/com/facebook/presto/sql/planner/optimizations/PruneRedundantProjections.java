@@ -59,8 +59,7 @@ public class PruneRedundantProjections
                 // Can't get rid of this projection. It constrains the output tuple from the underlying operator
                 return new ProjectNode(node.getId(), source, node.getOutputMap());
             }
-            // can possibly get rid of this project because its output symbols are exactly the same with its source's
-            // need check one by one
+
             boolean canElide = true;
             for (Map.Entry<Symbol, Expression> entry : node.getOutputMap().entrySet()) {
                 Expression expression = entry.getValue();
@@ -70,7 +69,7 @@ public class PruneRedundantProjections
                     break;
                 }
             }
-            // do not need current projectNode because it has the same Output as its source, return source directly
+
             if (canElide) {
                 return source;
             }

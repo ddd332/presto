@@ -23,10 +23,8 @@ import java.util.List;
 import java.util.Set;
 
 // TODO: a similar class exists in (TupleAnalyzer.DependencyExtractor)
-public final class DependencyExtractor
+public class DependencyExtractor
 {
-    private DependencyExtractor() {}
-
     public static Set<Symbol> extractUnique(Expression expression)
     {
         return ImmutableSet.copyOf(extractAll(expression));
