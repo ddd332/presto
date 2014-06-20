@@ -66,4 +66,13 @@ public abstract class PlanNode
     {
         return visitor.visitPlan(this, context);
     }
+
+    public void print(int level)
+    {
+        String prefix = new String();
+        for(int i = 0 ; i <= level ; i ++)
+            prefix += " ";
+
+        System.out.println(prefix + "--" + this.getClass().getName() + "(" + getId() + ")");
+    }
 }

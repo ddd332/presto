@@ -107,4 +107,23 @@ public class TableScanNode
     {
         return visitor.visitTableScan(this, context);
     }
+
+    /**
+     * Yang Tao
+     * 19/06/2014
+     * Add print method to TableScanNode
+     */
+    public void print(int level)
+    {
+        String prefix = new String();
+        for(int i = 0 ; i <= level ; i ++)
+            prefix += " ";
+        System.out.println(prefix + "--" + this.getClass().getName() + "(" + getId() + "): ");
+        prefix += " --";
+        System.out.println(prefix + " table: " + table.toString());
+        String str = prefix + "outputSymbol: ";
+        for(int i = 0 ; i < outputSymbols.size() ; i ++)
+            str += outputSymbols.get(i).getName() + "; ";
+        System.out.println(str);
+    }
 }

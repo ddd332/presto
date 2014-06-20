@@ -184,4 +184,22 @@ public class JoinNode
             };
         }
     }
+
+    /**
+     * add a print method
+     * Gao Yang
+     */
+    public void print(int level)
+    {
+        String prefix = new String();
+        for(int i = 0 ; i <= level ; i ++)
+            prefix += " ";
+        System.out.println(prefix + "--" + this.getClass().getName() + "(" + getId() + "): ");
+
+        String str = prefix;
+        str +="left: "+this.left.getClass().getName()+"--";
+        str +="right:"+this.right.getClass().getName();
+
+        System.out.println(str);
+    }
 }

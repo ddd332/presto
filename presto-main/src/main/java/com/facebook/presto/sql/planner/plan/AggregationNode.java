@@ -22,6 +22,7 @@ import com.google.common.collect.ImmutableList;
 
 import javax.annotation.concurrent.Immutable;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -111,5 +112,33 @@ public class AggregationNode
     public <C, R> R accept(PlanVisitor<C, R> visitor, C context)
     {
         return visitor.visitAggregation(this, context);
+    }
+
+    /**
+     * Yang Tao
+     * 19/06/2014
+     * Add print method to AggregationNode
+     */
+    public void print(int level)
+    {
+        String prefix = new String();
+        for(int i = 0 ; i <= level ; i ++)
+            prefix += " ";
+        System.out.println(prefix + "--" + this.getClass().getName() + "(" + getId() + "): ");
+        getSource().print(level + 1);
+        prefix += " --";
+        String str = prefix + "aggregations: ";
+        Iterator<Symbol> keyiter = aggregations.keySet().iterator();
+        while(keyiter.hasNext())
+        {
+            Symbol s = keyiter.next();
+            str += s.getName() + "->" + aggregations.get(s).toString() + "; ";
+        }
+        System.out.println(str);
+
+        str = prefix + "groupby keys: ";
+        for(int i = 0 ; i < groupByKeys.size() ; i ++)
+            str += groupByKeys.get(i).getName() + "; ";
+        System.out.println(str);
     }
 }

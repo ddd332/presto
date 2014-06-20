@@ -134,4 +134,27 @@ public class UnionNode
     {
         return visitor.visitUnion(this, context);
     }
+
+    /**
+     * Yang Tao
+     * 19/06/2014
+     * Add print method to UnionNode
+     */
+    public void print(int level)
+    {
+        String prefix = new String();
+        for(int i = 0 ; i <= level ; i ++)
+            prefix += " ";
+        System.out.println(prefix + "--" + this.getClass().getName() + "(" + getId() + "): ");
+        for(int i = 0 ; i < sources.size() ; i ++)
+            sources.get(i).print(level+1);
+
+        prefix += " --";
+        String str = prefix + "output symbol: ";
+        for(int i = 0 ; i < getOutputSymbols().size() ; i ++)
+        {
+            str += getOutputSymbols().get(i) + "; ";
+        }
+        System.out.println(str);
+    }
 }

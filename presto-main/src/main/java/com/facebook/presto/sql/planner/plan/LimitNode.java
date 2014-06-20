@@ -71,4 +71,21 @@ public class LimitNode
     {
         return visitor.visitLimit(this, context);
     }
+
+    /**
+     * Yang Tao
+     * 19/06/2014
+     * Add print method to LimitNode
+     */
+    public void print(int level)
+    {
+        String prefix = new String();
+        for(int i = 0 ; i <= level ; i ++)
+            prefix += " ";
+        System.out.println(prefix + "--" + this.getClass().getName() + "(" + getId() + "): ");
+        getSource().print(level + 1);
+        prefix += " --";
+        System.out.print(prefix + "count: " + count);
+
+    }
 }

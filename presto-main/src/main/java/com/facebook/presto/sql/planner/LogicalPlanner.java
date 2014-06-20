@@ -102,9 +102,18 @@ public class LogicalPlanner
         // make sure we produce a valid plan. This is mainly to catch programming errors
         PlanSanityChecker.validate(root);
 
+        System.out.println("Before optimization: ");
+        root.print(0);
         for (PlanOptimizer optimizer : planOptimizers) {
+            System.out.print("\n\n\n");
             root = optimizer.optimize(root, session, symbolAllocator.getTypes(), symbolAllocator, idAllocator);
+            System.out.println("After optimize with " + optimizer.getClass().toString() + ": ");
+            root.print(0);
         }
+
+        /*for (PlanOptimizer optimizer : planOptimizers) {
+            root = optimizer.optimize(root, session, symbolAllocator.getTypes(), symbolAllocator, idAllocator);
+        }*/
 
         // make sure we produce a valid plan after optimizations run. This is mainly to catch programming errors
         PlanSanityChecker.validate(root);

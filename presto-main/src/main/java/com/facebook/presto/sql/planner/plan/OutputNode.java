@@ -77,4 +77,29 @@ public class OutputNode
     {
         return visitor.visitOutput(this, context);
     }
+
+    /**
+     * Tao Yang
+     * 20/06/2014
+     * Add print method to OutputNode
+     */
+    public void print(int level)
+    {
+        String prefix = new String();
+        for(int i = 0 ; i <= level ; i ++)
+            prefix += " ";
+        System.out.println(prefix + "--" + this.getClass().getName() + "(" + getId() + "): ");
+        getSource().print(level + 1);
+        prefix += " --";
+
+        String str = prefix;
+        for(int i = 0 ; i < columnNames.size() ; i ++)
+            str += columnNames.get(i) + "; ";
+        System.out.println(str);
+
+        str = prefix;
+        for(int i = 0 ; i < outputs.size() ; i ++)
+            str += outputs.get(i).getName() + "; ";
+        System.out.println(str);
+    }
 }

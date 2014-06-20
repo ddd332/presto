@@ -21,6 +21,7 @@ import com.google.common.collect.ImmutableList;
 
 import javax.annotation.concurrent.Immutable;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -74,5 +75,29 @@ public class ProjectNode
     public <C, R> R accept(PlanVisitor<C, R> visitor, C context)
     {
         return visitor.visitProject(this, context);
+    }
+
+    /**
+     * Yang Tao
+     * 19/06/2014
+     * Add print method to ProjectNode
+     */
+    public void print(int level)
+    {
+        String prefix = new String();
+        for(int i = 0 ; i <= level ; i ++)
+            prefix += " ";
+        System.out.println(prefix + "--" + this.getClass().getName() + "(" + getId() + "): ");
+        getSource().print(level + 1);
+        prefix += " --";
+
+        String str = prefix;
+        Iterator<Symbol> keyiter = outputs.keySet().iterator();
+        while(keyiter.hasNext())
+        {
+            Symbol s = keyiter.next();
+            str += s.getName() + "->" + outputs.get(s) + "; ";
+        }
+        System.out.println(str);
     }
 }
